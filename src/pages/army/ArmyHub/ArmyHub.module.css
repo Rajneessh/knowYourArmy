@@ -1,0 +1,145 @@
+/* ============================================================
+   ArmyHub — Indian Army section-selection hub page.
+   Header is centered. Grid is two symmetric 4-column rows.
+   ============================================================ */
+
+.page {
+  color-scheme: dark;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* ---- Ambient blobs ---- */
+.page::before,
+.page::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page::before {
+  width: 50vw;
+  height: 50vw;
+  top: -15vh;
+  right: -14vw;
+  background: radial-gradient(circle, var(--brass-dim), transparent 70%);
+}
+
+.page::after {
+  width: 60vw;
+  height: 60vw;
+  bottom: -22vh;
+  left: -18vw;
+  background: radial-gradient(circle, rgba(91, 119, 66, 0.3), transparent 70%);
+}
+
+/* ---- Scroll wrapper ---- */
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 6vw, 5rem) clamp(2rem, 4vh, 3rem);
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+/* ---- Header — centered ---- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.emblemWrap {
+  width: clamp(60px, 7vw, 90px);
+  height: clamp(60px, 7vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  margin: 0;
+  line-height: 1;
+}
+
+.motto {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--brass);
+  letter-spacing: 0.1em;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ---- Divider ---- */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--olive), transparent);
+  opacity: 0.5;
+}
+
+/* ---- Card grid ---- */
+.gridNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vh, 1.6rem);
+}
+
+/* Each row is 4 equal columns */
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.8rem, 2vw, 1.6rem);
+}
+
+/* ---- Responsive breakpoints ---- */
+
+/* Tablet: 2-column rows */
+@media (max-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1-column stack */
+@media (max-width: 540px) {
+  .title {
+    font-size: var(--step-2);
+  }
+
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

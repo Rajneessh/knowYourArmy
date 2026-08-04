@@ -1,0 +1,86 @@
+/* ============================================================
+   IndianArmy / ArmyHistory — module-level layout only.
+   Rail, dot, and era-panel styles have moved to:
+     src/components/TimelineRail/TimelineRail.module.css
+     src/components/EraPanel/EraPanel.module.css
+   ============================================================ */
+
+.module {
+  color-scheme: dark;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  /* Lock the module to the viewport — the panel scrolls internally,
+     the page itself does not scroll while on the army history route. */
+  height: 100vh;
+  overflow: hidden;
+
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* Postmodern touch: two soft blurred blobs fixed to the viewport,
+   giving the frosted surfaces a sense of depth. */
+.module::before,
+.module::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.module::before {
+  width: 46vw;
+  height: 46vw;
+  top: -12vh;
+  right: -12vw;
+  background: radial-gradient(circle, var(--brass-dim), transparent 70%);
+}
+
+.module::after {
+  width: 55vw;
+  height: 55vw;
+  bottom: -20vh;
+  left: -16vw;
+  background: radial-gradient(circle, rgba(91, 119, 66, 0.35), transparent 70%);
+}
+
+/* ---- Scrolling content column ---- */
+
+.panel {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+
+  /* Panel is the snap scroll container — the rail and module are stationary. */
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+
+  /* Hide scrollbar visually but keep it functional. */
+  scrollbar-width: none;
+}
+
+.panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Responsive layout ---- */
+
+@media (max-width: 900px) {
+  .module {
+    flex-direction: column;
+  }
+
+  /* On mobile the rail is a top bar; panel fills whatever height is left.
+     min-height:0 is essential — without it a flex column child won't shrink
+     below its content size, breaking overflow-y scroll. */
+  .panel {
+    flex: 1;
+    min-height: 0;
+  }
+}

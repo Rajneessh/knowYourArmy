@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2.4em 1.2em 1.8em;
+  border-radius: 18px;
+  border: 2px solid var(--card-accent, var(--ink));
+  background: var(--card-bg, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--ink);
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+/* Coloured top bar — driven by --card-accent */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: var(--card-accent, var(--ink));
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px);
+}
+
+.cardEmblemWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(120px, 14vw, 220px);
+  height: clamp(120px, 14vw, 220px);
+}
+
+.cardEmblem {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cardLabel {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+  letter-spacing: 0.02em;
+  color: var(--card-label, var(--ink));
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.4em 0.6em;
+    border-radius: 12px;
+  }
+
+  .cardEmblemWrap {
+    width: clamp(64px, 18vw, 110px);
+    height: clamp(64px, 18vw, 110px);
+  }
+
+  .cardLabel {
+    font-size: 0.75rem;
+    white-space: normal;
+  }
+}

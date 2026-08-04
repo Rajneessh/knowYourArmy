@@ -1,0 +1,75 @@
+.flag {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scroll-snap-align: none;
+}
+
+.flag::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  /* slightly oversized so the blurred edges never show */
+  background-image: url('../../assets/landing_background/wavingBackgroundFlag.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 1rem 4vh;
+}
+
+.heading {
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 3vh;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: var(--step--1);
+  margin: 0;
+  opacity: 0.75;
+}
+
+.heading h1 {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  letter-spacing: 0.08em;
+  margin: 0.1em 0;
+}
+
+/* ============================================================
+   Cards container — ServiceCard handles individual card styles.
+   ============================================================ */
+
+.cards {
+  flex: 1;
+  width: min(1400px, 94vw);
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding-bottom: 2vh;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 3vh 0.6rem 3vh;
+  }
+
+  .cards {
+    gap: 0.6rem;
+  }
+}

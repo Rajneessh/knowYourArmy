@@ -1,0 +1,230 @@
+/* ============================================================
+   TimelineRail — shared navigation component
+   Consumed by IndianArmy, IndianNavy, IndianAirForce history pages.
+   Active-dot color is driven by --rail-accent, injected as an
+   inline style prop on the <nav> element by TimelineRail.jsx.
+   ============================================================ */
+
+/* ---- Rail — vertical (desktop) ---- */
+
+.rail {
+  /* No longer needs position:sticky — the .module container is 100vh and
+     overflow:hidden, so this rail column is naturally stationary while the
+     sibling .panel scrolls internally. */
+  z-index: 1;
+  flex: 0 0 var(--rail-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-4);
+  border-right: 1px solid rgba(236, 231, 214, 0.1);
+  background: rgba(23, 33, 15, 0.5);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  overflow: hidden;
+}
+
+.railHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-5);
+}
+
+.railEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.railHeadline {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.railTrack {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  overflow-y: auto;   /* lets the dot list scroll when eras exceed rail height */
+  scrollbar-width: none;
+}
+
+.railTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.railLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 100%;
+  overflow: visible;
+}
+
+.railLinePath {
+  fill: none;
+  stroke: rgba(236, 231, 214, 0.28);
+  stroke-width: 1.5;
+}
+
+.dotList {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* ---- Rail — horizontal (mobile) ---- */
+
+.railHorizontal {
+  /* No sticky needed — the module is height:100vh/overflow:hidden so the
+     horizontal bar sits at the top of the module flex column naturally. */
+  z-index: 10;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: var(--space-2) var(--space-3);
+  border-right: none;
+  border-bottom: 1px solid rgba(236, 231, 214, 0.1);
+  gap: var(--space-3);
+}
+
+.railHorizontal .railHeader {
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+
+.railHorizontal .railHeadline {
+  font-size: var(--step-1);
+}
+
+.railHorizontal .railTrack {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.railHorizontal .railLine {
+  width: 100%;
+  height: 24px;
+}
+
+.railHorizontal .railTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.railHorizontal .dotList {
+  flex-direction: row;
+  gap: var(--space-4);
+  min-width: max-content;
+  padding: var(--space-2) var(--space-2) var(--space-1);
+}
+
+.railHorizontal .dot {
+  flex-direction: column;
+}
+
+.railHorizontal .dotLabel {
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Dot — the signature element ---- */
+
+.dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: var(--space-1) 0;
+  text-align: left;
+}
+
+.dotMarker {
+  position: relative;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.dotRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition:
+    border-color var(--duration-mid) var(--ease-standard),
+    transform var(--duration-mid) var(--ease-standard);
+}
+
+.dotCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(23, 33, 15, 0.6);
+  border: 1.5px solid var(--sage);
+  transition:
+    background var(--duration-mid) var(--ease-standard),
+    border-color var(--duration-mid) var(--ease-standard);
+}
+
+.dotLabel {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.dotEra {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--paper-dim);
+  transition: color var(--duration-mid) var(--ease-standard);
+}
+
+.dotDate {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--sage);
+  opacity: 0.75;
+}
+
+/* Active dot — uses --rail-accent with --brass as fallback */
+
+.dotActive .dotCore {
+  background: var(--rail-accent, var(--brass));
+  border-color: var(--rail-accent, var(--brass));
+}
+
+.dotActive .dotRing {
+  border-color: var(--rail-accent, var(--brass-dim));
+  transform: scale(1.35);
+}
+
+.dotActive .dotEra {
+  color: var(--paper);
+}
+
+.dot:hover .dotEra {
+  color: var(--paper);
+}

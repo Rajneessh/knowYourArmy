@@ -1,0 +1,139 @@
+import { ModuleCard } from '../../../components/ModuleCard/ModuleCard';
+import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
+import armyEmblem from '../../../assets/emblems/army.png';
+import styles from './ArmyHub.module.css';
+
+
+const ARMY_MODULES = {
+  row1: [
+    {
+      label: 'Structure',
+      description: 'Organisation & command',
+      to: '/army/structure',
+      accentColor: '#4C5D34',
+    },
+    {
+      label: 'Arms & Services',
+      description: 'Corps & branches',
+      to: '/army/arms',
+      accentColor: '#5B7742',
+    },
+    {
+      label: 'Regiments',
+      description: 'Infantry & armoured',
+      to: '/army/regiments',
+      accentColor: '#A4AA88',
+    },
+    {
+      label: 'History',
+      description: 'From antiquity to now',
+      to: '/army/history',
+      accentColor: '#B08D3E',
+    },
+  ],
+  row2: [
+    {
+      label: 'Chiefs of Army Staff',
+      description: 'Generals of the nation',
+      to: '/army/chiefs',
+      accentColor: '#4C5D34',
+    },
+    {
+      label: 'Conflicts & Wars',
+      description: 'Battles & campaigns',
+      to: '/army/conflicts',
+      accentColor: '#7A3B1E',
+    },
+    {
+      label: 'Humanitarian Efforts',
+      description: 'Nation building & relief',
+      to: '/army/humanitarian',
+      accentColor: '#5B7742',
+    },
+    {
+      label: 'Heroes',
+      description: 'Param Vir Chakra & more',
+      to: '/army/heroes',
+      accentColor: '#B08D3E',
+    },
+  ],
+};
+
+// Base delay after which cards start appearing (header animates 0–200ms).
+const ENTER_BASE_DELAY = 220;
+const STAGGER_STEP = 65;
+
+export function ArmyHub() {
+  useDocumentTitle('Indian Army');
+
+  return (
+    <div className={`${styles.page} texture-topo`}>
+      <div className={styles.inner}>
+
+        {/* ---- Centered Header ---- */}
+        <header className={styles.header}>
+          <div
+            className={`${styles.emblemWrap} animate__animated animate__fadeIn`}
+            style={{ animationDelay: '0ms', animationFillMode: 'both' }}
+          >
+            <img src={armyEmblem} alt="Indian Army emblem" className={styles.emblem} />
+          </div>
+
+          <h1
+            className={`${styles.title} animate__animated animate__fadeIn`}
+            style={{ animationDelay: '80ms', animationFillMode: 'both' }}
+          >
+            Indian Army
+          </h1>
+
+          <p
+            className={`${styles.motto} animate__animated animate__fadeIn`}
+            style={{ animationDelay: '150ms', animationFillMode: 'both' }}
+          >
+            सेवा परमो धर्मः — Service Before Self
+          </p>
+        </header>
+
+        {/* ---- Divider ---- */}
+        <div
+          className={`${styles.divider} animate__animated animate__fadeIn`}
+          style={{ animationDelay: '190ms', animationFillMode: 'both' }}
+          role="separator"
+          aria-hidden="true"
+        />
+
+        {/* ---- Card Grid: 4 + 4 ---- */}
+        <nav aria-label="Indian Army sections" className={styles.gridNav}>
+          {/* Row 1 */}
+          <div className={styles.row}>
+            {ARMY_MODULES.row1.map((card, i) => (
+              <ModuleCard
+                key={card.to}
+                label={card.label}
+                description={card.description}
+                to={card.to}
+                accentColor={card.accentColor}
+                delay={ENTER_BASE_DELAY + i * STAGGER_STEP}
+              />
+            ))}
+          </div>
+
+          {/* Row 2 */}
+          <div className={styles.row}>
+            {ARMY_MODULES.row2.map((card, i) => (
+              <ModuleCard
+                key={card.to}
+                label={card.label}
+                description={card.description}
+                to={card.to}
+                accentColor={card.accentColor}
+                delay={ENTER_BASE_DELAY + (ARMY_MODULES.row1.length + i) * STAGGER_STEP}
+              />
+            ))}
+          </div>
+        </nav>
+
+      </div>
+    </div>
+  );
+}

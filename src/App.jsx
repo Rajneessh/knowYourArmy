@@ -1,0 +1,77 @@
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+/**
+ * Route-level code splitting via React.lazy.
+ *
+ * Each branch is its own async chunk — users loading /army/history
+ * don't download the Navy or Air Force bundles.
+ */
+
+// ---- Landing ----
+const Landing = lazy(() =>
+  import('./pages/Landing/Landing').then((m) => ({ default: m.Landing }))
+);
+
+// ---- Indian Army ----
+const ArmyHub = lazy(() =>
+  import('./pages/army/ArmyHub/ArmyHub').then((m) => ({ default: m.ArmyHub }))
+);
+const ArmyHistory = lazy(() =>
+  import('./pages/army/ArmyHistory/ArmyHistory').then((m) => ({ default: m.ArmyHistory }))
+);
+
+// ---- Other branches (stubs) ----
+const ComingSoon = lazy(() =>
+  import('./pages/ComingSoon/ComingSoon').then((m) => ({ default: m.ComingSoon }))
+);
+
+/** Minimal full-page fallback while a lazy chunk loads. */
+function PageLoader() {
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        background: 'var(--ink)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--sage)',
+        fontFamily: 'var(--font-mono)',
+        fontSize: 'var(--step--1)',
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+      }}
+    >
+      Loading…
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        {/* ---- Top-level branch selection ---- */}
+        <Route path="/" element={<Landing />} />
+
+        {/* ---- Indian Army hub ---- */}
+        <Route path="/army" element={<ArmyHub />} />
+
+        {/* ---- Army sub-modules ---- */}
+        <Route path="/army/history"      element={<ArmyHistory />} />
+        <Route path="/army/structure"    element={<ComingSoon service="Structure"                 backTo="/army" />} />
+        <Route path="/army/arms"         element={<ComingSoon service="Arms & Services"           backTo="/army" />} />
+        <Route path="/army/regiments"    element={<ComingSoon service="Regiments"                 backTo="/army" />} />
+        <Route path="/army/conflicts"    element={<ComingSoon service="Conflicts & Wars"          backTo="/army" />} />
+        <Route path="/army/heroes"       element={<ComingSoon service="Heroes"                    backTo="/army" />} />
+        <Route path="/army/chiefs"       element={<ComingSoon service="Chiefs of Army Staff"      backTo="/army" />} />
+        <Route path="/army/humanitarian" element={<ComingSoon service="Humanitarian Efforts"      backTo="/army" />} />
+
+        {/* ---- Other branches ---- */}
+        <Route path="/navy"     element={<ComingSoon service="Indian Navy"      backTo="/" />} />
+        <Route path="/airforce" element={<ComingSoon service="Indian Air Force" backTo="/" />} />
+      </Routes>
+    </Suspense>
+  );
+}

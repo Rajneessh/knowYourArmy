@@ -1,0 +1,63 @@
+/* ============================================================
+   Know Your Army — Design Tokens
+   Palette derived from Indian Army uniform tones.
+   ============================================================ */
+
+:root {
+  /* ---- Core palette (brief-specified) ---- */
+  --sage: #A4AA88;
+  --mid-green: #5B7742;
+  --deep-green: #2B411C;
+  --olive: #4C5D34;
+
+  /* ---- Supporting neutrals ---- */
+  --paper: #ECE7D6;
+  /* parchment — body text on dark */
+  --paper-dim: #C9C4AE;
+  /* secondary text on dark */
+  --ink: #17210F;
+  /* true near-black, deeper than deep-green, for max-contrast zones */
+  --line-faint: rgba(236, 231, 214, 0.14);
+
+  /* ---- Signature accent — used sparingly (active state, focus) ---- */
+  --brass: #B08D3E;
+  --brass-dim: rgba(176, 141, 62, 0.35);
+
+  /* ---- Typography ---- */
+  --font-display: 'Rajdhani', 'Arial Narrow', sans-serif;
+  --font-body: 'Source Serif 4', 'Georgia', serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.7rem, 1.5rem + 1vw, 2.2rem);
+  --step-3: clamp(2.4rem, 2rem + 2vw, 3.4rem);
+  --step-4: clamp(3.2rem, 2.6rem + 3vw, 5rem);
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.4rem;
+  --space-4: 2.2rem;
+  --space-5: 3.6rem;
+  --space-6: 5.6rem;
+
+  /* ---- Layout ---- */
+  --rail-width: 22rem;
+  --rail-width-collapsed: 6.4rem;
+  --content-max: 58rem;
+  --border-hairline: 1px solid var(--line-faint);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 180ms;
+  --duration-mid: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-mid: 0ms;
+  }
+}

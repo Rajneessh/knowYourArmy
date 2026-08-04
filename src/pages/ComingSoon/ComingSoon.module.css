@@ -1,0 +1,35 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding: var(--space-4);
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* Now a <button> rather than an <a>, so we reset button defaults */
+.back {
+  background: none;
+  border: 1px solid rgba(176, 141, 62, 0.4);
+  border-radius: 4px;
+  padding: 0.5em 1.2em;
+  color: var(--brass);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-top: var(--space-2);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.back:hover,
+.back:focus-visible {
+  background: rgba(176, 141, 62, 0.1);
+  border-color: var(--brass);
+}
