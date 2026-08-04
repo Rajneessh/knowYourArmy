@@ -21,6 +21,14 @@ const ArmyHistory = lazy(() =>
   import('./pages/army/ArmyHistory/ArmyHistory').then((m) => ({ default: m.ArmyHistory }))
 );
 
+// ---- Army: Structure module ----
+const ArmyStructure = lazy(() =>
+  import('./pages/army/ArmyStructure/ArmyStructure').then((m) => ({ default: m.ArmyStructure }))
+);
+const ArmyStructureDetails = lazy(() =>
+  import('./pages/army/ArmyStructure/ArmyStructureDetails').then((m) => ({ default: m.ArmyStructureDetails }))
+);
+
 // ---- Other branches (stubs) ----
 const ComingSoon = lazy(() =>
   import('./pages/ComingSoon/ComingSoon').then((m) => ({ default: m.ComingSoon }))
@@ -60,7 +68,8 @@ export default function App() {
 
         {/* ---- Army sub-modules ---- */}
         <Route path="/army/history"      element={<ArmyHistory />} />
-        <Route path="/army/structure"    element={<ComingSoon service="Structure"                 backTo="/army" />} />
+        <Route path="/army/structure"         element={<ArmyStructure />} />
+        <Route path="/army/structure/details"  element={<ArmyStructureDetails />} />
         <Route path="/army/arms"         element={<ComingSoon service="Arms & Services"           backTo="/army" />} />
         <Route path="/army/regiments"    element={<ComingSoon service="Regiments"                 backTo="/army" />} />
         <Route path="/army/conflicts"    element={<ComingSoon service="Conflicts & Wars"          backTo="/army" />} />

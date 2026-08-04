@@ -1,0 +1,447 @@
+/* ============================================================
+   ArmyStructure — Command Structure overview page
+   Image 1 style: 7 command shields + chain-of-command flow.
+   ============================================================ */
+
+.page {
+  color-scheme: dark;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient blobs */
+.page::before, .page::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+.page::before {
+  width: 50vw; height: 50vw;
+  top: -15vh; right: -14vw;
+  background: radial-gradient(circle, var(--brass-dim), transparent 70%);
+}
+.page::after {
+  width: 55vw; height: 55vw;
+  bottom: -20vh; left: -16vw;
+  background: radial-gradient(circle, rgba(91,119,66,0.28), transparent 70%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vh, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vh, 4rem);
+}
+
+/* ---- Page header ---- */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.headerEmblem {
+  width: clamp(60px, 7vw, 88px);
+  height: clamp(60px, 7vw, 88px);
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  flex-shrink: 0;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.headerEyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin: 0;
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  margin: 0;
+  line-height: 1;
+}
+
+.headerMotto {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--brass);
+  letter-spacing: 0.1em;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--olive), transparent);
+  opacity: 0.45;
+}
+
+/* ---- Commands section ---- */
+.commandsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.sectionBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.5em 2em;
+  border: 1px solid rgba(176, 141, 62, 0.35);
+  border-radius: 4px;
+  background: rgba(176, 141, 62, 0.08);
+}
+
+.bannerNumber {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  color: var(--brass);
+  line-height: 1;
+}
+
+.bannerText {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+/* 7-column grid for shields */
+.commandsGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: clamp(0.6rem, 1.5vw, 1.2rem);
+  width: 100%;
+}
+
+/* ---- Command shield card ---- */
+.commandShield {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(23, 33, 15, 0.5);
+  border: 1px solid rgba(236, 231, 214, 0.1);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-2);
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+.commandShield:hover,
+.commandShield:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--cmd-color);
+  background: rgba(23, 33, 15, 0.7);
+  outline: none;
+}
+
+/* Hexagonal shield shape using clip-path */
+.shieldHex {
+  width: clamp(48px, 5.5vw, 70px);
+  height: clamp(54px, 6.2vw, 79px);
+  background: var(--cmd-shield);
+  border: 2px solid var(--cmd-color);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+
+.commandShield:hover .shieldHex {
+  background: var(--cmd-color);
+}
+
+.shieldInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.shieldStars {
+  font-size: 0.45rem;
+  letter-spacing: 1px;
+  color: var(--brass);
+  line-height: 1;
+}
+
+.shieldAbbr {
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 0.8vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  line-height: 1;
+}
+
+.commandLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.commandName {
+  font-family: var(--font-display);
+  font-size: clamp(0.6rem, 0.75vw, 0.82rem);
+  font-weight: 600;
+  color: var(--paper);
+  line-height: 1.2;
+}
+
+.commandLoc {
+  font-family: var(--font-mono);
+  font-size: clamp(0.55rem, 0.65vw, 0.72rem);
+  color: var(--sage);
+  letter-spacing: 0.08em;
+}
+
+/* ---- Chain of command flow ---- */
+.chainSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.chainTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  text-align: center;
+  margin: 0;
+}
+
+.chainSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  color: var(--paper-dim);
+  text-align: center;
+  max-width: 52rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.chainFlow {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.chainItem {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Connector between hierarchy levels */
+.chainConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-1) 0;
+}
+
+.connectorLine {
+  width: 2px;
+  height: 1rem;
+  background: linear-gradient(to bottom, var(--olive), transparent);
+}
+
+.connectorLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  background: rgba(23, 33, 15, 0.7);
+  border: 1px solid rgba(164, 170, 136, 0.25);
+  border-radius: 3px;
+  padding: 0.25em 1.2em;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.connectorArrow {
+  font-size: 0.75rem;
+  color: var(--olive);
+  opacity: 0.7;
+}
+
+/* Hierarchy level cards */
+.chainCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 8px;
+  border: 1px solid rgba(236, 231, 214, 0.1);
+  background: rgba(23, 33, 15, 0.5);
+  backdrop-filter: blur(12px);
+  border-left: 4px solid;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.chainCard:hover {
+  transform: translateX(4px);
+}
+
+/* Left border accent per level */
+.chain_army      { border-left-color: var(--brass); }
+.chain_command   { border-left-color: #4C5D34; }
+.chain_corps     { border-left-color: #276749; }
+.chain_division  { border-left-color: #2F855A; }
+.chain_brigade   { border-left-color: #A4AA88; }
+.chain_battalion { border-left-color: #5B7742; }
+.chain_company   { border-left-color: var(--sage); }
+
+.chainCardUnit {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--paper);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.chainCardRank {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  display: block;
+  opacity: 0.85;
+}
+
+.chainCardDesc {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--paper-dim);
+  line-height: 1.45;
+  display: block;
+}
+
+/* ---- CTA ---- */
+.ctaWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.ctaLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--paper-dim);
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.9em 2.4em;
+  background: transparent;
+  border: 2px solid var(--brass);
+  border-radius: 6px;
+  color: var(--brass);
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background: var(--brass);
+  color: var(--ink);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.ctaArrow {
+  font-size: 1.1em;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* ---- Animate.css speed ---- */
+.page :global(.animate__animated) {
+  --animate-duration: 0.5s;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .commandsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .pageHeader { flex-direction: column; text-align: center; align-items: center; }
+  .commandsGrid { grid-template-columns: repeat(4, 1fr); }
+  .chainCard { grid-template-columns: 1fr; }
+  .chainCardDesc { display: none; }
+}
+
+@media (max-width: 480px) {
+  .commandsGrid { grid-template-columns: repeat(2, 1fr); }
+  .sectionBanner { flex-direction: column; gap: 0; padding: 0.5em 1em; }
+}

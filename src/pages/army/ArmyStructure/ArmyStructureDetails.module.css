@@ -1,0 +1,588 @@
+/* ============================================================
+   ArmyStructureDetails — Full order-of-battle org chart.
+   Image 2 style: COAS → Commands → Corps → Divisions
+   with CSS tree connector lines.
+   ============================================================ */
+
+.page {
+  color-scheme: dark;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 60%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* ============================================================
+   Top bar
+   ============================================================ */
+
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.5rem;
+  background: rgba(10, 15, 8, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(164, 170, 136, 0.2);
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.backBtn {
+  background: none;
+  border: 1px solid rgba(176, 141, 62, 0.4);
+  border-radius: 4px;
+  padding: 0.4em 1em;
+  color: var(--brass);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+  flex-shrink: 0;
+}
+
+.backBtn:hover, .backBtn:focus-visible {
+  background: rgba(176, 141, 62, 0.12);
+  border-color: var(--brass);
+  outline: none;
+}
+
+.topBarTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topBarLabel {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+
+.topBarSub {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  opacity: 0.75;
+}
+
+.topBarHint {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--sage);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Chart scroll area
+   ============================================================ */
+
+.chartOuter {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 2rem 2rem 3rem;
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--olive) rgba(23, 33, 15, 0.4);
+}
+
+.chartOuter::-webkit-scrollbar { height: 8px; width: 8px; }
+.chartOuter::-webkit-scrollbar-track { background: rgba(23, 33, 15, 0.4); border-radius: 4px; }
+.chartOuter::-webkit-scrollbar-thumb { background: var(--olive); border-radius: 4px; }
+
+.chartInner {
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ============================================================
+   COAS root
+   ============================================================ */
+
+.coasWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coasNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #1F4F37, #2B6749);
+  border: 2px solid var(--brass);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(176,141,62,0.3);
+  min-width: 240px;
+  text-align: center;
+}
+
+.coasTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+
+.coasChief {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+  text-transform: uppercase;
+}
+
+.coasLoc {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--sage);
+  margin-top: 2px;
+}
+
+/* Special units branching from COAS */
+.specialUnitsRow {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.specialUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.specialBranch {
+  width: 2px;
+  height: 1.5rem;
+  background: linear-gradient(to bottom, var(--brass), var(--olive));
+  opacity: 0.6;
+}
+
+.specialNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background: rgba(176, 141, 62, 0.12);
+  border: 1px solid rgba(176, 141, 62, 0.4);
+  border-radius: 5px;
+  gap: 2px;
+}
+
+.specialName {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--brass);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.specialLoc {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--sage);
+}
+
+/* ============================================================
+   Commands bridge (horizontal bar above command columns)
+   ============================================================ */
+
+.commandsBridge {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+  position: relative;
+}
+
+.bridgeLine {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, var(--olive) 15%, var(--olive) 85%, transparent 95%);
+  opacity: 0.5;
+}
+
+.bridgeLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   Command columns
+   ============================================================ */
+
+.commandsRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.commandColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* ── Command node ── */
+.commandNode {
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  background: var(--cmd-shield, #1F4F37);
+  border: 2px solid var(--cmd-accent, #276749);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.commandNodeTop {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.commandAbbr {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  background: rgba(176, 141, 62, 0.15);
+  border-radius: 3px;
+  padding: 0.05em 0.4em;
+}
+
+.commandNodeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.commandNodeName {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--paper);
+  line-height: 1.2;
+}
+
+.commandNodeLoc {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.commandNodeState {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--sage);
+  opacity: 0.7;
+}
+
+.commandTagline {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: var(--paper-dim);
+  opacity: 0.6;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* Trunk line connecting command to its corps */
+.trunkLine {
+  width: 2px;
+  height: 1.25rem;
+  background: linear-gradient(to bottom, var(--cmd-accent), transparent);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Corps blocks
+   ============================================================ */
+
+.corpsList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border-left: 2px solid var(--cmd-accent, #276749);
+  border-left-opacity: 0.4;
+  padding-left: 0.6rem;
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.corpsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* Horizontal connector from left border to corps node */
+.corpsBlock::before {
+  content: '';
+  position: absolute;
+  left: -0.6rem;
+  top: 1.1rem;
+  width: 0.6rem;
+  height: 2px;
+  background: var(--cmd-accent, #276749);
+  opacity: 0.5;
+}
+
+.corpsNode {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  background: rgba(30, 50, 25, 0.7);
+  border: 1px solid var(--cmd-accent, #276749);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.corpsNode_nonOp {
+  border-style: dashed;
+  opacity: 0.8;
+}
+
+.corpsMain {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.corpsId {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.corpsName {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.corpsNickname {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--sage);
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+.corpsLocation {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+  margin-top: 1px;
+}
+
+/* ============================================================
+   Divisions group
+   ============================================================ */
+
+.divisionsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(164, 170, 136, 0.25);
+  margin-left: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.divisionsLabel {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  opacity: 0.5;
+}
+
+.divisionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ── Division node ── */
+.divisionNode {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  background: rgba(var(--div-color, #4C5D34), 0.08);
+  background: rgba(23, 33, 15, 0.5);
+  border: 1px solid rgba(164, 170, 136, 0.15);
+  border-left: 3px solid var(--div-color, #4C5D34);
+  border-radius: 4px;
+  position: relative;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+/* Horizontal connector from parent border */
+.divisionNode::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  width: 0.75rem;
+  height: 1px;
+  background: rgba(164, 170, 136, 0.3);
+  transform: translateY(-50%);
+}
+
+.divisionNode:hover {
+  transform: translateX(2px);
+}
+
+.divStars {
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.divBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.divName {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.divLocation {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+  white-space: nowrap;
+}
+
+.divType {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  color: var(--div-color, var(--sage));
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Stars
+   ============================================================ */
+
+.stars {
+  font-style: normal;
+  color: var(--brass);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.stars_sm { font-size: 0.6rem; }
+.stars_md { font-size: 0.75rem; }
+.stars_lg { font-size: 1rem; letter-spacing: 3px; }
+
+/* ============================================================
+   Legend
+   ============================================================ */
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(164, 170, 136, 0.15);
+  background: rgba(10, 15, 8, 0.6);
+  flex-shrink: 0;
+}
+
+.legendTitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--paper-dim);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}

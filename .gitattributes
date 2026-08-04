@@ -1,8 +1,5 @@
-# Normalize all text files to LF in the repository.
-# This prevents CRLF/LF conflicts between Windows and macOS/Linux developers.
 * text=auto eol=lf
 
-# Binary files — never modify line endings
 *.png binary
 *.jpg binary
 *.jpeg binary
