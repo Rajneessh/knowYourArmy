@@ -4,14 +4,12 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  scroll-snap-align: none;
 }
 
 .flag::before {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: -20px;
-  /* slightly oversized so the blurred edges never show */
   background-image: url('../../assets/landing_background/wavingBackgroundFlag.jpg');
   background-size: cover;
   background-position: center;
@@ -21,13 +19,16 @@
 }
 
 .content {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh 1rem 4vh;
+  padding: 5vh 1.2rem 4vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .heading {
@@ -40,26 +41,26 @@
 
 .eyebrow {
   font-family: var(--font-mono, monospace);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-size: clamp(0.7rem, 2.5vw, 0.95rem);
   font-weight: 700;
   color: #e5b350;
   background: rgba(12, 18, 10, 0.65);
   border: 1px solid rgba(214, 158, 46, 0.45);
-  padding: 6px 22px;
+  padding: 5px 18px;
   border-radius: 30px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
 
 .heading h1 {
   font-family: var(--font-title, sans-serif);
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #f5f0e1;
   margin: 0;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85), 0 2px 6px rgba(0, 0, 0, 0.95);
@@ -70,7 +71,7 @@
 .heading h1::after {
   content: '';
   display: block;
-  width: 80px;
+  width: 70px;
   height: 3px;
   background: linear-gradient(90deg, transparent, #c5a059, transparent);
   margin: 8px auto 0 auto;
@@ -89,8 +90,19 @@
 }
 
 @media (max-width: 768px) {
+  .content {
+    padding: 30px 1rem 40px;
+  }
+
+  .heading {
+    margin-bottom: 24px;
+  }
+
   .cards {
     flex-direction: column;
-    padding-bottom: 20px;
+    width: 100%;
+    max-width: 480px;
+    gap: 18px;
+    padding-bottom: 30px;
   }
 }

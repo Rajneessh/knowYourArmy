@@ -9,7 +9,9 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
   color: var(--paper);
@@ -135,25 +137,31 @@
 /* ---- Responsive breakpoints ---- */
 
 /* Tablet: 2-column rows */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
 }
 
 /* Mobile: 1-column stack */
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+  .inner {
+    padding: 1.5rem 1rem 2.5rem;
+    gap: 1.2rem;
+  }
+
   .title {
     font-size: var(--step-2);
   }
 
-  .row {
-    grid-template-columns: 1fr 1fr;
+  .motto {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
   }
-}
 
-@media (max-width: 380px) {
   .row {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 }
