@@ -3,6 +3,13 @@ import { ModuleCard } from '../../../components/ModuleCard/ModuleCard';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import armyEmblem from '../../../assets/emblems/army.png';
 import structureImg from '../../../assets/army/ArmyFrontPage/Structure.png';
+import armsImg from '../../../assets/army/ArmyFrontPage/ArmsAndServices.png';
+import regimentsImg from '../../../assets/army/ArmyFrontPage/Regiments.png';
+import historyImg from '../../../assets/army/ArmyFrontPage/History.png';
+import chiefsImg from '../../../assets/army/ArmyFrontPage/ArmyChief.png';
+import conflictsImg from '../../../assets/army/ArmyFrontPage/WarsAndConflicts.png';
+import humanitarianImg from '../../../assets/army/ArmyFrontPage/HumanitarianEfforts.jpeg';
+import heroesImg from '../../../assets/army/ArmyFrontPage/Heroes.jpg';
 import styles from './ArmyHub.module.css';
 
 const ARMY_MODULES = {
@@ -13,24 +20,31 @@ const ARMY_MODULES = {
       to: '/army/structure',
       accentColor: '#4C5D34',
       imageSrc: structureImg,
+      isUnderDevelopment: false,
     },
     {
       label: 'Arms & Services',
       description: 'Corps & branches',
       to: '/army/arms',
       accentColor: '#5B7742',
+      imageSrc: armsImg,
+      isUnderDevelopment: true,
     },
     {
       label: 'Regiments',
       description: 'Infantry & armoured',
       to: '/army/regiments',
       accentColor: '#A4AA88',
+      imageSrc: regimentsImg,
+      isUnderDevelopment: true,
     },
     {
       label: 'History',
       description: 'From antiquity to now',
       to: '/army/history',
       accentColor: '#B08D3E',
+      imageSrc: historyImg,
+      isUnderDevelopment: true,
     },
   ],
   row2: [
@@ -39,24 +53,34 @@ const ARMY_MODULES = {
       description: 'Generals of the nation',
       to: '/army/chiefs',
       accentColor: '#4C5D34',
+      imageSrc: chiefsImg,
+      imagePosition: 'center 18%',
+      isUnderDevelopment: true,
     },
     {
       label: 'Conflicts & Wars',
       description: 'Battles & campaigns',
       to: '/army/conflicts',
       accentColor: '#7A3B1E',
+      imageSrc: conflictsImg,
+      isUnderDevelopment: true,
     },
     {
       label: 'Humanitarian Efforts',
       description: 'Nation building & relief',
       to: '/army/humanitarian',
       accentColor: '#5B7742',
+      imageSrc: humanitarianImg,
+      isUnderDevelopment: true,
     },
     {
       label: 'Heroes',
       description: 'Param Vir Chakra & more',
       to: '/army/heroes',
       accentColor: '#B08D3E',
+      imageSrc: heroesImg,
+      imagePosition: 'top',
+      isUnderDevelopment: true,
     },
   ],
 };
@@ -120,6 +144,8 @@ export function ArmyHub() {
                 description={card.description}
                 to={card.to}
                 imageSrc={card.imageSrc}
+                imagePosition={card.imagePosition}
+                isUnderDevelopment={card.isUnderDevelopment}
                 accentColor={card.accentColor}
                 delay={ENTER_BASE_DELAY + i * STAGGER_STEP}
               />
@@ -135,6 +161,8 @@ export function ArmyHub() {
                 description={card.description}
                 to={card.to}
                 imageSrc={card.imageSrc}
+                imagePosition={card.imagePosition}
+                isUnderDevelopment={card.isUnderDevelopment}
                 accentColor={card.accentColor}
                 delay={ENTER_BASE_DELAY + (ARMY_MODULES.row1.length + i) * STAGGER_STEP}
               />

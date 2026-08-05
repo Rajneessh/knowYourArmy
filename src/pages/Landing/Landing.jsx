@@ -10,27 +10,33 @@ const SERVICES = [
     label: 'Indian Army',
     to: '/army',
     emblem: armyEmblem,
-    accentColor: '#4C5D34',
-    bgColor: 'rgba(76, 93, 52, 0.2)',
-    labelColor: '#38471f',
+    accentColor: '#7A9A5B',
+    bgColor: 'linear-gradient(180deg, rgba(32, 46, 20, 0.48) 0%, rgba(16, 24, 10, 0.58) 100%)',
+    borderColor: 'rgba(122, 154, 91, 0.65)',
+    labelColor: '#F0EBD8',
+    isUnderDevelopment: false,
   },
   {
     key: 'navy',
     label: 'Indian Navy',
     to: '/navy',
     emblem: navyEmblem,
-    accentColor: 'linear-gradient(90deg, #0B1A54, #B08D3E)',
-    bgColor: 'rgba(11, 26, 84, 0.16)',
-    labelColor: '#0B1A54',
+    accentColor: '#D69E2E',
+    bgColor: 'linear-gradient(180deg, rgba(12, 26, 58, 0.48) 0%, rgba(6, 14, 32, 0.58) 100%)',
+    borderColor: 'rgba(214, 158, 46, 0.65)',
+    labelColor: '#FFE699',
+    isUnderDevelopment: true,
   },
   {
     key: 'airforce',
     label: 'Indian Air Force',
     to: '/airforce',
     emblem: airForceEmblem,
-    accentColor: '#2E75C1',
-    bgColor: 'rgba(46, 117, 193, 0.18)',
-    labelColor: '#1c4d84',
+    accentColor: '#4299E1',
+    bgColor: 'linear-gradient(180deg, rgba(16, 42, 74, 0.48) 0%, rgba(8, 20, 40, 0.58) 100%)',
+    borderColor: 'rgba(66, 153, 225, 0.65)',
+    labelColor: '#E2F1FF',
+    isUnderDevelopment: true,
   },
 ];
 
@@ -52,7 +58,9 @@ export function Landing() {
               emblem={service.emblem}
               accentColor={service.accentColor}
               bgColor={service.bgColor}
+              borderColor={service.borderColor}
               labelColor={service.labelColor}
+              isUnderDevelopment={service.isUnderDevelopment}
             />
           ))}
         </div>

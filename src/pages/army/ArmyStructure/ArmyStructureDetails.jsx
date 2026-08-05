@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import { COMMANDS, ARMY_HQ, DIVISION_TYPES } from './data/commands';
@@ -204,6 +204,10 @@ export function ArmyStructureDetails() {
   useDocumentTitle('Indian Army — Order of Battle');
   const navigate = useNavigate();
   const [selectedCommandId, setSelectedCommandId] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedCommandId]);
 
   const goBack = useCallback(() => navigate('/army/structure'), [navigate]);
   const handleSelectSubTree = useCallback((id) => setSelectedCommandId(id), []);

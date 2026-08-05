@@ -12,7 +12,7 @@ import styles from './ServiceCard.module.css';
  *   bgColor     {string}  CSS color for the card background tint (rgba)
  *   labelColor  {string}  CSS color for the branch-name label
  */
-export function ServiceCard({ label, to, emblem, accentColor, bgColor, labelColor }) {
+export function ServiceCard({ label, to, emblem, accentColor, bgColor, borderColor, labelColor, isUnderDevelopment }) {
   return (
     <Link
       to={to}
@@ -20,6 +20,7 @@ export function ServiceCard({ label, to, emblem, accentColor, bgColor, labelColo
       style={{
         '--card-accent': accentColor,
         '--card-bg': bgColor,
+        '--card-border': borderColor ?? accentColor,
         '--card-label': labelColor,
       }}
     >
@@ -27,6 +28,12 @@ export function ServiceCard({ label, to, emblem, accentColor, bgColor, labelColo
         <img src={emblem} alt="" className={styles.cardEmblem} />
       </span>
       <span className={styles.cardLabel}>{label}</span>
+
+      {isUnderDevelopment && (
+        <span className={styles.devBadge}>
+          Coming Soon
+        </span>
+      )}
     </Link>
   );
 }

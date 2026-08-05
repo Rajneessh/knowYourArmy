@@ -67,7 +67,7 @@ export default function App() {
         <Route path="/army" element={<ArmyHub />} />
 
         {/* ---- Army sub-modules ---- */}
-        <Route path="/army/history"      element={<ArmyHistory />} />
+        <Route path="/army/history"      element={<ComingSoon service="History"                   backTo="/army" />} />
         <Route path="/army/structure"         element={<ArmyStructure />} />
         <Route path="/army/structure/details"  element={<ArmyStructureDetails />} />
         <Route path="/army/arms"         element={<ComingSoon service="Arms & Services"           backTo="/army" />} />

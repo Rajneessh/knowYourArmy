@@ -18,7 +18,17 @@ import styles from './ModuleCard.module.css';
  *   delay       {number}   Animation stagger delay in milliseconds (default 0)
  *   accentColor {string}   CSS color for the card's accent stripe
  */
-export function ModuleCard({ label, description, to, imageSrc, imageAlt, delay = 0, accentColor }) {
+export function ModuleCard({
+  label,
+  description,
+  to,
+  imageSrc,
+  imageAlt,
+  imagePosition,
+  isUnderDevelopment,
+  delay = 0,
+  accentColor,
+}) {
   const cardRef = useRef(null);
   const navigate = useNavigate();
 
@@ -64,6 +74,7 @@ export function ModuleCard({ label, description, to, imageSrc, imageAlt, delay =
             src={imageSrc}
             alt={imageAlt ?? label}
             className={styles.image}
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
           />
         ) : (
           <div className={styles.placeholder} aria-hidden="true">
@@ -74,7 +85,14 @@ export function ModuleCard({ label, description, to, imageSrc, imageAlt, delay =
 
       {/* ---- Lower half: label + description ---- */}
       <div className={styles.labelArea}>
-        <span className={styles.label}>{label}</span>
+        <div className={styles.labelRow}>
+          <span className={styles.label}>{label}</span>
+          {isUnderDevelopment && (
+            <span className={styles.devBadge}>
+              Coming Soon
+            </span>
+          )}
+        </div>
         {description && (
           <span className={styles.description}>{description}</span>
         )}
