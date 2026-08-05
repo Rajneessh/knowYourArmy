@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ModuleCard } from '../../../components/ModuleCard/ModuleCard';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import armyEmblem from '../../../assets/emblems/army.png';
+import structureImg from '../../../assets/army/ArmyFrontPage/Structure.png';
 import styles from './ArmyHub.module.css';
 
 const ARMY_MODULES = {
@@ -11,6 +12,7 @@ const ARMY_MODULES = {
       description: 'Organisation & command',
       to: '/army/structure',
       accentColor: '#4C5D34',
+      imageSrc: structureImg,
     },
     {
       label: 'Arms & Services',
@@ -117,6 +119,7 @@ export function ArmyHub() {
                 label={card.label}
                 description={card.description}
                 to={card.to}
+                imageSrc={card.imageSrc}
                 accentColor={card.accentColor}
                 delay={ENTER_BASE_DELAY + i * STAGGER_STEP}
               />
@@ -131,6 +134,7 @@ export function ArmyHub() {
                 label={card.label}
                 description={card.description}
                 to={card.to}
+                imageSrc={card.imageSrc}
                 accentColor={card.accentColor}
                 delay={ENTER_BASE_DELAY + (ARMY_MODULES.row1.length + i) * STAGGER_STEP}
               />

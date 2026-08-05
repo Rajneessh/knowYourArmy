@@ -132,12 +132,17 @@ function CommandColumn({ command, onSelectSubTree }) {
 }
 
 /* ── Horizontal Sub-Tree View for Selected Command ── */
-function CommandSubTreeHorizontalView({ command }) {
+function CommandSubTreeHorizontalView({ command, onReset }) {
   return (
     <div className={styles.subTreeHorizontalWrapper}>
       {/* COAS Root Node */}
       <div className={styles.coasWrap}>
-        <div className={styles.coasNode}>
+        <div
+          className={styles.coasNode}
+          onClick={onReset}
+          title="Click to return to full structure tree"
+          style={{ cursor: 'pointer' }}
+        >
           <Stars count={ARMY_HQ.stars} size="lg" />
           {ARMY_HQ.emblem && (
             <div className={styles.coasEmblemWrap}>
@@ -259,18 +264,13 @@ export function ArmyStructureDetails() {
 
           {/* Render Horizontal Sub-Tree if a Command card is clicked */}
           {selectedCommand ? (
-            <CommandSubTreeHorizontalView command={selectedCommand} />
+            <CommandSubTreeHorizontalView command={selectedCommand} onReset={handleResetSubTree} />
           ) : (
             /* Full 7-Command Order of Battle Tree */
             <>
               {/* COAS root node */}
               <div className={styles.coasWrap}>
-                <div
-                  className={styles.coasNode}
-                  onClick={() => navigate('/')}
-                  title="Click to go to Home Landing Page"
-                  style={{ cursor: 'pointer' }}
-                >
+                <div className={styles.coasNode}>
                   <Stars count={ARMY_HQ.stars} size="lg" />
                   {ARMY_HQ.emblem && (
                     <div className={styles.coasEmblemWrap}>

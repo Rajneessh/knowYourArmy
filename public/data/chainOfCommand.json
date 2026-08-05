@@ -109,16 +109,12 @@
             {
               "id": "category-a",
               "title": "CATEGORY A",
-              "commander": "COMMANDED BY LIEUTENANT GENERAL OR COMMANDED BY MAJOR GENERAL",
-              "rank": "LIEUTENANT GENERAL / MAJOR GENERAL",
-              "stars": "3 / 2",
+              "commander": "COMMANDED BY LIEUTENANT GENERAL / MAJOR GENERAL",
               "children": [
                 {
                   "id": "category-b",
                   "title": "CATEGORY B",
-                  "commander": "COMMANDED BY MAJOR GENERAL OR BRIGADIER",
-                  "rank": "MAJOR GENERAL / BRIGADIER",
-                  "stars": "2 / 1",
+                  "commander": "COMMANDED BY MAJOR GENERAL / BRIGADIER",
                   "children": []
                 }
               ]

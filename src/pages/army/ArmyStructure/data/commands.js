@@ -13,7 +13,7 @@ import armyCentralEmblem from '../../../../assets/emblems/ArmyCentralCommandEmbl
 import armyTrainingEmblem from '../../../../assets/emblems/ArmyTrainingCommandEmblem.png';
 
 export const ARMY_HQ = {
-  name: 'Indian Army',
+  name: 'Indian Army Headquarters',
   title: 'Army Headquarters',
   location: 'New Delhi',
   chiefTitle: 'Chief of Army Staff (COAS)',
@@ -450,21 +450,6 @@ export const COMMANDS = [
       },
     ],
   },
-      {
-        id: 'wc-11', number: 11, romanNumber: 'XI',
-        name: 'XI Corps', nickname: 'Vajra Corps',
-        location: 'Jalandhar', type: 'holding', stars: 3,
-        motto: 'Victory or Death',
-        divisions: [
-          { number: 7, shortName: '7th Infantry Division', name: '7th Infantry Division', location: 'Firozpur', type: 'infantry', stars: 2 },
-          { number: 9, shortName: '9th Infantry Division', name: '9th Infantry Division', location: 'Meerut', type: 'infantry', stars: 2 },
-          { number: 15, shortName: '15th Infantry Division', name: '15th Infantry Division', location: 'Amritsar', type: 'infantry', stars: 2 },
-          { number: 230, shortName: '23rd Armoured Brigade', name: '23rd Armoured Brigade', location: 'Jalandhar', type: 'armoured', stars: 1 },
-          { number: 550, shortName: '55th Mechanised Brigade', name: '55th Mechanised Brigade', location: 'Jalandhar', type: 'mechanized', stars: 1 },
-        ],
-      },
-    ],
-  },
 
   {
     id: 'training',
@@ -485,9 +470,7 @@ export const COMMANDS = [
         name: 'ARTRAC', nickname: 'Army Training Command',
         location: 'Shimla', type: 'training', stars: null,
         motto: '',
-        divisions: [
-          { number: 1, shortName: '1st Artillery Division', name: '1st Artillery Division', location: 'Nasik Road', type: 'artillery', stars: 2 },
-        ],
+        divisions: [],
       },
     ],
   },
