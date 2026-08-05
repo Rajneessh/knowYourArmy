@@ -10,16 +10,16 @@ const ARMS_CATEGORIES = [
   {
     id: 'combat-arms',
     label: 'Combat Arms',
-    description: 'Frontline fighting arms: Infantry, Armoured Corps & Mechanised Infantry.',
+    description: 'Frontline fighting arms',
     to: '/army/arms/combat',
     accentColor: '#7A3B1E',
     imageSrc: combatArmsImg,
-    isUnderDevelopment: true,
+    isUnderDevelopment: false,
   },
   {
     id: 'combat-support',
     label: 'Combat Support Arms',
-    description: 'Firepower, mobility & signals: Artillery, Engineers, Signals, AAD & Aviation.',
+    description: 'Firepower, mobility & communication',
     to: '/army/arms/combat-support',
     accentColor: '#5B7742',
     imageSrc: combatSupportImg,
@@ -28,7 +28,7 @@ const ARMS_CATEGORIES = [
   {
     id: 'services',
     label: 'Services',
-    description: 'Logistics, maintenance & medical: ASC, AOC, EME, AMC, CMP, JAG & more.',
+    description: 'Logistics, maintenance & medical',
     to: '/army/arms/services',
     accentColor: '#4C5D34',
     imageSrc: servicesImg,

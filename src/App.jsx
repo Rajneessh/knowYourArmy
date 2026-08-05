@@ -34,6 +34,11 @@ const ArmyArms = lazy(() =>
   import('./pages/army/ArmyArms/ArmyArms').then((m) => ({ default: m.ArmyArms }))
 );
 
+// ---- Army: Combat Arms ----
+const CombatArms = lazy(() =>
+  import('./pages/army/CombatArms/CombatArms').then((m) => ({ default: m.CombatArms }))
+);
+
 // ---- Other branches (stubs) ----
 const ComingSoon = lazy(() =>
   import('./pages/ComingSoon/ComingSoon').then((m) => ({ default: m.ComingSoon }))
@@ -78,7 +83,7 @@ export default function App() {
         
         {/* ---- Arms & Services sub-routes ---- */}
         <Route path="/army/arms"               element={<ArmyArms />} />
-        <Route path="/army/arms/combat"        element={<ComingSoon service="Combat Arms"               backTo="/army/arms" />} />
+        <Route path="/army/arms/combat"        element={<CombatArms />} />
         <Route path="/army/arms/combat-support" element={<ComingSoon service="Combat Support Arms"       backTo="/army/arms" />} />
         <Route path="/army/arms/services"       element={<ComingSoon service="Services"                  backTo="/army/arms" />} />
 

@@ -1,0 +1,134 @@
+{
+  "id": "infantry",
+  "name": "Infantry",
+  "motto": "Victory or Death",
+  "role": "Queen of the Battle — closes with and destroys enemy forces through fire and manoeuvre, holding ground across all battlefields and extreme weather conditions.",
+  "regimentsCount": 29,
+  "history": [
+    "Oldest and largest combat arm of the Indian Army, tracing origins to the 18th-century Presidency Armies of Bengal, Madras, and Bombay.",
+    "Major reorganization followed the Indian Rebellion of 1857, laying the structure for modern regiments from Punjab, Gorkha, and Rajput communities.",
+    "Served with immense distinction across global theatres in both World War I and World War II.",
+    "Evolved into a highly specialized force incorporating regular, airborne, mountain, and commando units.",
+    "Remains the backbone of ground combat operations, equipped with night-vision, drones, and modern precision infantry weaponry."
+  ],
+  "image": "",
+  "equipment": {
+    "handguns": [
+      {
+        "name": "Pistol Auto 9mm 1A",
+        "type": "Semi-Automatic Pistol",
+        "caliber": "9×19mm"
+      },
+      {
+        "name": "Glock",
+        "type": "Semi-Automatic Pistol",
+        "caliber": "9×19mm"
+      }
+    ],
+    "submachineGuns": [
+      {
+        "name": "Micro Uzi",
+        "type": "Machine Pistol",
+        "caliber": "9×19mm"
+      },
+      {
+        "name": "Heckler & Koch MP5",
+        "type": "Submachine Gun",
+        "caliber": "9×19mm"
+      },
+      {
+        "name": "ASMI",
+        "type": "Submachine Gun",
+        "caliber": "9×19mm"
+      }
+    ],
+    "assaultRifles": [
+      {
+        "name": "AK-203",
+        "type": "Assault Rifle",
+        "caliber": "7.62×39mm"
+      },
+      {
+        "name": "SIG 716i",
+        "type": "Battle Rifle",
+        "caliber": "7.62×51mm"
+      },
+      {
+        "name": "INSAS 1B1",
+        "type": "Assault Rifle",
+        "caliber": "5.56×45mm"
+      },
+      {
+        "name": "Tavor TAR-21",
+        "type": "Bullpup Assault Rifle",
+        "caliber": "5.56×45mm"
+      },
+      {
+        "name": "Tavor X95",
+        "type": "Bullpup Assault Rifle",
+        "caliber": "5.56×45mm"
+      },
+      {
+        "name": "M4A1 Carbine",
+        "type": "Assault Carbine",
+        "caliber": "5.56×45mm"
+      }
+    ],
+    "sniperRifles": [
+      {
+        "name": "Dragunov SVD",
+        "type": "Designated Marksman Rifle",
+        "caliber": "7.62×54mmR"
+      },
+      {
+        "name": "Sako TRG 42",
+        "type": "Sniper Rifle",
+        "caliber": ".338 Lapua Magnum"
+      },
+      {
+        "name": "Heckler & Koch PSG1",
+        "type": "Sniper Rifle",
+        "caliber": "7.62×51mm"
+      }
+    ],
+    "antiMaterialRifles": [
+      {
+        "name": "Barrett M82",
+        "type": "Anti-Material Rifle",
+        "caliber": "12.7×99mm"
+      },
+      {
+        "name": "Vidhwansak",
+        "type": "Anti-Material Rifle",
+        "caliber": "12.7×108mm / 14.5×114mm / 20×82mm"
+      }
+    ],
+    "machineGuns": [
+      {
+        "name": "IWI Negev NG7",
+        "type": "Light Machine Gun",
+        "caliber": "7.62×51mm"
+      },
+      {
+        "name": "FN Minimi",
+        "type": "Light Machine Gun",
+        "caliber": "5.56×45mm"
+      },
+      {
+        "name": "PK Machine Gun",
+        "type": "Medium Machine Gun",
+        "caliber": "7.62×54mmR"
+      },
+      {
+        "name": "MG 2A1",
+        "type": "Medium Machine Gun",
+        "caliber": "7.62×51mm"
+      },
+      {
+        "name": "NSV",
+        "type": "Heavy Machine Gun",
+        "caliber": "12.7×108mm"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "mechanised-infantry",
+  "name": "Mechanized Infantry",
+  "motto": "Valour and Faith",
+  "raisedOn": "1949",
+  "regimentsCount": 2,
+  "battalions": 49,
+  "role": "High-mobility infantry operating alongside armoured formations in Infantry Combat Vehicles, combining the firepower and protection of armoured vehicles with the versatility of foot soldiers for rapid, deep battlefield deployment.",
+  "history": [
+    "Concept originated post-1965 Indo-Pakistani War to give infantry high-speed mobility alongside armoured tank formations.",
+    "In 1949, the Brigade of the Guards was raised as the first elite all-India mixed arm regiment, later converting to mechanised role.",
+    "In 1979, General K. Sundarji spearheaded bringing 14 mechanised battalions under a single regimental identity: The Mechanised Infantry Regiment.",
+    "Participated with distinction in Operation Pawan (Sri Lanka), Operation Rakshak (Punjab), Operation Vijay (Kargil), and UN Peacekeeping missions."
+  ],
+  "equipment": [
+    {
+      "name": "BMP-2 Sarath",
+      "type": "Infantry Fighting Vehicle"
+    },
+    {
+      "name": "TATA Kestrel",
+      "type": "Armoured Personnel Carrier"
+    }
+  ]
+}
