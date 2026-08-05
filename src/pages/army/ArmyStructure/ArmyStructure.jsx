@@ -10,7 +10,7 @@ import styles from './ArmyStructure.module.css';
 /* ---- Sub-components ---- */
 
 /** Card badge for each command with emblem image */
-function CommandShield({ command, index }) {
+function CommandShield({ command }) {
   const ref = useRef(null);
 
   const handleClick = useCallback(() => {

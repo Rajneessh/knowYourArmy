@@ -1,0 +1,27 @@
+{
+  "category": "Combat Arms",
+  "description": "Combat Arms are the troops directly involved in close combat operations against enemy ground forces.",
+  "items": [
+    {
+      "id": "infantry",
+      "name": "Infantry",
+      "motto": "Victory or Death",
+      "role": "Queen of the Battle — closes with and destroys enemy forces through fire and manoeuvre.",
+      "details": "The largest arm of the Indian Army, comprising legendary regiments such as the Brigade of the Guards, Parachute Regiment, Punjab Regiment, Rajputana Rifles, Gorkha Rifles, and more."
+    },
+    {
+      "id": "armoured-corps",
+      "name": "Armoured Corps",
+      "motto": "Shield and Spear",
+      "role": "Shock action, high mobility, and heavy firepower using Main Battle Tanks (T-90 Bhishma, T-72 Ajeya, Arjun MBT).",
+      "details": "Operates armoured regiments equipped with heavy armor to break enemy lines and conduct deep operational thrusts."
+    },
+    {
+      "id": "mechanised-infantry",
+      "name": "Mechanised Infantry",
+      "motto": "Valour and Faith",
+      "role": "High-mobility infantry operating alongside tanks in Infantry Combat Vehicles (BMP-2 Sarath).",
+      "details": "Combines the firepower and mobility of armoured vehicles with the versatility of foot infantry for rapid battlefield deployment."
+    }
+  ]
+}

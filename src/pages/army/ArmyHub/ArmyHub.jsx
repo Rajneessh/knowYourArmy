@@ -28,7 +28,7 @@ const ARMY_MODULES = {
       to: '/army/arms',
       accentColor: '#5B7742',
       imageSrc: armsImg,
-      isUnderDevelopment: true,
+      isUnderDevelopment: false,
     },
     {
       label: 'Regiments',
@@ -44,7 +44,7 @@ const ARMY_MODULES = {
       to: '/army/history',
       accentColor: '#B08D3E',
       imageSrc: historyImg,
-      isUnderDevelopment: true,
+      isUnderDevelopment: false,
     },
   ],
   row2: [

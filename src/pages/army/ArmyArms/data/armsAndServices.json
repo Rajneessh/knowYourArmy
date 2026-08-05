@@ -1,0 +1,51 @@
+[
+  {
+    "id": "combat-arms",
+    "title": "Combat Arms",
+    "description": "Direct frontline fighting forces responsible for engaging and defeating enemy forces.",
+    "route": "/army/arms/combat",
+    "image": "CombatArms.png",
+    "accentColor": "#7A3B1E",
+    "isUnderDevelopment": true,
+    "branches": [
+      "Infantry",
+      "Armoured Corps",
+      "Mechanised Infantry"
+    ]
+  },
+  {
+    "id": "combat-support-arms",
+    "title": "Combat Support Arms",
+    "description": "Provide direct operational support, firepower, mobility, communications & air defense to combat units.",
+    "route": "/army/arms/combat-support",
+    "image": "CombatSupport.png",
+    "accentColor": "#5B7742",
+    "isUnderDevelopment": true,
+    "branches": [
+      "Regiment of Artillery",
+      "Corps of Engineers",
+      "Corps of Signals",
+      "Army Air Defence",
+      "Army Aviation Corps"
+    ]
+  },
+  {
+    "id": "services",
+    "title": "Services",
+    "description": "Provide administrative, logistical, medical, equipment repair, and material supply to keep the Army combat-ready.",
+    "route": "/army/arms/services",
+    "image": "Services.png",
+    "accentColor": "#4C5D34",
+    "isUnderDevelopment": true,
+    "branches": [
+      "Army Service Corps (ASC)",
+      "Army Ordnance Corps (AOC)",
+      "Corps of EME",
+      "Army Medical Corps (AMC)",
+      "Remount and Veterinary Corps (RVC)",
+      "Army Educational Corps (AEC)",
+      "Corps of Military Police (CMP)",
+      "Judge Advocate General (JAG)"
+    ]
+  }
+]

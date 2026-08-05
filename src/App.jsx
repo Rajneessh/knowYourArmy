@@ -29,6 +29,11 @@ const ArmyStructureDetails = lazy(() =>
   import('./pages/army/ArmyStructure/ArmyStructureDetails').then((m) => ({ default: m.ArmyStructureDetails }))
 );
 
+// ---- Army: Arms & Services module ----
+const ArmyArms = lazy(() =>
+  import('./pages/army/ArmyArms/ArmyArms').then((m) => ({ default: m.ArmyArms }))
+);
+
 // ---- Other branches (stubs) ----
 const ComingSoon = lazy(() =>
   import('./pages/ComingSoon/ComingSoon').then((m) => ({ default: m.ComingSoon }))
@@ -67,19 +72,25 @@ export default function App() {
         <Route path="/army" element={<ArmyHub />} />
 
         {/* ---- Army sub-modules ---- */}
-        <Route path="/army/history"      element={<ComingSoon service="History"                   backTo="/army" />} />
+        <Route path="/army/history"            element={<ArmyHistory />} />
         <Route path="/army/structure"         element={<ArmyStructure />} />
         <Route path="/army/structure/details"  element={<ArmyStructureDetails />} />
-        <Route path="/army/arms"         element={<ComingSoon service="Arms & Services"           backTo="/army" />} />
-        <Route path="/army/regiments"    element={<ComingSoon service="Regiments"                 backTo="/army" />} />
-        <Route path="/army/conflicts"    element={<ComingSoon service="Conflicts & Wars"          backTo="/army" />} />
-        <Route path="/army/heroes"       element={<ComingSoon service="Heroes"                    backTo="/army" />} />
-        <Route path="/army/chiefs"       element={<ComingSoon service="Chiefs of Army Staff"      backTo="/army" />} />
-        <Route path="/army/humanitarian" element={<ComingSoon service="Humanitarian Efforts"      backTo="/army" />} />
+        
+        {/* ---- Arms & Services sub-routes ---- */}
+        <Route path="/army/arms"               element={<ArmyArms />} />
+        <Route path="/army/arms/combat"        element={<ComingSoon service="Combat Arms"               backTo="/army/arms" />} />
+        <Route path="/army/arms/combat-support" element={<ComingSoon service="Combat Support Arms"       backTo="/army/arms" />} />
+        <Route path="/army/arms/services"       element={<ComingSoon service="Services"                  backTo="/army/arms" />} />
+
+        <Route path="/army/regiments"          element={<ComingSoon service="Regiments"                 backTo="/army" />} />
+        <Route path="/army/conflicts"          element={<ComingSoon service="Conflicts & Wars"          backTo="/army" />} />
+        <Route path="/army/heroes"             element={<ComingSoon service="Heroes"                    backTo="/army" />} />
+        <Route path="/army/chiefs"             element={<ComingSoon service="Chiefs of Army Staff"      backTo="/army" />} />
+        <Route path="/army/humanitarian"       element={<ComingSoon service="Humanitarian Efforts"      backTo="/army" />} />
 
         {/* ---- Other branches ---- */}
-        <Route path="/navy"     element={<ComingSoon service="Indian Navy"      backTo="/" />} />
-        <Route path="/airforce" element={<ComingSoon service="Indian Air Force" backTo="/" />} />
+        <Route path="/navy"                    element={<ComingSoon service="Indian Navy"      backTo="/" />} />
+        <Route path="/airforce"                element={<ComingSoon service="Indian Air Force" backTo="/" />} />
       </Routes>
     </Suspense>
   );

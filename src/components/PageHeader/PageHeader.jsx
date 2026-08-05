@@ -4,42 +4,20 @@ import styles from './PageHeader.module.css';
 
 /**
  * Reusable PageHeader component for Indian Army pages.
- * Displays top back navigation button, centered emblem, centered title, and motto.
+ * Displays logo + title + motto, divider line, and back button row below divider.
  */
 export function PageHeader({
-  eyebrow = 'Indian Army',
+  eyebrow,
   title = 'Command Structure',
   motto = 'सेवा परमो धर्मः — Service Before Self',
   emblem = armyEmblem,
   backTo = '/army',
-  backText = 'Back to Army',
+  backText = 'Back to Army Hub',
 }) {
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    if (backTo) {
-      navigate(backTo);
-    } else {
-      navigate(-1);
-    }
-  };
-
   return (
     <header className={styles.header}>
-      {/* Top navigation row with Back Button */}
-      {backTo && (
-        <div className={styles.navRow}>
-          <button
-            onClick={handleBack}
-            className={styles.backButton}
-            aria-label={`Navigate back to ${backText}`}
-          >
-            <span className={styles.backArrow}>←</span>
-            <span className={styles.backLabel}>{backText}</span>
-          </button>
-        </div>
-      )}
-
       {/* Centered Emblem, Title, & Motto */}
       <div className={styles.centerWrap}>
         <button
@@ -71,6 +49,28 @@ export function PageHeader({
           </p>
         )}
       </div>
+
+      {/* Styled Divider line matching ArmyHub */}
+      <div
+        className={`${styles.divider} animate__animated animate__fadeIn`}
+        style={{ animationDelay: '190ms', animationFillMode: 'both' }}
+        role="separator"
+        aria-hidden="true"
+      />
+
+      {/* Navigation row with Back Button below logo, motto & divider */}
+      {backTo && (
+        <div className={styles.navRow}>
+          <button
+            onClick={() => navigate(backTo)}
+            className={styles.backButton}
+            aria-label={`Navigate back to ${backText}`}
+          >
+            <span className={styles.backArrow}>←</span>
+            <span className={styles.backLabel}>{backText}</span>
+          </button>
+        </div>
+      )}
     </header>
   );
 }

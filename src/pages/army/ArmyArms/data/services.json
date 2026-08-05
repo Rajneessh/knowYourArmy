@@ -1,0 +1,62 @@
+{
+  "category": "Services",
+  "description": "Services ensure the administrative, logistical, medical, equipment upkeep, and legal sustainment of the Indian Army in peace and war.",
+  "items": [
+    {
+      "id": "asc",
+      "name": "Army Service Corps (ASC)",
+      "motto": "Seva Asmakam Dharma (Service is Our Duty)",
+      "role": "Rations, petroleum/oil/lubricants (POL), transport logistics, and air-drop supplies.",
+      "details": "Responsible for feeding, fueling, and transporting troops across peacetime stations and war zones."
+    },
+    {
+      "id": "aoc",
+      "name": "Army Ordnance Corps (AOC)",
+      "motto": "Shastra Se Shakti (Strength Through Arms)",
+      "role": "Logistical supply of arms, ammunition, vehicles, clothing, and military equipment.",
+      "details": "Manages central ammunition depots and inventory management for millions of inventory items."
+    },
+    {
+      "id": "eme",
+      "name": "Corps of Electronics and Mechanical Engineers (EME)",
+      "motto": "Karam Hi Dharam (Work is Worship)",
+      "role": "Repair, maintenance, recovery, and engineering support for all electrical, mechanical, and electronic equipment.",
+      "details": "Ensures tanks, radar systems, field weapons, and vehicles remain operational on the battlefield."
+    },
+    {
+      "id": "amc",
+      "name": "Army Medical Corps (AMC)",
+      "motto": "Sarve Santu Niramaya (May All Be Free From Disease)",
+      "role": "Comprehensive healthcare, combat casualty treatment, military hospitals, and combat field ambulances.",
+      "details": "Provides medical care to serving personnel, veterans, and military dependents."
+    },
+    {
+      "id": "rvc",
+      "name": "Remount and Veterinary Corps (RVC)",
+      "motto": "Seva Anusandhan Pashu Raksha (Service and Protection of Animals)",
+      "role": "Breeding, training, and healthcare of army dogs, mules, and horses used in high-altitude logistics and counter-insurgency.",
+      "details": "RVC canine and pack-animal units are vital for mountain logistics in the Himalayas."
+    },
+    {
+      "id": "aec",
+      "name": "Army Educational Corps (AEC)",
+      "motto": "Vidya Balam (Knowledge is Strength)",
+      "role": "Educational training, language instruction, map reading, and military promotional examinations.",
+      "details": "Facilitates ongoing education and foreign language training for army personnel."
+    },
+    {
+      "id": "cmp",
+      "name": "Corps of Military Police (CMP)",
+      "motto": "Seva Tatha Nishtha (Service and Loyalty)",
+      "role": "Traffic control, prisoner of war management, crime prevention, and maintaining discipline.",
+      "details": "Recognized by their distinct white helmets, lanyards, and red armbands."
+    },
+    {
+      "id": "jag",
+      "name": "Judge Advocate General's Department (JAG)",
+      "motto": "Nyaya Eva Pratishtha (Justice is Honour)",
+      "role": "Legal advice, court-martial proceedings, and military legal administration.",
+      "details": "Legal branch of the Army headed by the Judge Advocate General."
+    }
+  ]
+}

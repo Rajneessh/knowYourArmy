@@ -1,0 +1,94 @@
+/* ============================================================
+   ArmyArms — Arms & Services module landing page.
+   Matches background gradient & ambient blobs of ArmyHub.
+   ============================================================ */
+
+.page {
+  color-scheme: dark;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* Same background gradient as ArmyHub */
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* Ambient glow blobs matching ArmyHub */
+.page::before,
+.page::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page::before {
+  width: 50vw;
+  height: 50vw;
+  top: -15vh;
+  right: -14vw;
+  background: radial-gradient(circle, var(--brass-dim), transparent 70%);
+}
+
+.page::after {
+  width: 60vw;
+  height: 60vw;
+  bottom: -22vh;
+  left: -18vw;
+  background: radial-gradient(circle, rgba(91, 119, 66, 0.3), transparent 70%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1350px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 4vh, 3rem);
+  gap: clamp(1.5rem, 3vh, 2.25rem);
+}
+
+/* 3-Column Card Grid with wider equal-height cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  width: 100%;
+  align-items: stretch;
+}
+
+.gridItem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 1.5rem 1rem 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
