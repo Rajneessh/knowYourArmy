@@ -1,11 +1,16 @@
 /**
  * commands.js — Indian Army command structure data.
- *
- * Sources: publicly available Indian Army order of battle.
- * Unit numbers and locations are representative of the known
- * structure; specific brigade/battalion data is deliberately
- * omitted as it is operationally sensitive.
+ * Updated based on official Indian Army structure diagram.
  */
+
+import armyHQEmblem from '../../../../assets/emblems/ArmyHQEmblem.png';
+import armyNorthernEmblem from '../../../../assets/emblems/ArmyNorthernCommandEmblem.png';
+import armyWesternEmblem from '../../../../assets/emblems/ArmyWesternCommandEmblem.png';
+import armySouthWesternEmblem from '../../../../assets/emblems/ArmySouthWesternCommandEmblem.png';
+import armySouthernEmblem from '../../../../assets/emblems/ArmySouthernCommandEmblem.png';
+import armyEasternEmblem from '../../../../assets/emblems/ArmyEasternCommandEmblem.png';
+import armyCentralEmblem from '../../../../assets/emblems/ArmyCentralCommandEmblem.png';
+import armyTrainingEmblem from '../../../../assets/emblems/ArmyTrainingCommandEmblem.png';
 
 export const ARMY_HQ = {
   name: 'Indian Army',
@@ -14,16 +19,13 @@ export const ARMY_HQ = {
   chiefTitle: 'Chief of Army Staff (COAS)',
   rankLabel: 'General',
   stars: 4,
+  emblem: armyHQEmblem,
   specialUnits: [
-    { name: '50 Para Assault Brigade', shortName: '50 Para Bde', location: 'Agra', type: 'para' },
-    { name: 'Army Strategic Forces Command', shortName: 'ASFC', location: 'New Delhi', type: 'strategic' },
+    { name: '50th Parachute Brigade', shortName: '50th Para Bde', location: 'Agra', type: 'para', stars: 1 },
   ],
 };
 
-/**
- * Hierarchy metadata — used to build the chain-of-command flow
- * diagram on the overview page (replicates Image 1 style).
- */
+/** Hierarchy metadata — used to build chain-of-command flow diagram */
 export const HIERARCHY_LEVELS = [
   {
     id: 'army',
@@ -47,7 +49,7 @@ export const HIERARCHY_LEVELS = [
     label: 'Corps',
     unitLabel: 'Corps',
     count: '2–3 per Command',
-    commanderRank: 'Lieutenant General (★★)',
+    commanderRank: 'Lieutenant General (★★★)',
     description: 'Operational grouping of 2–3 divisions',
     perParent: '2–3',
     showCount: 3,
@@ -57,7 +59,7 @@ export const HIERARCHY_LEVELS = [
     label: 'Division',
     unitLabel: 'Division',
     count: '2–3 per Corps',
-    commanderRank: 'Major General (★)',
+    commanderRank: 'Major General (★★)',
     description: '10,000–20,000 troops; primary tactical formation',
     perParent: '2–3',
     showCount: 3,
@@ -67,7 +69,7 @@ export const HIERARCHY_LEVELS = [
     label: 'Brigade',
     unitLabel: 'Brigade',
     count: '3 per Division',
-    commanderRank: 'Brigadier',
+    commanderRank: 'Brigadier (★)',
     description: '3,000–5,000 troops; combined arms grouping',
     perParent: '3',
     showCount: 3,
@@ -94,23 +96,142 @@ export const HIERARCHY_LEVELS = [
   },
 ];
 
-/** Division type metadata for styling */
+/** Division & Formation type metadata for styling */
 export const DIVISION_TYPES = {
-  infantry:  { label: 'Infantry',  color: '#4C5D34' },
-  mountain:  { label: 'Mountain',  color: '#2B5F5F' },
-  armoured:  { label: 'Armoured',  color: '#7A4F1E' },
+  infantry: { label: 'Infantry', color: '#4C5D34' },
+  mountain: { label: 'Mountain', color: '#2B5F5F' },
+  armoured: { label: 'Armoured', color: '#7A4F1E' },
   artillery: { label: 'Artillery', color: '#5C3A8A' },
   strategic: { label: 'Strategic', color: '#1A3A6B' },
-  training:  { label: 'Training',  color: '#2E5A4A' },
-  rapid:     { label: 'RAPID',     color: '#6B3A1A' },
+  training: { label: 'Training', color: '#2E5A4A' },
+  rapid: { label: 'RAPID', color: '#6B3A1A' },
+  engineering: { label: 'Engineering', color: '#3A5C5C' },
+  airdefence: { label: 'Air Defence', color: '#2A4A6B' },
+  mechanized: { label: 'Mechanised', color: '#6B5A1A' },
+  para: { label: 'Parachute', color: '#7A2E3A' },
+  rifles: { label: 'Rashtriya Rifles', color: '#6A4A3A' },
 };
 
-/** The 7 Field Commands */
+/** The Field Commands */
 export const COMMANDS = [
+  {
+    id: 'eastern',
+    name: 'Eastern Command',
+    abbreviation: 'EC',
+    emblem: armyEasternEmblem,
+    location: 'Kolkata',
+    state: 'West Bengal',
+    stars: 3,
+    accentColor: '#2F855A',
+    shieldColor: '#1F6044',
+    tagline: 'Sentinel of the East',
+    established: 1942,
+    areaOfOps: 'West Bengal, Sikkim, Arunachal Pradesh, Meghalaya, Assam, Nagaland, Manipur, Tripura, Mizoram, Jharkhand',
+    corps: [
+      {
+        id: 'ec-3', number: 3, romanNumber: 'III',
+        name: 'III Corps', nickname: 'Spear Corps',
+        location: 'Rangapahar, Nagaland', type: 'mountain', stars: 3,
+        motto: 'Stab and Strike',
+        divisions: [
+          { number: 2, shortName: '2nd Mountain Division', name: '2nd Mountain Division', location: 'Dinjan, Assam', type: 'mountain', stars: 2 },
+          { number: 56, shortName: '56th Mountain Division', name: '56th Mountain Division', location: 'Likabali, Arunachal Pradesh', type: 'mountain', stars: 2 },
+          { number: 57, shortName: '57th Mountain Division', name: '57th Mountain Division', location: 'Leimakhong, Manipur', type: 'mountain', stars: 2 },
+        ],
+      },
+      {
+        id: 'ec-4', number: 4, romanNumber: 'IV',
+        name: 'IV Corps', nickname: 'Gajraj Corps',
+        location: 'Tezpur, Assam', type: 'mountain', stars: 3,
+        motto: 'Victory Always',
+        divisions: [
+          { number: 5, shortName: '5th Mountain Division', name: '5th Mountain Division', location: 'Bomdila, Arunachal Pradesh', type: 'mountain', stars: 2 },
+          { number: 21, shortName: '21st Mountain Division', name: '21st Mountain Division', location: 'Rangia, Assam', type: 'mountain', stars: 2 },
+          { number: 71, shortName: '71st Mountain Division', name: '71st Mountain Division', location: 'Missa Mari, Assam', type: 'mountain', stars: 2 },
+        ],
+      },
+      {
+        id: 'ec-17', number: 17, romanNumber: 'XVII',
+        name: 'XVII Corps', nickname: 'Brahmastra Corps',
+        location: 'Panagarh, West Bengal', type: 'strike', stars: 3,
+        motto: 'Strike with Power',
+        divisions: [
+          { number: 59, shortName: '59th Mountain Division', name: '59th Mountain Division', location: 'Panagarh, West Bengal', type: 'mountain', stars: 2 },
+          { number: 23, shortName: '23rd Infantry Division', name: '23rd Infantry Division', location: 'Ranchi, Jharkhand', type: 'infantry', stars: 2 },
+          { number: 171, shortName: '17 (Indep) Arty Bde', name: '17 (Independent) Artillery Brigade', location: 'Panagarh, West Bengal', type: 'artillery', stars: 1 },
+        ],
+      },
+      {
+        id: 'ec-33', number: 33, romanNumber: 'XXXIII',
+        name: 'XXXIII Corps', nickname: 'Trishakti Corps',
+        location: 'Siliguri, West Bengal', type: 'mountain', stars: 3,
+        motto: 'Thunderbolt',
+        divisions: [
+          { number: 17, shortName: '17th Mountain Division', name: '17th Mountain Division', location: 'Gangtok, Sikkim', type: 'mountain', stars: 2 },
+          { number: 20, shortName: '20th Mountain Division', name: '20th Mountain Division', location: 'Binnaguri, West Bengal', type: 'mountain', stars: 2 },
+          { number: 27, shortName: '27th Mountain Division', name: '27th Mountain Division', location: 'Kalimpong, West Bengal', type: 'mountain', stars: 2 },
+        ],
+      },
+      {
+        id: 'ec-101', number: null, romanNumber: null,
+        name: '101 Area', nickname: 'First in Phantoms',
+        location: 'Shillong, Meghalaya', type: 'infantry', stars: 3,
+        motto: '',
+        divisions: [],
+      },
+      {
+        id: 'ec-111', number: null, romanNumber: null,
+        name: '111 Area', nickname: 'Sub Area',
+        location: 'Bengdubi, West Bengal', type: 'strategic', stars: 3,
+        motto: '',
+        divisions: [],
+      },
+    ],
+  },
+
+  {
+    id: 'central',
+    name: 'Central Command',
+    abbreviation: 'CC',
+    emblem: armyCentralEmblem,
+    location: 'Lucknow',
+    state: 'Uttar Pradesh',
+    stars: 3,
+    accentColor: '#4C5D34',
+    shieldColor: '#3A4828',
+    tagline: 'Heart of the Nation\'s Defence',
+    established: 1920,
+    areaOfOps: 'Uttar Pradesh, Madhya Pradesh, Uttarakhand, Bihar, Jharkhand, Odisha, Chhattisgarh',
+    corps: [
+      {
+        id: 'cc-uba', number: null, romanNumber: null,
+        name: 'Uttar Bharat Area', nickname: 'UB Area',
+        location: 'Bareilly', type: 'infantry', stars: 3,
+        motto: '',
+        divisions: [
+          { number: 14, shortName: '14 RAPID Division', name: '14 RAPID Division', location: 'Dehradun', type: 'rapid', stars: 2 },
+          { number: 9, shortName: '9 (Indep) Mountain Bde', name: '9 (Independent) Mountain Brigade', location: 'Joshimath', type: 'mountain', stars: 1 },
+          { number: 136, shortName: '136 (Indep) Mountain Bde', name: '136 (Independent) Mountain Brigade', location: 'Poo', type: 'mountain', stars: 1 },
+          { number: 119, shortName: '119 (Indep) Mountain Bde', name: '119 (Independent) Mountain Brigade', location: 'Pithoragarh', type: 'mountain', stars: 1 },
+        ],
+      },
+      {
+        id: 'cc-mba', number: null, romanNumber: null,
+        name: 'Madhya Bharat Area', nickname: 'MB Area',
+        location: 'Jabalpur', type: 'strategic', stars: 3,
+        motto: '',
+        divisions: [
+          { number: 50, shortName: '50 (Indep) Para Bde', name: '50 (Independent) Parachute Brigade', location: 'Agra', type: 'para', stars: 1 },
+        ],
+      },
+    ],
+  },
+
   {
     id: 'northern',
     name: 'Northern Command',
     abbreviation: 'NC',
+    emblem: armyNorthernEmblem,
     location: 'Udhampur',
     state: 'Jammu & Kashmir',
     stars: 3,
@@ -118,123 +239,59 @@ export const COMMANDS = [
     shieldColor: '#1E3A5F',
     tagline: 'Protecting the Northern Frontier',
     established: 1947,
-    areaOfOps: 'J&K, Ladakh, Himachal Pradesh',
+    areaOfOps: 'J&K, Ladakh, Himachal Pradesh, Punjab, Uttar Pradesh',
     corps: [
       {
         id: 'nc-14', number: 14, romanNumber: 'XIV',
-        name: '14 Corps', nickname: 'Fire & Fury Corps',
-        location: 'Leh', type: 'mountain', stars: 2,
+        name: 'XIV Corps', nickname: 'Fire and Fury Corps',
+        location: 'Leh, Ladakh', type: 'mountain', stars: 3,
         motto: 'Ready, Aye Ready',
         divisions: [
-          { number: 3,  shortName: '3 ID',  name: '3 Infantry Division',   location: 'Leh',        type: 'infantry' },
-          { number: 8,  shortName: '8 MD',  name: '8 Mountain Division',   location: 'Dalhousie',  type: 'mountain' },
+          { number: 3, shortName: '3rd Infantry Division', name: '3rd Infantry Division', location: 'Karu, Ladakh', type: 'infantry', stars: 2 },
+          { number: 8, shortName: '8th Mountain Division', name: '8th Mountain Division', location: 'Dras, Ladakh', type: 'mountain', stars: 2 },
+          { number: 72, shortName: '72nd Infantry Division', name: '72nd Infantry Division', location: 'Pathankot, Punjab', type: 'infantry', stars: 2 },
+          { number: 254, shortName: '254 (Indep) Armd Bde', name: '254 (Independent) Armoured Brigade', location: 'Leh, Ladakh', type: 'armoured', stars: 1 },
+          { number: 102, shortName: '102 (Indep) Inf Bde', name: '102 (Independent) Infantry Brigade', location: 'Partapur, Ladakh', type: 'infantry', stars: 1 },
+          { number: 118, shortName: '118 (Indep) Inf Bde', name: '118 (Independent) Infantry Brigade', location: 'Nyoma, Ladakh', type: 'infantry', stars: 1 },
         ],
       },
       {
         id: 'nc-15', number: 15, romanNumber: 'XV',
-        name: '15 Corps', nickname: 'Chinar Corps',
-        location: 'Srinagar', type: 'mountain', stars: 2,
+        name: 'XV Corps', nickname: 'Chinar Corps',
+        location: 'Srinagar, J&K', type: 'mountain', stars: 3,
         motto: 'Strike Hard',
         divisions: [
-          { number: 19, shortName: '19 ID', name: '19 Infantry Division',  location: 'Baramulla',  type: 'infantry' },
-          { number: 28, shortName: '28 ID', name: '28 Infantry Division',  location: 'Udhampur',   type: 'infantry' },
+          { number: 19, shortName: '19th Mountain Division', name: '19th Mountain Division', location: 'Baramulla, J&K', type: 'mountain', stars: 2 },
+          { number: 28, shortName: '28th Infantry Division', name: '28th Infantry Division', location: 'Gurez, J&K', type: 'infantry', stars: 2 },
+          { number: 901, shortName: 'RR "Kilo Force"', name: 'Rashtriya Rifles "Kilo Force"', location: 'J&K', type: 'rifles', stars: 2 },
+          { number: 902, shortName: 'RR "Victor Force"', name: 'Rashtriya Rifles "Victor Force"', location: 'J&K', type: 'rifles', stars: 2 },
         ],
       },
       {
         id: 'nc-16', number: 16, romanNumber: 'XVI',
-        name: '16 Corps', nickname: 'White Knight Corps',
-        location: 'Nagrota', type: 'mountain', stars: 2,
+        name: 'XVI Corps', nickname: 'White Knight Corps',
+        location: 'Nagrota, J&K', type: 'mountain', stars: 3,
         motto: 'Invincible',
         divisions: [
-          { number: 10, shortName: '10 ID', name: '10 Infantry Division',  location: 'Akhnoor',    type: 'infantry' },
-          { number: 25, shortName: '25 ID', name: '25 Infantry Division',  location: 'Ranikhet',   type: 'infantry' },
-          { number: 26, shortName: '26 ID', name: '26 Infantry Division',  location: 'Jammu',      type: 'infantry' },
+          { number: 10, shortName: '10 RAPID Division', name: '10 RAPID Division', location: 'Akhnoor, J&K', type: 'rapid', stars: 2 },
+          { number: 25, shortName: '25th Infantry Division', name: '25th Infantry Division', location: 'Rajauri, J&K', type: 'infantry', stars: 2 },
+          { number: 39, shortName: '39th Mountain Division', name: '39th Mountain Division', location: 'Yol, Himachal Pradesh', type: 'mountain', stars: 2 },
+          { number: 903, shortName: 'RR "Delta Force"', name: 'Rashtriya Rifles "Delta Force"', location: 'J&K', type: 'rifles', stars: 2 },
+          { number: 904, shortName: 'RR "Romeo Force"', name: 'Rashtriya Rifles "Romeo Force"', location: 'J&K', type: 'rifles', stars: 2 },
+          { number: 905, shortName: 'RR "Uniform Force"', name: 'Rashtriya Rifles "Uniform Force"', location: 'J&K', type: 'rifles', stars: 2 },
+          { number: 101, shortName: '10th Artillery Brigade', name: '10th Artillery Brigade', location: 'J&K', type: 'artillery', stars: 1 },
         ],
       },
-    ],
-  },
-
-  {
-    id: 'western',
-    name: 'Western Command',
-    abbreviation: 'WC',
-    location: 'Chandigarh',
-    state: 'Punjab',
-    stars: 3,
-    accentColor: '#276749',
-    shieldColor: '#1F4F37',
-    tagline: 'Sword Arm of the Army',
-    established: 1947,
-    areaOfOps: 'Punjab, Haryana, Himachal Pradesh, J&K (partial)',
-    corps: [
       {
-        id: 'wc-1', number: 1, romanNumber: 'I',
-        name: '1 Corps', nickname: 'Sudarshan Chakra Corps',
-        location: 'Mathura', type: 'strike', stars: 2,
+        id: 'nc-1', number: 1, romanNumber: 'I',
+        name: 'I Corps', nickname: 'Strike One Corps',
+        location: 'Mathura, UP', type: 'strike', stars: 3,
         motto: 'Strike Swiftly',
         divisions: [
-          { number: 2,  shortName: '2 AD',  name: '2 Armoured Division',   location: 'Ambala',     type: 'armoured' },
-          { number: 6,  shortName: '6 AD',  name: '6 Armoured Division',   location: 'Jhansi',     type: 'armoured' },
-          { number: 14, shortName: '14 ID', name: '14 Infantry Division',  location: 'Ferozpur',   type: 'infantry' },
-        ],
-      },
-      {
-        id: 'wc-2', number: 2, romanNumber: 'II',
-        name: '2 Corps', nickname: 'Kharga Corps',
-        location: 'Ambala', type: 'holding', stars: 2,
-        motto: 'Ever Ready',
-        divisions: [
-          { number: 7,  shortName: '7 ID',  name: '7 Infantry Division',   location: 'Ferozpur',   type: 'infantry' },
-          { number: 22, shortName: '22 ID', name: '22 Infantry Division',  location: 'Meerut',     type: 'infantry' },
-          { number: 29, shortName: '29 ID', name: '29 Infantry Division',  location: 'Pathankot',  type: 'infantry' },
-        ],
-      },
-      {
-        id: 'wc-11', number: 11, romanNumber: 'XI',
-        name: '11 Corps', nickname: 'Pratap Corps',
-        location: 'Jalandhar', type: 'holding', stars: 2,
-        motto: 'Vigilant and Victorious',
-        divisions: [
-          { number: 9,  shortName: '9 ID',  name: '9 Infantry Division',   location: 'Yol',        type: 'infantry' },
-          { number: 15, shortName: '15 ID', name: '15 Infantry Division',  location: 'Amritsar',   type: 'infantry' },
-          { number: 23, shortName: '23 ID', name: '23 Infantry Division',  location: 'Bathinda',   type: 'infantry' },
-        ],
-      },
-    ],
-  },
-
-  {
-    id: 'south-western',
-    name: 'South Western Command',
-    abbreviation: 'SWC',
-    location: 'Jaipur',
-    state: 'Rajasthan',
-    stars: 3,
-    accentColor: '#B7791F',
-    shieldColor: '#8B5E16',
-    tagline: 'Shield of the Desert',
-    established: 2005,
-    areaOfOps: 'Rajasthan, Gujarat',
-    corps: [
-      {
-        id: 'swc-10', number: 10, romanNumber: 'X',
-        name: '10 Corps', nickname: 'Chetak Corps',
-        location: 'Bathinda', type: 'strike', stars: 2,
-        motto: 'Fight to Win',
-        divisions: [
-          { number: 24, shortName: '24 ID', name: '24 Infantry Division',  location: 'Bikaner',    type: 'infantry' },
-          { number: 33, shortName: '33 AD', name: '33 Armoured Division',  location: 'Patiala',    type: 'armoured' },
-          { number: 42, shortName: '42 AD', name: '42 Armoured Division',  location: 'Jaipur',     type: 'armoured' },
-        ],
-      },
-      {
-        id: 'swc-12', number: 12, romanNumber: 'XII',
-        name: '12 Corps', nickname: 'Vijay Corps',
-        location: 'Jodhpur', type: 'holding', stars: 2,
-        motto: 'Victory or Death',
-        divisions: [
-          { number: 11, shortName: '11 ID', name: '11 Infantry Division',  location: 'Ahmedabad',  type: 'infantry' },
-          { number: 12, shortName: '12 ID', name: '12 Infantry Division',  location: 'Jodhpur',    type: 'infantry' },
+          { number: 4, shortName: '4 RAPID Division', name: '4 RAPID Division', location: 'Prayagraj, UP', type: 'rapid', stars: 2 },
+          { number: 6, shortName: '6th Mountain Division', name: '6th Mountain Division', location: 'Bareilly, UP', type: 'mountain', stars: 2 },
+          { number: 42, shortName: '42nd Artillery Division', name: '42nd Artillery Division', location: 'Bassi, Rajasthan', type: 'artillery', stars: 2 },
+          { number: 141, shortName: '14 (Indep) Armd Bde', name: '14 (Independent) Armoured Brigade', location: 'Bhatinda, Punjab', type: 'armoured', stars: 1 },
         ],
       },
     ],
@@ -244,6 +301,7 @@ export const COMMANDS = [
     id: 'southern',
     name: 'Southern Command',
     abbreviation: 'SC',
+    emblem: armySouthernEmblem,
     location: 'Pune',
     state: 'Maharashtra',
     stars: 3,
@@ -251,92 +309,158 @@ export const COMMANDS = [
     shieldColor: '#5A3410',
     tagline: 'Guardian of the Peninsula',
     established: 1895,
-    areaOfOps: 'Maharashtra, Andhra Pradesh, Karnataka, Tamil Nadu, Goa',
+    areaOfOps: 'Maharashtra, Gujarat, Rajasthan, Madhya Pradesh, Telangana, Tamil Nadu, Goa, Andhra Pradesh, Karnataka',
     corps: [
+      {
+        id: 'sc-12', number: 12, romanNumber: 'XII',
+        name: 'XII Corps', nickname: 'Konark Corps',
+        location: 'Jodhpur, Rajasthan', type: 'holding', stars: 3,
+        motto: 'Victory Always',
+        divisions: [
+          { number: 11, shortName: '11th Infantry Division', name: '11th Infantry Division', location: 'Ahmedabad, Gujarat', type: 'infantry', stars: 2 },
+          { number: 12, shortName: '12 RAPID Division', name: '12 RAPID Division', location: 'Jaisalmer, Rajasthan', type: 'rapid', stars: 2 },
+          { number: 75, shortName: '75 (Indep) Inf Bde', name: '75 (Independent) Infantry Brigade', location: 'Bhuj, Gujarat', type: 'infantry', stars: 1 },
+          { number: 4, shortName: '4 (Indep) Armd Bde', name: '4 (Independent) Armoured Brigade', location: 'Jaisalmer, Rajasthan', type: 'armoured', stars: 1 },
+          { number: 340, shortName: '340 (Indep) Mech Bde', name: '340 (Independent) Mechanized Brigade', location: 'Ajmer, Rajasthan', type: 'mechanized', stars: 1 },
+        ],
+      },
       {
         id: 'sc-21', number: 21, romanNumber: 'XXI',
-        name: '21 Corps', nickname: 'Red Eagle Corps',
-        location: 'Bhopal', type: 'strike', stars: 2,
+        name: 'XXI Corps', nickname: 'Sudarshan Chakra Corps',
+        location: 'Bhopal, Madhya Pradesh', type: 'strike', stars: 3,
         motto: 'Strike & Win',
         divisions: [
-          { number: 31, shortName: '31 AD', name: '31 Armoured Division',  location: 'Jhansi',     type: 'armoured' },
-          { number: 36, shortName: '36 ID', name: '36 Infantry Division',  location: 'Secunderabad', type: 'infantry' },
-          { number: 54, shortName: '54 ID', name: '54 Infantry Division',  location: 'Hyderabad',  type: 'infantry' },
+          { number: 54, shortName: '54th Infantry Division', name: '54th Infantry Division', location: 'Secunderabad, Telangana', type: 'infantry', stars: 2 },
+          { number: 36, shortName: '36 RAPID Division', name: '36 RAPID Division', location: 'Sagar, Madhya Pradesh', type: 'rapid', stars: 2 },
+          { number: 31, shortName: '31st Armoured Division', name: '31st Armoured Division', location: 'Jhansi, Uttar Pradesh', type: 'armoured', stars: 2 },
+          { number: 41, shortName: '41st Artillery Division', name: '41st Artillery Division', location: 'Pune, Maharashtra', type: 'artillery', stars: 2 },
+          { number: 475, shortName: '475th Engineering Brigade', name: '475th Engineering Brigade', location: 'Nasirabad, Rajasthan', type: 'engineering', stars: 1 },
         ],
+      },
+      {
+        id: 'sc-mgga', number: null, romanNumber: null,
+        name: 'Maharashtra, Gujarat, and Goa Area', nickname: 'MG&G Area',
+        location: 'Mumbai, Maharashtra', type: 'infantry', stars: 3,
+        motto: '',
+        divisions: [],
+      },
+      {
+        id: 'sc-dba', number: null, romanNumber: null,
+        name: 'Dakshin Bharat Area', nickname: 'DB Area',
+        location: 'Chennai, Tamil Nadu', type: 'infantry', stars: 3,
+        motto: '',
+        divisions: [],
       },
     ],
   },
 
   {
-    id: 'eastern',
-    name: 'Eastern Command',
-    abbreviation: 'EC',
-    location: 'Kolkata',
-    state: 'West Bengal',
+    id: 'south-western',
+    name: 'South Western Command',
+    abbreviation: 'SWC',
+    emblem: armySouthWesternEmblem,
+    location: 'Jaipur',
+    state: 'Rajasthan',
     stars: 3,
-    accentColor: '#2F855A',
-    shieldColor: '#1F6044',
-    tagline: 'Sentinel of the East',
-    established: 1942,
-    areaOfOps: 'West Bengal, Sikkim, Arunachal Pradesh, Meghalaya, Assam, Nagaland, Manipur, Tripura, Mizoram',
+    accentColor: '#B7791F',
+    shieldColor: '#8B5E16',
+    tagline: 'Shield of the Desert',
+    established: 2005,
+    areaOfOps: 'Rajasthan, Gujarat, Punjab, Haryana, Uttar Pradesh',
     corps: [
       {
-        id: 'ec-3', number: 3, romanNumber: 'III',
-        name: '3 Corps', nickname: 'Spear Corps',
-        location: 'Dimapur', type: 'mountain', stars: 2,
-        motto: 'Stab and Strike',
-        divisions: [
-          { number: 2,  shortName: '2 ID',  name: '2 Infantry Division',   location: 'Dimapur',    type: 'infantry' },
-          { number: 4,  shortName: '4 ID',  name: '4 Infantry Division',   location: 'Tezpur',     type: 'infantry' },
-          { number: 57, shortName: '57 MD', name: '57 Mountain Division',  location: 'Leimakhong', type: 'mountain' },
-        ],
-      },
-      {
-        id: 'ec-4', number: 4, romanNumber: 'IV',
-        name: '4 Corps', nickname: 'Trishul Corps',
-        location: 'Tezpur', type: 'mountain', stars: 2,
-        motto: 'Destroy Evil',
-        divisions: [
-          { number: 5,  shortName: '5 MD',  name: '5 Mountain Division',   location: 'Bomdila',    type: 'mountain' },
-          { number: 56, shortName: '56 MD', name: '56 Mountain Division',  location: 'Missamari',  type: 'mountain' },
-        ],
-      },
-      {
-        id: 'ec-33', number: 33, romanNumber: 'XXXIII',
-        name: '33 Corps', nickname: 'Vajra Corps',
-        location: 'Sukna', type: 'mountain', stars: 2,
-        motto: 'Thunderbolt',
-        divisions: [
-          { number: 17, shortName: '17 MD', name: '17 Mountain Division',  location: 'Gangtok',    type: 'mountain' },
-          { number: 20, shortName: '20 MD', name: '20 Mountain Division',  location: 'Binnaguri',  type: 'mountain' },
-          { number: 27, shortName: '27 MD', name: '27 Mountain Division',  location: 'Kalimpong',  type: 'mountain' },
-        ],
-      },
-    ],
-  },
-
-  {
-    id: 'central',
-    name: 'Central Command',
-    abbreviation: 'CC',
-    location: 'Lucknow',
-    state: 'Uttar Pradesh',
-    stars: 3,
-    accentColor: '#4C5D34',
-    shieldColor: '#3A4828',
-    tagline: 'Heart of the Nation\'s Defence',
-    established: 1920,
-    areaOfOps: 'Uttar Pradesh, Madhya Pradesh, Bihar, Jharkhand, Odisha, Chhattisgarh',
-    corps: [
-      {
-        id: 'cc-reserve', number: null, romanNumber: null,
-        name: 'Strategic Reserve', nickname: 'Central Reserve',
-        location: 'Lucknow', type: 'strategic', stars: null,
+        id: 'swc-direct', number: null, romanNumber: null,
+        name: 'Direct Command Formations', nickname: 'Direct Units',
+        location: 'Jaipur, Rajasthan', type: 'artillery', stars: null,
         motto: '',
         divisions: [
-          { number: 6,  shortName: '6 MD',  name: '6 Mountain Division',   location: 'Bareilly',   type: 'mountain' },
-          { number: 21, shortName: '21 ID', name: '21 Infantry Division',  location: 'Bhopal',     type: 'infantry' },
-          { number: 40, shortName: '40 AD', name: '40 Artillery Division', location: 'Lucknow',    type: 'artillery' },
+          { number: 42, shortName: '42nd Artillery Division', name: '42nd Artillery Division', location: 'Jaipur, Rajasthan', type: 'artillery', stars: 2 },
+          { number: 33, shortName: '33rd Armoured Division', name: '33rd Armoured Division', location: 'Hisar, Haryana', type: 'armoured', stars: 2 },
+        ],
+      },
+      {
+        id: 'swc-10', number: 10, romanNumber: 'X',
+        name: 'X Corps', nickname: 'Chetak Corps',
+        location: 'Bathinda, Punjab', type: 'holding', stars: 3,
+        motto: 'Fight to Win',
+        divisions: [
+          { number: 16, shortName: '16th Infantry Division', name: '16th Infantry Division', location: 'Sri Ganganagar, Rajasthan', type: 'infantry', stars: 2 },
+          { number: 18, shortName: '18 RAPID Division', name: '18 RAPID Division', location: 'Kota, Rajasthan', type: 'rapid', stars: 2 },
+          { number: 24, shortName: '24 RAPID Division', name: '24 RAPID Division', location: 'Bikaner, Rajasthan', type: 'rapid', stars: 2 },
+          { number: 6, shortName: '6 (Indep) Armd Bde', name: '6 (Independent) Armoured Brigade', location: 'Bhatinda, Punjab', type: 'armoured', stars: 1 },
+          { number: 615, shortName: '615 Air-defence Brigade', name: '615th Air-defence Brigade', location: 'Agra, Uttar Pradesh', type: 'airdefence', stars: 1 },
+          { number: 471, shortName: '471 Engineering Brigade', name: '471st Engineering Brigade', location: 'N/A', type: 'engineering', stars: 1 },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: 'western',
+    name: 'Western Command',
+    abbreviation: 'WC',
+    emblem: armyWesternEmblem,
+    location: 'Chandimandir',
+    state: 'Haryana',
+    stars: 3,
+    accentColor: '#276749',
+    shieldColor: '#1F4F37',
+    tagline: 'Sword Arm of the Army',
+    established: 1947,
+    areaOfOps: 'Punjab, Haryana, Himachal Pradesh, J&K, Uttar Pradesh',
+    corps: [
+      {
+        id: 'wc-2', number: 2, romanNumber: 'II',
+        name: 'II Corps', nickname: 'Kharga Corps',
+        location: 'Ambala, Haryana', type: 'holding', stars: 3,
+        motto: 'Ever Ready',
+        divisions: [
+          { number: 1, shortName: '1st Armoured Division', name: '1st Armoured Division', location: 'Patiala, Punjab', type: 'armoured', stars: 2 },
+          { number: 9, shortName: '9th Infantry Division', name: '9th Infantry Division', location: 'Meerut, Uttar Pradesh', type: 'infantry', stars: 2 },
+          { number: 22, shortName: '22nd Infantry Division', name: '22nd Infantry Division', location: 'Meerut, Uttar Pradesh', type: 'infantry', stars: 2 },
+          { number: 40, shortName: '40th Artillery Division', name: '40th Artillery Division', location: 'Ambala, Haryana', type: 'artillery', stars: 2 },
+          { number: 16, shortName: '16 (Indep) Armd Bde', name: '16 (Independent) Armoured Brigade', location: 'Mamun, Punjab', type: 'armoured', stars: 1 },
+          { number: 612, shortName: '612 Air-defence Brigade', name: '612th Air-defence Brigade', location: 'N/A', type: 'airdefence', stars: 1 },
+          { number: 474, shortName: '474 Engineering Brigade', name: '474th Engineering Brigade', location: 'N/A', type: 'engineering', stars: 1 },
+        ],
+      },
+      {
+        id: 'wc-9', number: 9, romanNumber: 'IX',
+        name: 'IX Corps', nickname: 'Rising Star Corps',
+        location: 'Yol, Himachal Pradesh', type: 'holding', stars: 3,
+        motto: 'Vigilant and Victorious',
+        divisions: [
+          { number: 26, shortName: '26th Infantry Division', name: '26th Infantry Division', location: 'Jammu, J&K', type: 'infantry', stars: 2 },
+          { number: 29, shortName: '29th Infantry Division', name: '29th Infantry Division', location: 'Pathankot, Punjab', type: 'infantry', stars: 2 },
+          { number: 2, shortName: '2 (Indep) Armd Bde', name: '2 (Independent) Armoured Brigade', location: 'Mamun, Punjab', type: 'armoured', stars: 1 },
+          { number: 3, shortName: '3 (Indep) Armd Bde', name: '3 (Independent) Armoured Brigade', location: 'Ratnuchak, J&K', type: 'armoured', stars: 1 },
+        ],
+      },
+      {
+        id: 'wc-11', number: 11, romanNumber: 'XI',
+        name: 'XI Corps', nickname: 'Vajra Corps',
+        location: 'Jalandhar, Punjab', type: 'holding', stars: 3,
+        motto: 'Victory or Death',
+        divisions: [
+          { number: 7, shortName: '7th Infantry Division', name: '7th Infantry Division', location: 'Firozpur, Punjab', type: 'infantry', stars: 2 },
+          { number: 15, shortName: '15th Infantry Division', name: '15th Infantry Division', location: 'Amritsar, Punjab', type: 'infantry', stars: 2 },
+          { number: 23, shortName: '23 (Indep) Armd Bde', name: '23 (Independent) Armoured Brigade', location: 'Khasa, Punjab', type: 'armoured', stars: 1 },
+          { number: 55, shortName: '55 (Indep) Mech Bde', name: '55 (Independent) Mechanised Brigade', location: 'Beas, Punjab', type: 'mechanized', stars: 1 },
+        ],
+      },
+    ],
+  },
+      {
+        id: 'wc-11', number: 11, romanNumber: 'XI',
+        name: 'XI Corps', nickname: 'Vajra Corps',
+        location: 'Jalandhar', type: 'holding', stars: 3,
+        motto: 'Victory or Death',
+        divisions: [
+          { number: 7, shortName: '7th Infantry Division', name: '7th Infantry Division', location: 'Firozpur', type: 'infantry', stars: 2 },
+          { number: 9, shortName: '9th Infantry Division', name: '9th Infantry Division', location: 'Meerut', type: 'infantry', stars: 2 },
+          { number: 15, shortName: '15th Infantry Division', name: '15th Infantry Division', location: 'Amritsar', type: 'infantry', stars: 2 },
+          { number: 230, shortName: '23rd Armoured Brigade', name: '23rd Armoured Brigade', location: 'Jalandhar', type: 'armoured', stars: 1 },
+          { number: 550, shortName: '55th Mechanised Brigade', name: '55th Mechanised Brigade', location: 'Jalandhar', type: 'mechanized', stars: 1 },
         ],
       },
     ],
@@ -346,6 +470,7 @@ export const COMMANDS = [
     id: 'training',
     name: 'Training Command',
     abbreviation: 'TC',
+    emblem: armyTrainingEmblem,
     location: 'Shimla',
     state: 'Himachal Pradesh',
     stars: 3,
@@ -361,7 +486,7 @@ export const COMMANDS = [
         location: 'Shimla', type: 'training', stars: null,
         motto: '',
         divisions: [
-          { number: 1, shortName: '1 Arty', name: '1 Artillery Division', location: 'Nasik Road', type: 'artillery' },
+          { number: 1, shortName: '1st Artillery Division', name: '1st Artillery Division', location: 'Nasik Road', type: 'artillery', stars: 2 },
         ],
       },
     ],

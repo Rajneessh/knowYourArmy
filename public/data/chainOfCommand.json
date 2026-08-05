@@ -1,0 +1,132 @@
+{
+  "title": "ARMY HEADQUARTERS",
+  "commander": "CHIEF OF THE ARMY STAFF",
+  "rank": "GENERAL",
+  "stars": 4,
+  "children": [
+    {
+      "id": "operational-commands",
+      "title": "OPERATIONAL COMMANDS (6)",
+      "commander": "COMMANDED BY GOC-IN-C (ARMY COMMANDER)",
+      "rank": "LIEUTENANT GENERAL",
+      "stars": 3,
+      "children": [
+        {
+          "id": "corps",
+          "title": "CORPS",
+          "commander": "COMMANDED BY GOC (CORPS COMMANDER)",
+          "rank": "LIEUTENANT GENERAL",
+          "stars": 3,
+          "comprises": "COMPRISES OF 3-4 DIVISIONS.",
+          "children": [
+            {
+              "id": "division",
+              "title": "DIVISION",
+              "commander": "COMMANDED BY GOC (DIVISION COMMANDER)",
+              "rank": "MAJOR GENERAL",
+              "stars": 2,
+              "comprises": "COMPRISES OF 3-4 BRIGADES.",
+              "children": [
+                {
+                  "id": "brigade",
+                  "title": "BRIGADE",
+                  "commander": "COMMANDED BY BRIGADE COMMANDER",
+                  "rank": "BRIGADIER",
+                  "stars": 1,
+                  "comprises": "COMPRISES OF 3 BATTALIONS & SUPPORT ELEMENTS.",
+                  "children": [
+                    {
+                      "id": "battalion",
+                      "title": "BATTALION/REGIMENT",
+                      "commander": "COMMANDED BY COMMANDING OFFICER",
+                      "rank": "COLONEL",
+                      "comprises": "COMPRISES OF 4 RIFLE COMPANIES.",
+                      "children": [
+                        {
+                          "id": "rifle-company",
+                          "title": "RIFLE COMPANY",
+                          "commander": "COMMANDED BY COMPANY COMMANDER",
+                          "rank": "LIEUTENANT COLONEL/MAJOR",
+                          "comprises": "COMPRISES OF 3 PLATOONS.",
+                          "children": [
+                            {
+                              "id": "platoon",
+                              "title": "PLATOON",
+                              "commander": "COMMANDED BY PLATOON COMMANDER",
+                              "rank": "JCO",
+                              "comprises": "COMPRISES OF 3 SECTIONS.",
+                              "children": [
+                                {
+                                  "id": "section",
+                                  "title": "SECTION",
+                                  "commander": "COMMANDED BY SECTION COMMANDER",
+                                  "rank": "HAVILDAR",
+                                  "comprises": "SMALLEST COMPONENT. (10 MEN)",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "static-formations",
+          "title": "STATIC FORMATIONS AREA",
+          "commander": "COMMANDED BY LIEUTENANT GENERAL",
+          "rank": "LIEUTENANT GENERAL",
+          "stars": 3,
+          "children": [
+            {
+              "id": "sub-area",
+              "title": "SUB AREA",
+              "commander": "COMMANDED BY MAJOR GENERAL",
+              "rank": "MAJOR GENERAL",
+              "stars": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "army-training",
+      "title": "ARMY TRAINING (1)",
+      "commander": "COMMANDED BY GOC-IN-C (ARMY COMMANDER)",
+      "rank": "LIEUTENANT GENERAL",
+      "stars": 3,
+      "children": [
+        {
+          "id": "training-establishments",
+          "title": "TRAINING ESTABLISHMENTS",
+          "children": [
+            {
+              "id": "category-a",
+              "title": "CATEGORY A",
+              "commander": "COMMANDED BY LIEUTENANT GENERAL OR COMMANDED BY MAJOR GENERAL",
+              "rank": "LIEUTENANT GENERAL / MAJOR GENERAL",
+              "stars": "3 / 2",
+              "children": [
+                {
+                  "id": "category-b",
+                  "title": "CATEGORY B",
+                  "commander": "COMMANDED BY MAJOR GENERAL OR BRIGADIER",
+                  "rank": "MAJOR GENERAL / BRIGADIER",
+                  "stars": "2 / 1",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceCredit": "SOURCE CREDIT INDIANARMY.NIC.IN"
+}

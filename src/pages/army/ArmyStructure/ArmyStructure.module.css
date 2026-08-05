@@ -101,46 +101,168 @@
   opacity: 0.45;
 }
 
-/* ---- Commands section ---- */
-.commandsSection {
+/* ---- Visually Separated Commands Panel (Requirement 5) ---- */
+.commandsPanel {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-4);
+  background: rgba(23, 33, 15, 0.45);
+  border: 1px solid rgba(164, 170, 136, 0.25);
+  border-top: 3px solid var(--brass);
+  border-radius: 14px;
+  padding: clamp(1.2rem, 3vw, 2.2rem) clamp(1rem, 2.5vw, 1.8rem);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(14px);
+  width: 100%;
 }
 
 .sectionBanner {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: 0.5em 2em;
+  justify-content: center;
+  padding: 0.6em 2.5em;
   border: 1px solid rgba(176, 141, 62, 0.35);
-  border-radius: 4px;
-  background: rgba(176, 141, 62, 0.08);
+  border-radius: 6px;
+  background: rgba(176, 141, 62, 0.1);
+  text-align: center;
+  margin: 0 auto;
 }
 
-.bannerNumber {
+.bannerTextWrapCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.bannerTitleCentered {
   font-family: var(--font-display);
-  font-size: var(--step-3);
+  font-size: var(--step-2);
   font-weight: 700;
   color: var(--brass);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.bannerSubtextCentered {
+  font-family: var(--font-mono);
+  font-size: clamp(0.74rem, 0.88vw, 0.85rem);
+  letter-spacing: 0.08em;
+  color: var(--sage);
+  opacity: 0.95;
+  text-align: center;
+}
+
+/* Top Army HQ Tree Node in Commands Panel */
+.commandsTreeHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.hqCardNode {
+  background: rgba(23, 33, 15, 0.9);
+  border: 2px solid var(--brass);
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.hqEmblemWrap {
+  width: clamp(68px, 7.5vw, 92px);
+  height: clamp(74px, 8.2vw, 98px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 6px;
+}
+
+.hqEmblemImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.hqTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  margin: 0;
+}
+
+.hqChief {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--brass);
+  letter-spacing: 0.05em;
+}
+
+.hqLoc {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--sage);
+  letter-spacing: 0.06em;
+}
+
+/* Connectors from Army HQ down to 7 Commands */
+.hqStemDown {
+  width: 2px;
+  height: 20px;
+  background: var(--brass);
+}
+
+.hqBridgeLine {
+  width: 86%;
+  height: 2px;
+  background: var(--olive);
+}
+
+.hqStemsGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  gap: clamp(0.6rem, 1.5vw, 1.2rem);
+}
+
+.hqSubStemLine {
+  width: 2px;
+  height: 16px;
+  background: var(--olive);
+  margin: 0 auto;
+  position: relative;
+}
+
+.hqSubStemLine::after {
+  content: '▼';
+  font-size: 8px;
+  color: var(--olive);
+  position: absolute;
+  bottom: -6px;
+  left: -3px;
   line-height: 1;
 }
 
-.bannerText {
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--sage);
-}
-
-/* 7-column grid for shields */
+/* 7-column grid for shields with equal stretch height (Requirement 4) */
 .commandsGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: clamp(0.6rem, 1.5vw, 1.2rem);
   width: 100%;
+  align-items: stretch;
 }
 
 /* ---- Command shield card ---- */
@@ -148,9 +270,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-2);
-  background: rgba(23, 33, 15, 0.5);
-  border: 1px solid rgba(236, 231, 214, 0.1);
+  background: rgba(23, 33, 15, 0.65);
+  border: 1px solid rgba(236, 231, 214, 0.12);
   border-radius: 10px;
   padding: var(--space-3) var(--space-2);
   cursor: pointer;
@@ -161,62 +284,65 @@
   font: inherit;
   color: inherit;
   width: 100%;
+  height: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
 }
 
 .commandShield:hover,
 .commandShield:focus-visible {
   transform: translateY(-4px);
   border-color: var(--cmd-color);
-  background: rgba(23, 33, 15, 0.7);
+  background: rgba(23, 33, 15, 0.85);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   outline: none;
 }
 
-/* Hexagonal shield shape using clip-path */
-.shieldHex {
-  width: clamp(48px, 5.5vw, 70px);
-  height: clamp(54px, 6.2vw, 79px);
-  background: var(--cmd-shield);
-  border: 2px solid var(--cmd-color);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--duration-fast) var(--ease-standard);
-}
-
-.commandShield:hover .shieldHex {
-  background: var(--cmd-color);
-}
-
-.shieldInner {
+/* Emblem image container in command cards */
+.emblemContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1px;
+  gap: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .shieldStars {
-  font-size: 0.45rem;
-  letter-spacing: 1px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
   color: var(--brass);
   line-height: 1;
 }
 
-.shieldAbbr {
-  font-family: var(--font-display);
-  font-size: clamp(0.65rem, 0.8vw, 0.9rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--paper);
-  line-height: 1;
+.emblemImageWrap {
+  width: clamp(68px, 7.5vw, 92px);
+  height: clamp(74px, 8.2vw, 98px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shieldEmblemImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.65));
+  transition: transform 0.2s ease;
+}
+
+.commandShield:hover .shieldEmblemImg {
+  transform: scale(1.1);
 }
 
 .commandLabel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  justify-content: flex-end;
+  gap: 3px;
   text-align: center;
+  flex: 1;
+  width: 100%;
 }
 
 .commandName {
@@ -224,7 +350,12 @@
   font-size: clamp(0.6rem, 0.75vw, 0.82rem);
   font-weight: 600;
   color: var(--paper);
-  line-height: 1.2;
+  line-height: 1.25;
+  min-height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .commandLoc {
@@ -232,6 +363,34 @@
   font-size: clamp(0.55rem, 0.65vw, 0.72rem);
   color: var(--sage);
   letter-spacing: 0.08em;
+}
+
+/* Section Separator Line (Requirement 5) */
+.sectionSeparator {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.separatorLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--olive), transparent);
+  opacity: 0.6;
+}
+
+.separatorBadge {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.2em;
+  color: var(--sage);
+  background: rgba(23, 33, 15, 0.8);
+  border: 1px solid rgba(164, 170, 136, 0.3);
+  padding: 0.3em 1.2em;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
 
 /* ---- Chain of command flow ---- */
@@ -262,108 +421,270 @@
   line-height: 1.6;
 }
 
-.chainFlow {
+/* ---- Chain of command tree structure styles matching Image 1 & Picture 2 ---- */
+.chainSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
   width: 100%;
-  max-width: 860px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
 }
 
-.chainItem {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-/* Connector between hierarchy levels */
-.chainConnector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: var(--space-1) 0;
-}
-
-.connectorLine {
-  width: 2px;
-  height: 1rem;
-  background: linear-gradient(to bottom, var(--olive), transparent);
-}
-
-.connectorLabel {
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sage);
-  background: rgba(23, 33, 15, 0.7);
-  border: 1px solid rgba(164, 170, 136, 0.25);
-  border-radius: 3px;
-  padding: 0.25em 1.2em;
-  text-align: center;
-  opacity: 0.85;
-}
-
-.connectorArrow {
-  font-size: 0.75rem;
-  color: var(--olive);
-  opacity: 0.7;
-}
-
-/* Hierarchy level cards */
-.chainCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  align-items: center;
-  padding: var(--space-3) var(--space-4);
-  border-radius: 8px;
-  border: 1px solid rgba(236, 231, 214, 0.1);
-  background: rgba(23, 33, 15, 0.5);
-  backdrop-filter: blur(12px);
-  border-left: 4px solid;
-  transition: transform var(--duration-fast) var(--ease-standard);
-}
-
-.chainCard:hover {
-  transform: translateX(4px);
-}
-
-/* Left border accent per level */
-.chain_army      { border-left-color: var(--brass); }
-.chain_command   { border-left-color: #4C5D34; }
-.chain_corps     { border-left-color: #276749; }
-.chain_division  { border-left-color: #2F855A; }
-.chain_brigade   { border-left-color: #A4AA88; }
-.chain_battalion { border-left-color: #5B7742; }
-.chain_company   { border-left-color: var(--sage); }
-
-.chainCardUnit {
+.chainTitle {
   font-family: var(--font-display);
-  font-size: var(--step-1);
+  font-size: var(--step-2);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   color: var(--paper);
-  display: block;
-  margin-bottom: 2px;
+  text-align: center;
+  margin: 0;
 }
 
-.chainCardRank {
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  letter-spacing: 0.08em;
-  color: var(--brass);
-  display: block;
-  opacity: 0.85;
-}
-
-.chainCardDesc {
+.chainSubtitle {
   font-family: var(--font-body);
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   color: var(--paper-dim);
-  line-height: 1.45;
-  display: block;
+  text-align: center;
+  max-width: 52rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.treeOuterScroll {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.treeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 820px;
+  padding: 0.5rem;
+}
+
+.treeNodeLevel0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Card aesthetics matching Picture 2 */
+.treeCard {
+  background: rgba(23, 33, 15, 0.85);
+  border: 1px solid rgba(164, 170, 136, 0.35);
+  border-top: 3px solid var(--brass);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.treeCard:hover {
+  border-color: #809D5B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(91, 119, 66, 0.35);
+}
+
+.rootCard {
+  max-width: 580px;
+  background: rgba(23, 33, 15, 0.95);
+  border: 2px solid var(--brass);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.opCard, .trainingCard {
+  background: rgba(23, 33, 15, 0.9);
+}
+
+.treeTitle {
+  font-family: var(--font-display);
+  font-size: clamp(0.92rem, 1.1vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #ECE7D6;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.treeCommander {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+  letter-spacing: 0.05em;
+  color: var(--sage);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.treeRank {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+  font-weight: 700;
+  color: var(--brass);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+
+.treeStars {
+  color: #E2B045;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.treeComprises {
+  font-family: var(--font-body);
+  font-size: clamp(0.68rem, 0.8vw, 0.76rem);
+  color: var(--paper-dim);
+  margin-top: 6px;
+  letter-spacing: 0.03em;
+  opacity: 0.9;
+}
+
+/* Connecting Lines */
+.connectorDown {
+  width: 2px;
+  height: 26px;
+  background: linear-gradient(to bottom, var(--brass), var(--olive));
+  margin: 0 auto;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.connectorDown::after {
+  content: '▼';
+  font-size: 9px;
+  color: var(--olive);
+  position: absolute;
+  bottom: -8px;
+  left: -3.5px;
+  line-height: 1;
+}
+
+/* Branch Splitters */
+.mainSplitter {
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontalLine {
+  width: 100%;
+  height: 2px;
+  background: var(--olive);
+}
+
+.splitConnectors {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.splitStemLeft, .splitStemRight {
+  width: 2px;
+  height: 22px;
+  background: var(--olive);
+  position: relative;
+}
+
+.splitStemLeft::after, .splitStemRight::after {
+  content: '▼';
+  font-size: 8px;
+  color: var(--olive);
+  position: absolute;
+  bottom: -7px;
+  left: -3px;
+  line-height: 1;
+}
+
+/* Tree Grid Columns */
+.treeColumns {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 1.8rem;
+  width: 100%;
+  align-items: start;
+}
+
+.opCommandsBranch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.subSplitter {
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subHorizontalLine {
+  width: 100%;
+  height: 2px;
+  background: var(--olive);
+}
+
+.subSplitConnectors {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subColumns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.2rem;
+  width: 100%;
+  align-items: start;
+}
+
+.corpsSubBranch, .staticSubBranch, .trainingBranch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.chainNodeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sourceCredit {
+  margin-top: 3rem;
+  align-self: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--sage);
+  opacity: 0.75;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.loadingBox {
+  padding: 3rem;
+  font-family: var(--font-mono);
+  color: var(--sage);
+  font-size: 1rem;
 }
 
 /* ---- CTA ---- */

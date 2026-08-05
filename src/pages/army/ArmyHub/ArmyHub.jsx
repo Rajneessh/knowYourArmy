@@ -1,8 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import { ModuleCard } from '../../../components/ModuleCard/ModuleCard';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import armyEmblem from '../../../assets/emblems/army.png';
 import styles from './ArmyHub.module.css';
-
 
 const ARMY_MODULES = {
   row1: [
@@ -65,6 +65,7 @@ const STAGGER_STEP = 65;
 
 export function ArmyHub() {
   useDocumentTitle('Indian Army');
+  const navigate = useNavigate();
 
   return (
     <div className={`${styles.page} texture-topo`}>
@@ -72,12 +73,16 @@ export function ArmyHub() {
 
         {/* ---- Centered Header ---- */}
         <header className={styles.header}>
-          <div
-            className={`${styles.emblemWrap} animate__animated animate__fadeIn`}
+          <button
+            onClick={() => navigate('/')}
+            className={`${styles.emblemWrap} ${styles.emblemButton} animate__animated animate__fadeIn`}
             style={{ animationDelay: '0ms', animationFillMode: 'both' }}
+            aria-label="Go to Home Landing Page"
+            title="Go to Home Landing Page"
+            type="button"
           >
             <img src={armyEmblem} alt="Indian Army emblem" className={styles.emblem} />
-          </div>
+          </button>
 
           <h1
             className={`${styles.title} animate__animated animate__fadeIn`}

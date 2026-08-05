@@ -1,15 +1,16 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
-import { COMMANDS, HIERARCHY_LEVELS, ARMY_HQ } from './data/commands';
+import { PageHeader } from '../../../components/PageHeader/PageHeader';
+import { COMMANDS, ARMY_HQ } from './data/commands';
+import fallbackChainData from './data/chainOfCommand.json';
 import armyEmblem from '../../../assets/emblems/army.png';
 import styles from './ArmyStructure.module.css';
 
 /* ---- Sub-components ---- */
 
-/** Hexagonal shield badge for each command */
+/** Card badge for each command with emblem image */
 function CommandShield({ command, index }) {
-  const navigate = useNavigate();
   const ref = useRef(null);
 
   const handleClick = useCallback(() => {
@@ -17,7 +18,6 @@ function CommandShield({ command, index }) {
     if (el) {
       el.classList.add('animate__animated', 'animate__pulse');
     }
-    // Scroll to details section on same page (no nav — just for reference)
     document.getElementById('structure-details')?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
@@ -29,12 +29,16 @@ function CommandShield({ command, index }) {
       onClick={handleClick}
       aria-label={`${command.name} — ${command.location}`}
     >
-      <div className={styles.shieldHex}>
-        <div className={styles.shieldInner}>
-          <span className={styles.shieldStars}>
-            {'★'.repeat(command.stars)}
-          </span>
-          <span className={styles.shieldAbbr}>{command.abbreviation}</span>
+      <div className={styles.emblemContainer}>
+        <div className={styles.emblemImageWrap}>
+          <img
+            src={command.emblem || armyEmblem}
+            alt={`${command.name} emblem`}
+            className={styles.shieldEmblemImg}
+            onError={(e) => {
+              e.currentTarget.src = armyEmblem;
+            }}
+          />
         </div>
       </div>
       <div className={styles.commandLabel}>
@@ -45,16 +49,155 @@ function CommandShield({ command, index }) {
   );
 }
 
-/** One row of generic unit boxes at a hierarchy level */
-function HierarchyRow({ level }) {
-  const count = level.showCount ?? 1;
+/** Render star rating icons */
+function StarsBadge({ stars }) {
+  if (!stars) return null;
+  if (typeof stars === 'string') {
+    return <div className={styles.treeStars}>{stars}</div>;
+  }
+  return <div className={styles.treeStars}>{'★'.repeat(stars)}</div>;
+}
+
+/** Tree Card Node Component */
+function TreeNodeCard({ node, extraClass = '' }) {
+  if (!node) return null;
   return (
-    <div className={styles.hierarchyRow} data-level={level.id}>
-      {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className={`${styles.hierUnit} ${styles[`hierUnit_${level.id}`]}`}>
-          <span className={styles.hierUnitLabel}>{level.unitLabel}</span>
+    <div className={`${styles.treeCard} ${extraClass}`}>
+      <div className={styles.treeCardHeader}>
+        <h3 className={styles.treeTitle}>{node.title}</h3>
+      </div>
+      {node.commander && (
+        <div className={styles.treeCommander}>{node.commander}</div>
+      )}
+      {node.rank && (
+        <div className={styles.treeRank}>RANK — {node.rank}</div>
+      )}
+      <StarsBadge stars={node.stars} />
+      {node.comprises && (
+        <div className={styles.treeComprises}>{node.comprises}</div>
+      )}
+    </div>
+  );
+}
+
+/** Interactive & Responsive Tree Diagram matching Image 1 & Picture 2 styling */
+function ChainOfCommandTree({ data }) {
+  if (!data) return null;
+
+  const opCommandsNode = data.children?.[0]; // OPERATIONAL COMMANDS (6)
+  const armyTrainingNode = data.children?.[1]; // ARMY TRAINING (1)
+
+  const corpsNode = opCommandsNode?.children?.[0]; // CORPS
+  const staticFormationsNode = opCommandsNode?.children?.[1]; // STATIC FORMATIONS AREA
+  const subAreaNode = staticFormationsNode?.children?.[0]; // SUB AREA
+
+  const trainingEstNode = armyTrainingNode?.children?.[0]; // TRAINING ESTABLISHMENTS
+  const catANode = trainingEstNode?.children?.[0]; // CATEGORY A
+  const catBNode = catANode?.children?.[0]; // CATEGORY B
+
+  // Linear chain under CORPS
+  const corpsChain = [];
+  let curr = corpsNode?.children?.[0];
+  while (curr) {
+    corpsChain.push(curr);
+    curr = curr.children?.[0];
+  }
+
+  return (
+    <div className={styles.treeWrapper}>
+      {/* Level 0: ARMY HEADQUARTERS */}
+      <div className={styles.treeNodeLevel0}>
+        <TreeNodeCard node={data} extraClass={styles.rootCard} />
+        <div className={styles.connectorDown} />
+      </div>
+
+      {/* Main Branch Splitter: Operational Commands vs Army Training */}
+      <div className={styles.mainSplitter}>
+        <div className={styles.horizontalLine} />
+        <div className={styles.splitConnectors}>
+          <div className={styles.splitStemLeft} />
+          <div className={styles.splitStemRight} />
         </div>
-      ))}
+      </div>
+
+      {/* Level 1: 2 Main Columns */}
+      <div className={styles.treeColumns}>
+        
+        {/* Left Main Branch: OPERATIONAL COMMANDS (6) */}
+        <div className={styles.opCommandsBranch}>
+          <TreeNodeCard node={opCommandsNode} extraClass={styles.opCard} />
+          <div className={styles.connectorDown} />
+
+          {/* Sub Splitter under Operational Commands: CORPS vs STATIC FORMATIONS */}
+          <div className={styles.subSplitter}>
+            <div className={styles.subHorizontalLine} />
+            <div className={styles.subSplitConnectors}>
+              <div className={styles.splitStemLeft} />
+              <div className={styles.splitStemRight} />
+            </div>
+          </div>
+
+          <div className={styles.subColumns}>
+            {/* Sub Column 1: CORPS & Downward Chain */}
+            <div className={styles.corpsSubBranch}>
+              <TreeNodeCard node={corpsNode} extraClass={styles.corpsCard} />
+              
+              {/* Vertical chain under CORPS */}
+              {corpsChain.map((node, i) => (
+                <div key={node.id || i} className={styles.chainNodeWrapper}>
+                  <div className={styles.connectorDown} />
+                  <TreeNodeCard node={node} extraClass={styles[`chainCard_${node.id}`]} />
+                </div>
+              ))}
+            </div>
+
+            {/* Sub Column 2: STATIC FORMATIONS AREA & SUB AREA */}
+            <div className={styles.staticSubBranch}>
+              <TreeNodeCard node={staticFormationsNode} extraClass={styles.staticCard} />
+              {subAreaNode && (
+                <>
+                  <div className={styles.connectorDown} />
+                  <TreeNodeCard node={subAreaNode} extraClass={styles.subAreaCard} />
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Main Branch: ARMY TRAINING (1) */}
+        <div className={styles.trainingBranch}>
+          <TreeNodeCard node={armyTrainingNode} extraClass={styles.trainingCard} />
+          
+          {trainingEstNode && (
+            <>
+              <div className={styles.connectorDown} />
+              <TreeNodeCard node={trainingEstNode} extraClass={styles.estCard} />
+            </>
+          )}
+
+          {catANode && (
+            <>
+              <div className={styles.connectorDown} />
+              <TreeNodeCard node={catANode} extraClass={styles.catACard} />
+            </>
+          )}
+
+          {catBNode && (
+            <>
+              <div className={styles.connectorDown} />
+              <TreeNodeCard node={catBNode} extraClass={styles.catBCard} />
+            </>
+          )}
+        </div>
+
+      </div>
+
+      {/* Source Credit */}
+      {data.sourceCredit && (
+        <div className={styles.sourceCredit}>
+          {data.sourceCredit}
+        </div>
+      )}
     </div>
   );
 }
@@ -64,6 +207,26 @@ function HierarchyRow({ level }) {
 export function ArmyStructure() {
   useDocumentTitle('Indian Army — Command Structure');
   const navigate = useNavigate();
+  const [treeData, setTreeData] = useState(fallbackChainData);
+  const [loading, setLoading] = useState(true);
+
+  // Requirement 4: Fetch JSON data dynamically
+  useEffect(() => {
+    fetch('/data/chainOfCommand.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch from public/data');
+        return res.json();
+      })
+      .then((data) => {
+        setTreeData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.warn('Using fallback local JSON import for chain of command:', err);
+        setTreeData(fallbackChainData);
+        setLoading(false);
+      });
+  }, []);
 
   const goToDetails = useCallback(() => {
     navigate('/army/structure/details');
@@ -73,26 +236,57 @@ export function ArmyStructure() {
     <div className={`${styles.page} texture-topo`}>
       <div className={styles.inner}>
 
-        {/* ── Page header ── */}
-        <header className={`${styles.pageHeader} animate__animated animate__fadeInDown`}>
-          <img src={armyEmblem} alt="Indian Army emblem" className={styles.headerEmblem} />
-          <div className={styles.headerText}>
-            <p className={styles.headerEyebrow}>Indian Army</p>
-            <h1 className={styles.headerTitle}>Command Structure</h1>
-            <p className={styles.headerMotto}>सेवा परमो धर्मः — Service Before Self</p>
-          </div>
-        </header>
+        {/* ── Requirement 1 & 2: Reusable Centered Header with Back Button ── */}
+        <PageHeader
+          eyebrow="Indian Army"
+          title="Command Structure"
+          motto="सेवा परमो धर्मः — Service Before Self"
+          backTo="/army"
+          backText="Back to Army"
+        />
 
         <div className={styles.divider} />
 
-        {/* ── 7 Commands row ── */}
-        <section className={styles.commandsSection}>
+        {/* ── Visually Separated Commands Panel with Tree Structure (Army HQ → 7 Commands) ── */}
+        <section className={styles.commandsPanel}>
+          {/* ── Banner ── */}
           <div className={`${styles.sectionBanner} animate__animated animate__fadeIn`}
                style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
-            <span className={styles.bannerNumber}>7</span>
-            <span className={styles.bannerText}>COMMANDS — THE INDIAN ARMY</span>
+            <div className={styles.bannerTextWrapCentered}>
+              <span className={styles.bannerTitleCentered}>7 Commands</span>
+              <span className={styles.bannerSubtextCentered}>6 Operational Commands 1 Training Command</span>
+            </div>
           </div>
 
+          {/* ── Top Tree Node: ARMY HEADQUARTERS ── */}
+          <div className={styles.commandsTreeHead}>
+            <div className={styles.hqCardNode}>
+              <div className={styles.hqEmblemWrap}>
+                <img
+                  src={ARMY_HQ.emblem || armyEmblem}
+                  alt="Army Headquarters emblem"
+                  className={styles.hqEmblemImg}
+                  onError={(e) => {
+                    e.currentTarget.src = armyEmblem;
+                  }}
+                />
+              </div>
+              <h3 className={styles.hqTitle}>ARMY HEADQUARTERS</h3>
+              <span className={styles.hqChief}>Chief of the Army Staff (COAS)</span>
+              <span className={styles.hqLoc}>New Delhi</span>
+            </div>
+            
+            {/* Connectors from Army HQ down to the 7 Commands */}
+            <div className={styles.hqStemDown} />
+            <div className={styles.hqBridgeLine} />
+            <div className={styles.hqStemsGrid}>
+              {COMMANDS.map((cmd) => (
+                <div key={`stem-${cmd.id}`} className={styles.hqSubStemLine} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── 7 Commands grid with image placeholders ── */}
           <div className={styles.commandsGrid}>
             {COMMANDS.map((cmd, i) => (
               <div
@@ -106,52 +300,26 @@ export function ArmyStructure() {
           </div>
         </section>
 
-        {/* ── Chain of command flow ── */}
+        {/* ── Visual Section Separator ── */}
+        <div className={styles.sectionSeparator}>
+          <span className={styles.separatorLine} />
+          <span className={styles.separatorBadge}>ECHELON HIERARCHY</span>
+          <span className={styles.separatorLine} />
+        </div>
+
+        {/* ── Chain of command tree structure section ── */}
         <section id="structure-details" className={styles.chainSection}>
           <h2 className={styles.chainTitle}>Chain of Command</h2>
           <p className={styles.chainSubtitle}>
-            Every unit in the Indian Army belongs to a precise echelon — from Army HQ down to the individual Company.
+            Every unit in the Indian Army belongs to a precise echelon — from Army HQ down to the individual Company & Section.
           </p>
 
-          <div className={styles.chainFlow}>
-            {HIERARCHY_LEVELS.map((level, i) => (
-              <div key={level.id} className={styles.chainItem}
-                   style={{ animationDelay: `${600 + i * 100}ms` }}>
-
-                {/* Connector arrow from previous level */}
-                {i > 0 && (
-                  <div className={styles.chainConnector}>
-                    <div className={styles.connectorLine} />
-                    <div className={styles.connectorLabel}>
-                      {level.count} {level.unitLabel}{parseInt(level.count) !== 1 ? 's' : ''} per {HIERARCHY_LEVELS[i - 1].unitLabel}
-                    </div>
-                    <div className={styles.connectorArrow}>▼</div>
-                  </div>
-                )}
-
-                {/* Level card */}
-                <div
-                  className={`${styles.chainCard} ${styles[`chain_${level.id}`]}`}
-                  style={{ '--chain-depth': i }}
-                >
-                  <div className={styles.chainCardLeft}>
-                    <span className={styles.chainCardUnit}>{level.label}</span>
-                    <span className={styles.chainCardRank}>{level.commanderRank}</span>
-                  </div>
-                  <div className={styles.chainCardRight}>
-                    <span className={styles.chainCardDesc}>{level.description}</span>
-                  </div>
-                  {/* Generic unit boxes on the right (like Image 1) */}
-                  {level.showCount && (
-                    <div className={styles.chainMiniRow}>
-                      {Array.from({ length: level.showCount }).map((_, j) => (
-                        <div key={j} className={styles.chainMiniUnit} />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+          <div className={styles.treeOuterScroll}>
+            {loading ? (
+              <div className={styles.loadingBox}>Loading Command Tree...</div>
+            ) : (
+              <ChainOfCommandTree data={treeData} />
+            )}
           </div>
         </section>
 
@@ -173,3 +341,5 @@ export function ArmyStructure() {
     </div>
   );
 }
+
+
