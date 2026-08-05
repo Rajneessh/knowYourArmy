@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './TimelineRail.module.css';
 
 /**
@@ -36,9 +37,11 @@ function TimelineDot({ era, isActive, onSelect, index }) {
  *   orientation {'vertical'|'horizontal'}  Desktop = vertical, mobile = horizontal
  *   branchLabel {string}             Label shown in the rail header, e.g. "Indian Army"
  *   accentColor {string}             CSS color for the active dot (hex / rgba / CSS var)
+ *   backTo      {string}             Route path to navigate back to (default "/army")
  */
-export function TimelineRail({ eras, activeIndex, onSelect, orientation, branchLabel, accentColor }) {
+export function TimelineRail({ eras, activeIndex, onSelect, orientation, branchLabel, accentColor, backTo = '/army' }) {
   const railRef = useRef(null);
+  const navigate = useNavigate();
 
   // On mobile, keep the active dot scrolled into view within the horizontal strip.
   useEffect(() => {
@@ -58,6 +61,15 @@ export function TimelineRail({ eras, activeIndex, onSelect, orientation, branchL
       style={accentColor ? { '--rail-accent': accentColor } : undefined}
     >
       <div className={styles.railHeader}>
+        <button
+          type="button"
+          onClick={() => navigate(backTo)}
+          className={styles.backButton}
+          aria-label="Back to Army Hub"
+        >
+          <span className={styles.backArrow}>←</span>
+          <span className={styles.backLabel}>Back</span>
+        </button>
         <span className={styles.railEyebrow}>History</span>
         <span className={styles.railHeadline}>{branchLabel ?? 'History'}</span>
       </div>

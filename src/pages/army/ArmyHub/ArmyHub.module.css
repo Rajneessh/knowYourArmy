@@ -106,10 +106,12 @@
 .motto {
   font-family: var(--font-mono);
   font-size: var(--step--1);
-  color: var(--brass);
+  color: #E0B84A;
+  font-weight: 600;
   letter-spacing: 0.1em;
   margin: 0;
-  opacity: 0.9;
+  opacity: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* ---- Divider ---- */

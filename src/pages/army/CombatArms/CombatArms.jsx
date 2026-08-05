@@ -59,7 +59,9 @@ function EquipmentCard({ item }) {
       </div>
       <div className={styles.equipInfo}>
         <span className={styles.equipName}>{item.name}</span>
-        <span className={styles.equipType}>{item.type}</span>
+        <span className={styles.equipType}>
+          {item.type}{item.caliber ? ` • ${item.caliber}` : ''}
+        </span>
       </div>
     </div>
   );
@@ -241,13 +243,7 @@ function ArmColumn({ arm, expandedSections, onToggleSection }) {
                               </h4>
                               <div className={styles.equipCategoryGrid}>
                                 {items.map((item) => (
-                                  <div key={item.name} className={styles.weaponCard}>
-                                    <span className={styles.weaponName}>{item.name}</span>
-                                    <span className={styles.weaponType}>{item.type}</span>
-                                    {item.caliber && (
-                                      <span className={styles.weaponCaliber}>Caliber: {item.caliber}</span>
-                                    )}
-                                  </div>
+                                  <EquipmentCard key={item.name} item={item} />
                                 ))}
                               </div>
                             </div>
