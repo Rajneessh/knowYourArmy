@@ -1,11 +1,14 @@
 .card {
   position: relative;
   flex: 1 1 0;
+  min-width: 200px;
+  max-width: 380px;
+  min-height: min(520px, 65vh);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 2.8em 1.4em 2.2em;
+  padding: 2.2rem 1.2rem 2rem;
   border-radius: 20px;
   border: 2px solid var(--card-border, var(--card-accent));
   background: var(--card-bg);

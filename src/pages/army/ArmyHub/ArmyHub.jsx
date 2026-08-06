@@ -2,14 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { ModuleCard } from '../../../components/ModuleCard/ModuleCard';
 import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import armyEmblem from '../../../assets/emblems/army.png';
-import structureImg from '../../../assets/army/ArmyFrontPage/Structure.png';
-import armsImg from '../../../assets/army/ArmyFrontPage/ArmsAndServices.png';
-import regimentsImg from '../../../assets/army/ArmyFrontPage/Regiments.png';
-import historyImg from '../../../assets/army/ArmyFrontPage/History.png';
-import chiefsImg from '../../../assets/army/ArmyFrontPage/ArmyChief.png';
-import conflictsImg from '../../../assets/army/ArmyFrontPage/WarsAndConflicts.png';
-import humanitarianImg from '../../../assets/army/ArmyFrontPage/HumanitarianEfforts.jpeg';
-import heroesImg from '../../../assets/army/ArmyFrontPage/Heroes.jpg';
+import structureImg from '../../../assets/army/ArmyFrontPage/Structure.webp';
+import armsImg from '../../../assets/army/ArmyFrontPage/ArmsAndServices.webp';
+import regimentsImg from '../../../assets/army/ArmyFrontPage/Regiments.webp';
+import historyImg from '../../../assets/army/ArmyFrontPage/History.webp';
+import chiefsImg from '../../../assets/army/ArmyFrontPage/ArmyChief.webp';
+import conflictsImg from '../../../assets/army/ArmyFrontPage/WarsAndConflicts.webp';
+import humanitarianImg from '../../../assets/army/ArmyFrontPage/HumanitarianEfforts.webp';
+import heroesImg from '../../../assets/army/ArmyFrontPage/Heroes.webp';
 import styles from './ArmyHub.module.css';
 
 const ARMY_MODULES = {
@@ -58,7 +58,7 @@ const ARMY_MODULES = {
       isUnderDevelopment: true,
     },
     {
-      label: 'Conflicts & Wars',
+      label: 'Operations',
       description: 'Battles & campaigns',
       to: '/army/conflicts',
       accentColor: '#7A3B1E',

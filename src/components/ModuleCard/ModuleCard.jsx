@@ -87,14 +87,11 @@ export function ModuleCard({
         )}
       </div>
 
-      {/* ---- Lower half: label + description ---- */}
+      {/* ---- Lower half: label ---- */}
       <div className={styles.labelArea}>
         <div className={styles.labelRow}>
           <span className={styles.label}>{label}</span>
         </div>
-        {description && (
-          <span className={styles.description}>{description}</span>
-        )}
       </div>
     </a>
   );
