@@ -31,24 +31,6 @@ const ARMY_MODULES = {
       isUnderDevelopment: false,
     },
     {
-      label: 'Regiments',
-      description: 'Infantry & armoured',
-      to: '/army/regiments',
-      accentColor: '#A4AA88',
-      imageSrc: regimentsImg,
-      isUnderDevelopment: true,
-    },
-    {
-      label: 'History',
-      description: 'From antiquity to now',
-      to: '/army/history',
-      accentColor: '#B08D3E',
-      imageSrc: historyImg,
-      isUnderDevelopment: true,
-    },
-  ],
-  row2: [
-    {
       label: 'Chiefs of Army Staff',
       description: 'Generals of the nation',
       to: '/army/chiefs',
@@ -63,6 +45,24 @@ const ARMY_MODULES = {
       to: '/army/conflicts',
       accentColor: '#7A3B1E',
       imageSrc: conflictsImg,
+      isUnderDevelopment: false,
+    },
+  ],
+  row2: [
+    {
+      label: 'Regiments',
+      description: 'Infantry & armoured',
+      to: '/army/regiments',
+      accentColor: '#A4AA88',
+      imageSrc: regimentsImg,
+      isUnderDevelopment: true,
+    },
+    {
+      label: 'History',
+      description: 'From antiquity to now',
+      to: '/army/history',
+      accentColor: '#B08D3E',
+      imageSrc: historyImg,
       isUnderDevelopment: true,
     },
     {

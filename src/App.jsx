@@ -20,6 +20,9 @@ const ArmyHub = lazy(() =>
 const ArmyHistory = lazy(() =>
   import('./pages/army/ArmyHistory/ArmyHistory').then((m) => ({ default: m.ArmyHistory }))
 );
+const ArmyOperations = lazy(() =>
+  import('./pages/army/ArmyOperations/ArmyOperations').then((m) => ({ default: m.ArmyOperations }))
+);
 
 // ---- Army: Structure module ----
 const ArmyStructure = lazy(() =>
@@ -93,7 +96,7 @@ export default function App() {
         <Route path="/army/arms/services"       element={<ComingSoon service="Services"                  backTo="/army/arms" />} />
 
         <Route path="/army/regiments"          element={<ComingSoon service="Regiments"                 backTo="/army" />} />
-        <Route path="/army/conflicts"          element={<ComingSoon service="Conflicts & Wars"          backTo="/army" />} />
+        <Route path="/army/conflicts"          element={<ArmyOperations />} />
         <Route path="/army/heroes"             element={<ComingSoon service="Heroes"                    backTo="/army" />} />
         <Route path="/army/chiefs"             element={<ArmyChiefs />} />
         <Route path="/army/humanitarian"       element={<ComingSoon service="Humanitarian Efforts"      backTo="/army" />} />

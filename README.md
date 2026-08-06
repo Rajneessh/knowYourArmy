@@ -98,9 +98,9 @@ Then open the local URL Vite prints (typically `http://localhost:5173`).
 | `/army/arms/services` | `ComingSoon` | 🔴 Placeholder |
 | `/army/history` | `ArmyHistory` | ✅ Live |
 | `/army/regiments` | `ComingSoon` | 🔴 Placeholder |
-| `/army/conflicts` | `ComingSoon` | 🔴 Placeholder |
+| `/army/conflicts` | `ArmyOperations` | ✅ Live |
 | `/army/heroes` | `ComingSoon` | 🔴 Placeholder |
-| `/army/chiefs` | `ComingSoon` | 🔴 Placeholder |
+| `/army/chiefs` | `ArmyChiefs` | ✅ Live |
 | `/army/humanitarian` | `ComingSoon` | 🔴 Placeholder |
 | `/navy` | `ComingSoon` | 🔴 Placeholder |
 | `/airforce` | `ComingSoon` | 🔴 Placeholder |
@@ -164,8 +164,12 @@ knowYourArmy/
             ├── ArmyArms/            # "/army/arms" — category hub
             ├── CombatArms/          # "/army/arms/combat"
             │   └── data/            # infantry.json, mechanisedInfantry.json, armouredCorps.json
-            └── ArmyHistory/         # "/army/history"
-                └── data/            # history.json (5 eras)
+            ├── ArmyHistory/         # "/army/history"
+            │   └── data/            # history.json (5 eras)
+            ├── ArmyChiefs/          # "/army/chiefs" — chiefs and ranks
+            │   └── data/            # chiefs.json, ranksData.js
+            └── ArmyOperations/      # "/army/conflicts" — military operations
+                └── data/            # operations.json
 ```
 
 ---

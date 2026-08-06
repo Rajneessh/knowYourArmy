@@ -1,0 +1,396 @@
+.page {
+  color-scheme: dark;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  background: linear-gradient(160deg, var(--ink) 0%, var(--deep-green) 55%, var(--olive) 140%);
+  color: var(--paper);
+}
+
+/* Ambient blobs inherited from hub */
+.page::before,
+.page::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page::before {
+  width: 50vw;
+  height: 50vw;
+  top: -15vh;
+  right: -14vw;
+  background: radial-gradient(circle, var(--brass-dim), transparent 70%);
+}
+
+.page::after {
+  width: 60vw;
+  height: 60vw;
+  bottom: -22vh;
+  left: -18vw;
+  background: radial-gradient(circle, rgba(91, 119, 66, 0.3), transparent 70%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 6vw, 5rem) clamp(2rem, 4vh, 3rem);
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+/* Page Header */
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.emblemBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.25s ease;
+  width: clamp(60px, 7vw, 90px);
+  height: clamp(60px, 7vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblemBtn:hover {
+  transform: scale(1.08);
+}
+
+.emblem {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  margin: 0;
+  line-height: 1;
+}
+
+.pageMotto {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: #E0B84A;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--olive), transparent);
+  opacity: 0.5;
+  margin: var(--space-2) 0;
+}
+
+/* Nav bar / Buttons Row */
+.navRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.navBtn {
+  background: rgba(23, 33, 15, 0.6);
+  border: 1px solid var(--line-faint);
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.navBtn:hover {
+  color: var(--paper);
+  border-color: var(--paper-dim);
+  background: rgba(23, 33, 15, 0.85);
+}
+
+.navBtnAccent {
+  border-color: rgba(176, 141, 62, 0.4);
+}
+
+.navBtnAccent:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+/* Content Wrap & Sections */
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  scroll-margin-top: 2rem;
+}
+
+/* Section Separator */
+.sectionSeparator {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.separatorLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-faint), transparent);
+}
+
+.separatorBadge {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 1.2rem;
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+  background: rgba(23, 33, 15, 0.75);
+}
+
+.sectionDescription {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  color: var(--paper-dim);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-2);
+  line-height: 1.6;
+}
+
+/* Cards Stack: 1 card per row */
+.cardsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+/* Horizontal card design matching rough sketch layout */
+.opCard {
+  display: flex;
+  gap: var(--space-3);
+  background: rgba(23, 33, 15, 0.4);
+  border: 1px solid var(--line-faint);
+  padding: var(--space-3);
+  transition: all 0.3s var(--ease-standard);
+  border-radius: 6px;
+  backdrop-filter: blur(12px);
+}
+
+.opCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(176, 141, 62, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Photo placeholder (fixed ratio/size on left) */
+.photoContainer {
+  flex: 0 0 200px;
+  width: 200px;
+  height: 200px;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(164, 170, 136, 0.3);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.photoSvg {
+  width: 50px;
+  height: 50px;
+  opacity: 0.6;
+}
+
+.photoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--paper-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* Details area on right */
+.opDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.opHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.opName {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--paper);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.typeBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--paper);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Key stats / facts grid inside card */
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem 1rem;
+}
+
+.metaItem {
+  display: flex;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.metaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--brass);
+  font-weight: 600;
+  width: 90px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.metaVal {
+  color: var(--paper-dim);
+}
+
+.detailsDivider {
+  height: 1px;
+  background: var(--line-faint);
+  margin: 0.4rem 0;
+}
+
+/* Narrative section */
+.opNarrative {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--paper-dim);
+}
+
+.descriptionText strong,
+.significanceText strong {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-right: 0.4rem;
+}
+
+/* ---- Responsive breakpoints ---- */
+
+@media (max-width: 950px) {
+  .opCard {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .photoContainer {
+    flex: 0 0 160px;
+    width: 100%;
+    max-width: 320px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .inner {
+    padding: 1.5rem 1rem 2.5rem;
+    gap: 1.2rem;
+  }
+
+  .pageTitle {
+    font-size: var(--step-2);
+  }
+
+  .pageMotto {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metaLabel {
+    width: 80px;
+  }
+}
