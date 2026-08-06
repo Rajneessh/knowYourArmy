@@ -2,10 +2,54 @@
   "id": "armoured-corps",
   "name": "Armoured Corps",
   "motto": "Shield and Spear",
-  "headquarters": "",
-  "raisedOn": "",
-  "battalions": null,
-  "history": "",
-  "role": "Shock action, high mobility, and heavy firepower using Main Battle Tanks.",
-  "equipment": []
+  "role": "Forms the backbone of the Army's mechanised strike capability with high mobility, heavy armour and overwhelming firepower.",
+  "regimentsCount": 67,
+  "history": [
+    "The Armoured Corps is one of the premier combat arms of the Indian Army, tracing its origins to the first cavalry regiment raised in 1776.",
+    "The modern Armoured Corps was established in 1947 following India's independence, inheriting two-thirds of the personnel and assets of the British Indian Army's Indian Armoured Corps.",
+    "Popularly known as the Tank Regiment of the Indian Army, it forms the backbone of the Army's mechanised strike capability with high mobility, heavy armour and overwhelming firepower.",
+    "The Armoured Corps Centre and School is located at Ahmednagar, Maharashtra, while the President's Bodyguard serves as its senior-most regiment. The Corps currently comprises 67 armoured regiments, of which 21 have been awarded the President's Colours.",
+    "The Armoured Corps celebrates Armour Day every year on 1 May, commemorating the mechanisation of the Scinde Horse in 1938. From the Centurion and Vijayanta tanks during the 1965 and 1971 Indo-Pak Wars to today's T-72 Ajeya, T-90 Bhishma and indigenous Arjun Main Battle Tanks, the Corps continues to spearhead India's armoured warfare capabilities."
+  ],
+  "image": "",
+  "equipment": {
+    "mainBattleTanks": [
+      {
+        "name": "Arjun Mk1 / Mk1A",
+        "type": "Main Battle Tank",
+        "origin": "India",
+        "crew": 4,
+        "mainArmament": "120 mm Rifled Gun",
+        "secondaryArmament": "12.7 mm Anti-Aircraft Machine Gun",
+        "maxSpeed": "70 km/h"
+      },
+      {
+        "name": "T-90 Bhishma",
+        "type": "Main Battle Tank",
+        "origin": "Russia",
+        "crew": 3,
+        "mainArmament": "125 mm Smoothbore Gun",
+        "secondaryArmament": "7.62 mm Machine Gun, 12.7 mm Anti-Aircraft Machine Gun",
+        "maxSpeed": "60 km/h"
+      },
+      {
+        "name": "T-72 Ajeya",
+        "type": "Main Battle Tank",
+        "origin": "Soviet Union",
+        "crew": 3,
+        "mainArmament": "125 mm Smoothbore Gun",
+        "secondaryArmament": "7.62 mm Machine Gun, 12.7 mm Anti-Aircraft Machine Gun",
+        "maxSpeed": "60 km/h"
+      },
+      {
+        "name": "T-55",
+        "type": "Main Battle Tank",
+        "origin": "Soviet Union",
+        "crew": 4,
+        "mainArmament": "100 mm Rifled Gun",
+        "secondaryArmament": "7.62 mm Machine Gun",
+        "maxSpeed": "50 km/h"
+      }
+    ]
+  }
 }

@@ -41,7 +41,7 @@ const ARMS = [
     data: armouredCorpsData,
     emblem: armouredCorpsEmblem,
     accentVar: '--ca-armoured',
-    isReady: false,
+    isReady: true,
   },
 ];
 
@@ -234,6 +234,7 @@ function ArmColumn({ arm, expandedSections, onToggleSection }) {
                             sniperRifles: 'Sniper & Marksman Rifles',
                             antiMaterialRifles: 'Anti-Material Rifles',
                             machineGuns: 'Light & Heavy Machine Guns',
+                            mainBattleTanks: 'Main Battle Tanks',
                           };
 
                           return (
