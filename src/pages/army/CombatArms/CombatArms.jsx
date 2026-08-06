@@ -12,12 +12,72 @@ import mechanisedInfantryEmblem from '../../../assets/army/ArmsServices/Mechanis
 import bmp2Img from '../../../assets/army/ArmsServices/bmp2.webp';
 import kestrelImg from '../../../assets/army/ArmsServices/kestrel.webp';
 
+// Infantry Small Arms Imports
+import ak203Img from '../../../assets/army/ArmsServices/Equipments/AK203.jpg';
+import asmiImg from '../../../assets/army/ArmsServices/Equipments/ASMI.jpg';
+import barettaGunImg from '../../../assets/army/ArmsServices/Equipments/BarettaGun.jpg';
+import barrettM82Img from '../../../assets/army/ArmsServices/Equipments/BarrettM82A1.jpg';
+import dragunovImg from '../../../assets/army/ArmsServices/Equipments/DragunovSVD.jpg';
+import fnMinimiImg from '../../../assets/army/ArmsServices/Equipments/FNminimi.jpg';
+import mp5Img from '../../../assets/army/ArmsServices/Equipments/HecklerKochMP5.jpg';
+import insasImg from '../../../assets/army/ArmsServices/Equipments/INSAS1B1.JPG';
+import m4CarbineImg from '../../../assets/army/ArmsServices/Equipments/M4carbine.png';
+import mg2a1Img from '../../../assets/army/ArmsServices/Equipments/MG2A1.jpg';
+import microUziImg from '../../../assets/army/ArmsServices/Equipments/MicroUzi.jpg';
+import nsvImg from '../../../assets/army/ArmsServices/Equipments/NSV.jpg';
+import negevImg from '../../../assets/army/ArmsServices/Equipments/NegevNG7.jpg';
+import pkMachineGunImg from '../../../assets/army/ArmsServices/Equipments/PKMachineGun.JPG';
+import psg1Img from '../../../assets/army/ArmsServices/Equipments/PSG1.jpg';
+import pistol9mmImg from '../../../assets/army/ArmsServices/Equipments/Pistol9mm1A.JPG';
+import sakoTrgImg from '../../../assets/army/ArmsServices/Equipments/SakoTRG.jpg';
+import sig716iImg from '../../../assets/army/ArmsServices/Equipments/Sig716i.jpg';
+import tavorTar21Img from '../../../assets/army/ArmsServices/Equipments/TevorTar21.jpg';
+import tavorX95Img from '../../../assets/army/ArmsServices/Equipments/TevorX95.jpg';
+import vidhwansakImg from '../../../assets/army/ArmsServices/Equipments/Vidhwansak.jpg';
+import glockImg from '../../../assets/army/ArmsServices/Equipments/glock.jpg';
+
+// Armoured Corps Imports
+import ajeyaImg from '../../../assets/army/ArmsServices/Equipments/AjeyaTank.jpg';
+import arjunMk1Img from '../../../assets/army/ArmsServices/Equipments/ArjunMK1.jpg';
+import arjunMk1aImg from '../../../assets/army/ArmsServices/Equipments/ArjunMK1A.jpg';
+import bhishmaImg from '../../../assets/army/ArmsServices/Equipments/BhishmaTank.jpg';
+import t55Img from '../../../assets/army/ArmsServices/Equipments/T55Tank.jpg';
+import zorawarImg from '../../../assets/army/ArmsServices/Equipments/ZorawarTank.jpg';
+
 import styles from './CombatArms.module.css';
 
 /* ── Equipment image map (keyed by item name) ────────────────────── */
 const EQUIPMENT_IMAGES = {
   'BMP-2 Sarath': bmp2Img,
   'TATA Kestrel': kestrelImg,
+  'Pistol Auto 9mm 1A': pistol9mmImg,
+  'Glock': glockImg,
+  'Micro Uzi': microUziImg,
+  'Heckler & Koch MP5': mp5Img,
+  'ASMI': asmiImg,
+  'AK-203': ak203Img,
+  'SIG 716i': sig716iImg,
+  'INSAS 1B1': insasImg,
+  'Tavor TAR-21': tavorTar21Img,
+  'Tavor X95': tavorX95Img,
+  'M4A1 Carbine': m4CarbineImg,
+  'Dragunov SVD': dragunovImg,
+  'Sako TRG 42': sakoTrgImg,
+  'Heckler & Koch PSG1': psg1Img,
+  'Barrett M82': barrettM82Img,
+  'Vidhwansak': vidhwansakImg,
+  'IWI Negev NG7': negevImg,
+  'FN Minimi': fnMinimiImg,
+  'PK Machine Gun': pkMachineGunImg,
+  'MG 2A1': mg2a1Img,
+  'NSV': nsvImg,
+  'Arjun Mk1': arjunMk1Img,
+  'Arjun Mk1A': arjunMk1aImg,
+  'T-90 Bhishma': bhishmaImg,
+  'T-72 Ajeya': ajeyaImg,
+  'T-55': t55Img,
+  'Zorawar Light Tank': zorawarImg,
+  'Baretta Gun': barettaGunImg
 };
 
 /* ── static config per column ─────────────────────────────────────── */

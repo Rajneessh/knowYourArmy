@@ -16,7 +16,16 @@
   "equipment": {
     "mainBattleTanks": [
       {
-        "name": "Arjun Mk1 / Mk1A",
+        "name": "Arjun Mk1",
+        "type": "Main Battle Tank",
+        "origin": "India",
+        "crew": 4,
+        "mainArmament": "120 mm Rifled Gun",
+        "secondaryArmament": "12.7 mm Anti-Aircraft Machine Gun",
+        "maxSpeed": "70 km/h"
+      },
+      {
+        "name": "Arjun Mk1A",
         "type": "Main Battle Tank",
         "origin": "India",
         "crew": 4,
@@ -41,6 +50,15 @@
         "mainArmament": "125 mm Smoothbore Gun",
         "secondaryArmament": "7.62 mm Machine Gun, 12.7 mm Anti-Aircraft Machine Gun",
         "maxSpeed": "60 km/h"
+      },
+      {
+        "name": "Zorawar Light Tank",
+        "type": "Light Tank",
+        "origin": "India",
+        "crew": 3,
+        "mainArmament": "105 mm Rifled Gun",
+        "secondaryArmament": "7.62 mm Machine Gun",
+        "maxSpeed": "70 km/h"
       },
       {
         "name": "T-55",

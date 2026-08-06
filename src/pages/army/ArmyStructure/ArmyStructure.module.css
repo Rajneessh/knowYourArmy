@@ -469,8 +469,7 @@
   width: 100%;
   overflow-x: auto;
   padding: 1rem 0;
-  display: flex;
-  justify-content: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .treeWrapper {
@@ -481,6 +480,7 @@
   max-width: 1200px;
   min-width: 820px;
   padding: 0.5rem;
+  margin: 0 auto;
 }
 
 .treeNodeLevel0 {

@@ -4,6 +4,78 @@ import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 import chiefsData from './data/chiefs.json';
 import { RANK_STRUCTURE } from './data/ranksData';
 import armyEmblem from '../../../assets/emblems/army.png';
+
+// General Portrait Imports
+import gen1 from '../../../assets/army/ArmsServices/Generals/General_Sir_Mcgregor_Macdonald_Lockhart.jpg';
+import gen2 from '../../../assets/army/ArmsServices/Generals/General_Sir_Francis_Robert_Roy_Bucher.jpg';
+import gen3 from '../../../assets/army/ArmsServices/Generals/General_K._M._Cariappa.jpg';
+import gen4 from '../../../assets/army/ArmsServices/Generals/Gen_Maharaj_Shri_Rajendrasinhji_Jadeja.jpg';
+import gen5 from '../../../assets/army/ArmsServices/Generals/General_Satyawant_Mallana_Srinagesh.jpg';
+import gen6 from '../../../assets/army/ArmsServices/Generals/General_Kodandera_Subayya_Thimayya.jpg';
+import gen7 from '../../../assets/army/ArmsServices/Generals/General_Pran_Nath_Thapar.jpg';
+import gen8 from '../../../assets/army/ArmsServices/Generals/General_Jayanto_Nath_Chaudhuri.jpg';
+import gen9 from '../../../assets/army/ArmsServices/Generals/General_Paramasiva_Prabhakar_Kumramangalam.jpg';
+import gen10 from '../../../assets/army/ArmsServices/Generals/FM_Sam_Manekshaw.jpg';
+import gen11 from '../../../assets/army/ArmsServices/Generals/General_Gopal_Gurnath_Bewoor.jpg';
+import gen12 from '../../../assets/army/ArmsServices/Generals/General_Tapishwar_Narain_Raina.jpg';
+import gen13 from '../../../assets/army/ArmsServices/Generals/Om-prakash-Mhalotra.jpg';
+import gen14 from '../../../assets/army/ArmsServices/Generals/General_Kotikalapudi_Venkata_Krishna_Rao.jpg';
+import gen15 from '../../../assets/army/ArmsServices/Generals/General_Arunkumar_Shridhar_Vaidya.jpg';
+import gen16 from '../../../assets/army/ArmsServices/Generals/General_Krishnaswami_Sundarji.jpg';
+import gen17 from '../../../assets/army/ArmsServices/Generals/General_Vishwa_Nath_Sharma.jpg';
+import gen18 from '../../../assets/army/ArmsServices/Generals/General_Sunith_Francis_Rodrigues.jpg';
+import gen19 from '../../../assets/army/ArmsServices/Generals/General_Bipin_Chandra_Joshi.jpg';
+import gen20 from '../../../assets/army/ArmsServices/Generals/Gen_Shankar_Roy_Chowdhary.jpg';
+import gen21 from '../../../assets/army/ArmsServices/Generals/Gen_vp_malik1.jpg';
+import gen22 from '../../../assets/army/ArmsServices/Generals/General_Sundararajan_Padmanabhan.jpg';
+import gen23 from '../../../assets/army/ArmsServices/Generals/General_Nirmal_Chander_Vij.jpg';
+import gen24 from '../../../assets/army/ArmsServices/Generals/General_J._J._Singh.jpg';
+import gen25 from '../../../assets/army/ArmsServices/Generals/General_Deepak_Kapoor.jpg';
+import gen26 from '../../../assets/army/ArmsServices/Generals/General_Vijay_Kumar_Singh.jpg';
+import gen27 from '../../../assets/army/ArmsServices/Generals/Gen_Bikram_Singh.jpg';
+import gen28 from '../../../assets/army/ArmsServices/Generals/General_Dalbir_Singh_official_photo.jpg';
+import gen29 from '../../../assets/army/ArmsServices/Generals/Bipin_Rawat_(CDS).jpg';
+import gen30 from '../../../assets/army/ArmsServices/Generals/General_Manoj_Mukund_Naravane_PVSM_AVSM_SM_VSM_ADC_(1).jpg';
+import gen31 from '../../../assets/army/ArmsServices/Generals/Gen_Manoj_Pandey.jpg';
+import gen32 from '../../../assets/army/ArmsServices/Generals/General_Upendra_Dwivedi,_PVSM,_AVSM_(2024).jpg';
+import gen33 from '../../../assets/army/ArmsServices/Generals/General_Dhiraj_Seth,_COAS.jpg';
+
+const CHIEF_PORTRAITS = {
+  1: gen1,
+  2: gen2,
+  3: gen3,
+  4: gen4,
+  5: gen5,
+  6: gen6,
+  7: gen7,
+  8: gen8,
+  9: gen9,
+  10: gen10,
+  11: gen11,
+  12: gen12,
+  13: gen13,
+  14: gen14,
+  15: gen15,
+  16: gen16,
+  17: gen17,
+  18: gen18,
+  19: gen19,
+  20: gen20,
+  21: gen21,
+  22: gen22,
+  23: gen23,
+  24: gen24,
+  25: gen25,
+  26: gen26,
+  27: gen27,
+  28: gen28,
+  29: gen29,
+  30: gen30,
+  31: gen31,
+  32: gen32,
+  33: gen33,
+};
+
 import styles from './ArmyChiefs.module.css';
 
 
@@ -123,7 +195,9 @@ export function ArmyChiefs() {
                 >
                   {/* Portrait */}
                   <div className={styles.portraitWrap}>
-                    {chief.portrait ? (
+                    {CHIEF_PORTRAITS[chief.no] ? (
+                      <img src={CHIEF_PORTRAITS[chief.no]} alt={chief.name} className={styles.portraitImg} />
+                    ) : chief.portrait ? (
                       <img src={chief.portrait} alt={chief.name} className={styles.portraitImg} />
                     ) : (
                       <PortraitPlaceholder rank={chief.rank} />
