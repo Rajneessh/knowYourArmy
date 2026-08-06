@@ -1,0 +1,341 @@
+{
+  "title": "Chiefs of the Army Staff",
+  "description": "Chronological list of the Chiefs of the Army Staff and their predecessors since Indian Independence.",
+  "supremeCommander": {
+    "title": "Supreme Commander of the Indian Armed Forces",
+    "role": "President of India",
+    "note": "Under Article 53(2) of the Constitution of India, the Supreme Command of the Defence Forces of the Union is vested in the President of India."
+  },
+  "chiefs": [
+    {
+      "no": 1,
+      "name": "Sir Robert McGregor Macdonald Lockhart",
+      "rank": "General",
+      "designation": "Commander-in-Chief",
+      "portrait": "",
+      "tookOffice": "15 August 1947",
+      "leftOffice": "31 December 1947",
+      "unitOfCommission": "51st Sikhs"
+    },
+    {
+      "no": 2,
+      "name": "Sir Francis Robert Roy Bucher",
+      "rank": "General",
+      "designation": "Commander-in-Chief / Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 January 1948",
+      "leftOffice": "14 January 1949",
+      "unitOfCommission": "4th Cameronians"
+    },
+    {
+      "no": 3,
+      "name": "Kodandera Madappa Cariappa",
+      "rank": "Field Marshal",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "15 January 1949",
+      "leftOffice": "14 January 1953",
+      "unitOfCommission": "88th Carnatic Infantry"
+    },
+    {
+      "no": 4,
+      "name": "Maharaj Shri Rajendrasinhji Jadeja",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "14 January 1953",
+      "leftOffice": "14 May 1955",
+      "unitOfCommission": "2nd Lancers (Gardner's Horse)"
+    },
+    {
+      "no": 5,
+      "name": "Satyawant Mallanna Srinagesh",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "15 May 1955",
+      "leftOffice": "7 May 1957",
+      "unitOfCommission": "19th Hyderabad Regiment"
+    },
+    {
+      "no": 6,
+      "name": "Kodandera Subayya Thimayya",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "8 May 1957",
+      "leftOffice": "7 May 1961",
+      "unitOfCommission": "19th Hyderabad Regiment"
+    },
+    {
+      "no": 7,
+      "name": "Pran Nath Thapar",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "8 May 1961",
+      "leftOffice": "19 November 1962",
+      "unitOfCommission": "1st Punjab Regiment"
+    },
+    {
+      "no": 8,
+      "name": "Jayanto Nath Chaudhuri",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "20 November 1962",
+      "leftOffice": "7 June 1966",
+      "unitOfCommission": "16th Light Cavalry"
+    },
+    {
+      "no": 9,
+      "name": "Paramasiva Prabhakar Kumaramangalam",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "8 June 1966",
+      "leftOffice": "7 June 1969",
+      "unitOfCommission": "Regiment of Artillery"
+    },
+    {
+      "no": 10,
+      "name": "Sam Hormusji Framji Jamshedji Manekshaw",
+      "rank": "Field Marshal",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "8 June 1969",
+      "leftOffice": "15 January 1973",
+      "unitOfCommission": "8th Gorkha Rifles"
+    },
+    {
+      "no": 11,
+      "name": "Gopal Gurunath Bewoor",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "16 January 1973",
+      "leftOffice": "31 May 1975",
+      "unitOfCommission": "Dogra Regiment"
+    },
+    {
+      "no": 12,
+      "name": "Tapishwar Narain Raina",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 June 1975",
+      "leftOffice": "31 May 1978",
+      "unitOfCommission": "Kumaon Regiment"
+    },
+    {
+      "no": 13,
+      "name": "Om Prakash Malhotra",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 June 1978",
+      "leftOffice": "31 May 1981",
+      "unitOfCommission": "Regiment of Artillery"
+    },
+    {
+      "no": 14,
+      "name": "Kotikalapudi Venkata Krishna Rao",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 June 1981",
+      "leftOffice": "31 July 1983",
+      "unitOfCommission": "Mahar Regiment"
+    },
+    {
+      "no": 15,
+      "name": "Arunkumar Shridhar Vaidya",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 August 1983",
+      "leftOffice": "31 January 1986",
+      "unitOfCommission": "The Deccan Horse (9 Horse)"
+    },
+    {
+      "no": 16,
+      "name": "Krishnaswamy Sundarji",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 February 1986",
+      "leftOffice": "31 May 1988",
+      "unitOfCommission": "Mahar Regiment"
+    },
+    {
+      "no": 17,
+      "name": "Vishwa Nath Sharma",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 June 1988",
+      "leftOffice": "30 June 1990",
+      "unitOfCommission": "16th Light Cavalry"
+    },
+    {
+      "no": 18,
+      "name": "Sunith Francis Rodrigues",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 July 1990",
+      "leftOffice": "30 June 1993",
+      "unitOfCommission": "Regiment of Artillery"
+    },
+    {
+      "no": 19,
+      "name": "Bipin Chandra Joshi",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 July 1993",
+      "leftOffice": "19 November 1994",
+      "unitOfCommission": "64th Cavalry"
+    },
+    {
+      "no": 20,
+      "name": "Shankar Roy Chowdhary",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "20 November 1994",
+      "leftOffice": "30 September 1997",
+      "unitOfCommission": "20th Lancers"
+    },
+    {
+      "no": 21,
+      "name": "Ved Prakash Malik",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 October 1997",
+      "leftOffice": "30 September 2000",
+      "unitOfCommission": "Sikh Light Infantry"
+    },
+    {
+      "no": 22,
+      "name": "Sundararajan Padmanabhan",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 October 2000",
+      "leftOffice": "31 December 2002",
+      "unitOfCommission": "Regiment of Artillery"
+    },
+    {
+      "no": 23,
+      "name": "Nirmal Chander Vij",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 January 2003",
+      "leftOffice": "31 January 2005",
+      "unitOfCommission": "Dogra Regiment"
+    },
+    {
+      "no": 24,
+      "name": "Joginder Jaswant Singh",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 February 2005",
+      "leftOffice": "30 September 2007",
+      "unitOfCommission": "Maratha Light Infantry"
+    },
+    {
+      "no": 25,
+      "name": "Deepak Kapoor",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 October 2007",
+      "leftOffice": "31 March 2010",
+      "unitOfCommission": "Regiment of Artillery"
+    },
+    {
+      "no": 26,
+      "name": "Vijay Kumar Singh",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 April 2010",
+      "leftOffice": "31 May 2012",
+      "unitOfCommission": "Rajput Regiment"
+    },
+    {
+      "no": 27,
+      "name": "Bikram Singh",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "1 June 2012",
+      "leftOffice": "31 July 2014",
+      "unitOfCommission": "Sikh Light Infantry"
+    },
+    {
+      "no": 28,
+      "name": "Dalbir Singh Suhag",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "31 July 2014",
+      "leftOffice": "31 December 2016",
+      "unitOfCommission": "5th Gorkha Rifles"
+    },
+    {
+      "no": 29,
+      "name": "Bipin Rawat",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "31 December 2016",
+      "leftOffice": "31 December 2019",
+      "unitOfCommission": "11th Gorkha Rifles"
+    },
+    {
+      "no": 30,
+      "name": "Manoj Mukund Naravane",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "31 December 2019",
+      "leftOffice": "30 April 2022",
+      "unitOfCommission": "Sikh Light Infantry"
+    },
+    {
+      "no": 31,
+      "name": "Manoj Pande",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "30 April 2022",
+      "leftOffice": "30 June 2024",
+      "unitOfCommission": "Bombay Sappers"
+    },
+    {
+      "no": 32,
+      "name": "Upendra Dwivedi",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "30 June 2024",
+      "leftOffice": "30 June 2026",
+      "unitOfCommission": "Jammu and Kashmir Rifles"
+    },
+    {
+      "no": 33,
+      "name": "Dhiraj Seth",
+      "rank": "General",
+      "designation": "Chief of the Army Staff",
+      "portrait": "",
+      "tookOffice": "30 June 2026",
+      "leftOffice": "Incumbent",
+      "unitOfCommission": "2nd Lancers (Gardner's Horse)"
+    }
+  ]
+}

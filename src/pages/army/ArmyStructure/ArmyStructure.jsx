@@ -122,7 +122,7 @@ function ChainOfCommandTree({ data }) {
 
       {/* Level 1: 2 Main Columns */}
       <div className={styles.treeColumns}>
-        
+
         {/* Left Main Branch: OPERATIONAL COMMANDS (6) */}
         <div className={styles.opCommandsBranch}>
           <TreeNodeCard node={opCommandsNode} extraClass={styles.opCard} />
@@ -141,7 +141,7 @@ function ChainOfCommandTree({ data }) {
             {/* Sub Column 1: CORPS & Downward Chain */}
             <div className={styles.corpsSubBranch}>
               <TreeNodeCard node={corpsNode} extraClass={styles.corpsCard} />
-              
+
               {/* Vertical chain under CORPS */}
               {corpsChain.map((node, i) => (
                 <div key={node.id || i} className={styles.chainNodeWrapper}>
@@ -167,7 +167,7 @@ function ChainOfCommandTree({ data }) {
         {/* Right Main Branch: ARMY TRAINING (1) */}
         <div className={styles.trainingBranch}>
           <TreeNodeCard node={armyTrainingNode} extraClass={styles.trainingCard} />
-          
+
           {trainingEstNode && (
             <>
               <div className={styles.connectorDown} />
@@ -236,7 +236,7 @@ export function ArmyStructure() {
     <div className={`${styles.page} texture-topo`}>
       <div className={styles.inner}>
 
-        {/* ── Requirement 1 & 2: Reusable Centered Header with Back Button ── */}
+        {/* ── Centered Header with Back Button ── */}
         <PageHeader
           eyebrow="Indian Army"
           title="Command Structure"
@@ -245,13 +245,11 @@ export function ArmyStructure() {
           backText="Back to Army"
         />
 
-        <div className={styles.divider} />
-
         {/* ── Visually Separated Commands Panel with Tree Structure (Army HQ → 7 Commands) ── */}
         <section className={styles.commandsPanel}>
           {/* ── Banner ── */}
           <div className={`${styles.sectionBanner} animate__animated animate__fadeIn`}
-               style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
+            style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
             <div className={styles.bannerTextWrapCentered}>
               <span className={styles.bannerTitleCentered}>7 Commands</span>
               <span className={styles.bannerSubtextCentered}>6 Operational Commands 1 Training Command</span>
@@ -275,7 +273,7 @@ export function ArmyStructure() {
               <span className={styles.hqChief}>Chief of the Army Staff (COAS)</span>
               <span className={styles.hqLoc}>New Delhi</span>
             </div>
-            
+
             {/* Connectors from Army HQ down to the 7 Commands */}
             <div className={styles.hqStemDown} />
             <div className={styles.hqBridgeLine} />
@@ -325,7 +323,7 @@ export function ArmyStructure() {
 
         {/* ── CTA ── */}
         <div className={`${styles.ctaWrap} animate__animated animate__fadeIn`}
-             style={{ animationDelay: '1400ms', animationFillMode: 'both' }}>
+          style={{ animationDelay: '1400ms', animationFillMode: 'both' }}>
           <p className={styles.ctaLabel}>Explore the full Order of Battle with every Corps and Division</p>
           <button
             id="view-order-of-battle"

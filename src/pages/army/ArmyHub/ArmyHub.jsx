@@ -44,7 +44,7 @@ const ARMY_MODULES = {
       to: '/army/history',
       accentColor: '#B08D3E',
       imageSrc: historyImg,
-      isUnderDevelopment: false,
+      isUnderDevelopment: true,
     },
   ],
   row2: [
@@ -55,7 +55,7 @@ const ARMY_MODULES = {
       accentColor: '#4C5D34',
       imageSrc: chiefsImg,
       imagePosition: 'center 18%',
-      isUnderDevelopment: true,
+      isUnderDevelopment: false,
     },
     {
       label: 'Operations',

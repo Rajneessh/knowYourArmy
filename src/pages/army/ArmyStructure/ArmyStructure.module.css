@@ -101,6 +101,21 @@
   opacity: 0.45;
 }
 
+/* Title row: back button on the left, h1 centred, invisible spacer mirrors button on right */
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.titleRowSpacer {
+  /* mirrors the back-button so h1 stays truly centred */
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
 /* ---- Visually Separated Commands Panel (Requirement 5) ---- */
 .commandsPanel {
   display: flex;
