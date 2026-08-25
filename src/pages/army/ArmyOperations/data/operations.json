@@ -11,65 +11,92 @@
           "name": "Indo-Pakistani War (1947–48)",
           "type": "War",
           "image": "",
-          "date": { "start": "22 October 1947", "end": "1 January 1949" },
+          "date": {
+            "start": "22 October 1947",
+            "end": "1 January 1949"
+          },
           "location": "Jammu and Kashmir",
-          "opponents": ["Pakistan", "Pakistani tribal militias"],
-          "objective": "Defend Jammu & Kashmir following its accession to India and repel invading forces.",
-          "result": "Ceasefire — India retained Jammu, Kashmir Valley and Ladakh.",
-          "description": "The first war between India and Pakistan began after tribal forces backed by Pakistan invaded Jammu and Kashmir. Following the Instrument of Accession, Indian forces were airlifted to Srinagar and successfully prevented the capture of the Kashmir Valley.",
-          "significance": "Established the Line of Control's predecessor and secured Jammu, the Kashmir Valley and Ladakh under Indian administration."
+          "opponents": [
+            "Pakistan",
+            "Pakistani tribal militias"
+          ],
+          "objective": "Defend Jammu & Kashmir following its accession to India and repel the Pakistan-backed invasion.",
+          "result": "Indian strategic success followed by UN-mediated ceasefire — India retained Jammu, the Kashmir Valley and Ladakh.",
+          "description": "The first war between India and Pakistan began after Pakistan-backed tribal forces invaded Jammu and Kashmir. Following the Instrument of Accession, Indian forces were airlifted to Srinagar and successfully defended the Kashmir Valley, Jammu and Ladakh against the invasion.",
+          "significance": "Established India's military defence of Jammu and Kashmir and secured the Jammu region, Kashmir Valley and Ladakh under Indian administration."
         },
         {
           "id": "sino-indian-war-1962",
           "name": "Sino-Indian War (1962)",
           "type": "War",
           "image": "",
-          "date": { "start": "20 October 1962", "end": "21 November 1962" },
+          "date": {
+            "start": "20 October 1962",
+            "end": "21 November 1962"
+          },
           "location": "Ladakh and North-East Frontier Agency (present-day Arunachal Pradesh)",
-          "opponents": ["People's Republic of China"],
-          "objective": "Defend India's northern borders against Chinese military offensives.",
-          "result": "Chinese unilateral ceasefire; China retained Aksai Chin.",
-          "description": "China launched coordinated attacks across both western and eastern sectors of the disputed border. Following intense fighting, China declared a unilateral ceasefire and withdrew in the eastern sector while retaining control over Aksai Chin.",
-          "significance": "Prompted major reforms and modernization of the Indian Armed Forces, transforming how India approached border security."
+          "opponents": [
+            "People's Republic of China"
+          ],
+          "objective": "Defend India's northern borders against Chinese military offensives and preserve India's territorial position.",
+          "result": "Indian military defeat — China retained Aksai Chin after declaring a unilateral ceasefire.",
+          "description": "China launched coordinated attacks across the western and eastern sectors of the disputed border. Indian forces fought under severe logistical and preparedness disadvantages; China declared a unilateral ceasefire and withdrew in the eastern sector while retaining control over Aksai Chin.",
+          "significance": "The defeat exposed major shortcomings in India's preparedness and led to extensive expansion, modernization, infrastructure development and doctrinal reform of the Indian Armed Forces."
         },
         {
           "id": "indo-pak-war-1965",
           "name": "Indo-Pakistani War (1965)",
           "type": "War",
           "image": "",
-          "date": { "start": "5 August 1965", "end": "23 September 1965" },
+          "date": {
+            "start": "5 August 1965",
+            "end": "23 September 1965"
+          },
           "location": "Jammu & Kashmir, Punjab and Rajasthan",
-          "opponents": ["Pakistan"],
+          "opponents": [
+            "Pakistan"
+          ],
           "objective": "Repel Pakistani aggression launched through Operation Gibraltar and defend Indian territory.",
-          "result": "UN-mediated ceasefire; no territorial changes.",
-          "description": "The conflict began after Pakistan launched Operation Gibraltar in Jammu & Kashmir. India responded by opening multiple fronts across the international border, including a thrust towards Lahore, leading to one of the largest tank battles since World War II at the Battle of Asal Uttar.",
-          "significance": "Demonstrated India's ability to counter large-scale conventional attacks and strengthened future military modernization efforts."
+          "result": "Indian strategic success followed by UN-mediated ceasefire; Pakistan failed to achieve its principal objectives and no lasting territorial changes resulted.",
+          "description": "The conflict followed Pakistan's Operation Gibraltar infiltration into Jammu & Kashmir. India responded by opening multiple fronts across the international border, including operations towards Lahore, and successfully checked Pakistani offensives in major battles such as Asal Uttar.",
+          "significance": "Demonstrated India's ability to counter large-scale Pakistani conventional attacks and prevented Pakistan from achieving its principal military objectives."
         },
         {
           "id": "indo-pak-war-1971",
           "name": "Indo-Pakistani War (1971)",
           "type": "War",
           "image": "",
-          "date": { "start": "3 December 1971", "end": "16 December 1971" },
+          "date": {
+            "start": "3 December 1971",
+            "end": "16 December 1971"
+          },
           "location": "Eastern and Western Fronts",
-          "opponents": ["Pakistan"],
-          "objective": "Defend India against Pakistani air strikes and support the liberation of Bangladesh.",
-          "result": "Decisive Indian Victory — creation of Bangladesh.",
-          "description": "The war began after Pakistan launched pre-emptive air strikes on Indian airfields. Indian Armed Forces conducted coordinated operations on both fronts that led to the surrender of over 93,000 Pakistani troops and the creation of Bangladesh.",
-          "significance": "One of India's greatest military victories, resulting in the birth of Bangladesh and a major geopolitical shift in South Asia."
+          "opponents": [
+            "Pakistan"
+          ],
+          "objective": "Defend India against Pakistani attacks and support the liberation of Bangladesh.",
+          "result": "Decisive Indian Victory — surrender of approximately 93,000 Pakistani personnel and creation of Bangladesh.",
+          "description": "The war began after Pakistan launched pre-emptive air strikes on Indian airfields. The Indian Armed Forces conducted coordinated operations on the Eastern and Western Fronts, leading to the fall of Dhaka and the surrender of approximately 93,000 Pakistani personnel on 16 December 1971.",
+          "significance": "One of India's greatest military victories, resulting in the creation of Bangladesh and a major strategic and geopolitical transformation of South Asia."
         },
         {
           "id": "kargil-war",
           "name": "Kargil War (1999)",
           "type": "War",
           "image": "",
-          "date": { "start": "3 May 1999", "end": "26 July 1999" },
+          "date": {
+            "start": "3 May 1999",
+            "end": "26 July 1999"
+          },
           "location": "Kargil, Dras, Batalik and Mushkoh sectors, Ladakh",
-          "opponents": ["Pakistan Army", "Pakistani Intruders"],
-          "objective": "Evict Pakistani intruders occupying strategic heights along the Line of Control.",
+          "opponents": [
+            "Pakistan Army",
+            "Pakistani Intruders"
+          ],
+          "objective": "Evict Pakistani forces and intruders occupying strategic heights on the Indian side of the Line of Control.",
           "result": "Indian Victory — all major occupied positions regained.",
-          "description": "After Pakistani forces covertly occupied strategic heights along the Line of Control, India launched coordinated military operations — Operation Vijay on land and Operation Safed Sagar from the air — to recapture the positions. 26 July is observed as Kargil Vijay Diwas.",
-          "significance": "Reaffirmed the sanctity of the Line of Control and demonstrated India's capability to conduct high-altitude warfare under extreme conditions."
+          "description": "After Pakistani forces occupied strategic heights on the Indian side of the Line of Control, India launched coordinated military operations — Operation Vijay on land and Operation Safed Sagar from the air — to recapture the positions. 26 July is observed as Kargil Vijay Diwas.",
+          "significance": "Reaffirmed India's control over its territory and the sanctity of the Line of Control, while demonstrating India's capability to conduct high-altitude warfare under extreme conditions."
         }
       ]
     },
@@ -84,51 +111,73 @@
           "name": "Operation Polo",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "13 September 1948", "end": "17 September 1948" },
+          "date": {
+            "start": "13 September 1948",
+            "end": "17 September 1948"
+          },
           "location": "Hyderabad State",
-          "opponents": ["Hyderabad State Forces", "Razakars"],
+          "opponents": [
+            "Hyderabad State Forces",
+            "Razakars"
+          ],
           "objective": "Integrate the princely State of Hyderabad into the Indian Union.",
-          "result": "Indian Victory — surrender of Nizam's forces within five days.",
-          "description": "Officially termed a 'Police Action', Operation Polo resulted in the rapid surrender of the Nizam's forces, leading to Hyderabad's accession to India.",
-          "significance": "Completed the political integration of one of India's largest and most strategically located princely states."
+          "result": "Indian Victory — Hyderabad State Forces surrendered within five days.",
+          "description": "Officially termed a 'Police Action', Operation Polo resulted in the rapid surrender of the Nizam's forces and brought Hyderabad into the Indian Union.",
+          "significance": "Completed the political and territorial integration of one of India's largest and most strategically located princely states."
         },
         {
           "id": "operation-bison",
           "name": "Operation Bison",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "1 November 1948", "end": "24 November 1948" },
+          "date": {
+            "start": "1 November 1948",
+            "end": "24 November 1948"
+          },
           "location": "Zoji La, Dras and Kargil, Ladakh",
-          "opponents": ["Pakistan Army", "Pakistani tribal forces"],
+          "opponents": [
+            "Pakistan Army",
+            "Pakistani tribal forces"
+          ],
           "objective": "Recapture Zoji La Pass and reopen the land route to Ladakh.",
-          "result": "Indian Victory — Zoji La and Dras recaptured.",
-          "description": "Indian forces launched a surprise armoured assault through Zoji La using M5 Stuart tanks, recapturing the pass, Dras and eventually linking up with forces advancing from Leh.",
-          "significance": "Marked the world's highest-altitude use of tanks in combat at the time and secured Ladakh for India."
+          "result": "Indian Victory — Zoji La and Dras recaptured and the advance towards Kargil secured.",
+          "description": "Indian forces launched a surprise armoured assault through Zoji La using M5 Stuart tanks, recapturing the pass and Dras before advancing towards Kargil and restoring the route to Ladakh.",
+          "significance": "Marked one of the earliest major uses of tanks at extreme altitude in combat and played a crucial role in securing Ladakh for India during the 1947–48 war."
         },
         {
           "id": "operation-vijay-goa",
           "name": "Operation Vijay (Goa)",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "17 December 1961", "end": "19 December 1961" },
+          "date": {
+            "start": "17 December 1961",
+            "end": "19 December 1961"
+          },
           "location": "Goa, Daman and Diu",
-          "opponents": ["Portuguese Armed Forces"],
+          "opponents": [
+            "Portuguese Armed Forces"
+          ],
           "objective": "Liberate Goa, Daman and Diu from Portuguese colonial rule and integrate them into India.",
-          "result": "Indian Victory — Portuguese surrender within 36 hours.",
-          "description": "The Indian Armed Forces launched a coordinated land, air and naval campaign that resulted in the swift surrender of Portuguese forces, ending over 450 years of colonial rule.",
-          "significance": "Completed the territorial integration of Goa, Daman and Diu into India."
+          "result": "Indian Victory — Portuguese forces surrendered within approximately 36 hours.",
+          "description": "The Indian Armed Forces launched a coordinated land, air and naval campaign that resulted in the surrender of Portuguese forces and ended more than four centuries of Portuguese colonial rule in Goa, Daman and Diu.",
+          "significance": "Completed the territorial integration of Goa, Daman and Diu into India and ended Portuguese colonial rule on the Indian subcontinent."
         },
         {
           "id": "operation-meghdoot",
           "name": "Operation Meghdoot",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "13 April 1984", "end": "Ongoing" },
+          "date": {
+            "start": "13 April 1984",
+            "end": "Ongoing"
+          },
           "location": "Siachen Glacier, Ladakh",
-          "opponents": ["Pakistan Army"],
+          "opponents": [
+            "Pakistan Army"
+          ],
           "objective": "Secure the Saltoro Ridge and Siachen Glacier before Pakistan could occupy the area.",
-          "result": "Indian Victory — dominant heights secured.",
-          "description": "A pre-emptive operation launched by the Indian Army and Indian Air Force to occupy the strategic heights of the Saltoro Ridge and Siachen Glacier. India secured the dominant positions, establishing control over the world's highest battlefield.",
+          "result": "Indian Victory — dominant heights secured and Indian control established.",
+          "description": "A pre-emptive operation launched by the Indian Army and Indian Air Force to occupy strategically important heights on the Saltoro Ridge and Siachen Glacier. India secured the dominant positions and has maintained control over the key heights.",
           "significance": "Established Indian control over the Siachen Glacier and denied Pakistan control of the strategically vital Saltoro Ridge."
         },
         {
@@ -136,156 +185,217 @@
           "name": "Operation Falcon",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "1986", "end": "1987" },
+          "date": {
+            "start": "1986",
+            "end": "1987"
+          },
           "location": "Sumdorong Chu, Arunachal Pradesh",
-          "opponents": ["People's Liberation Army"],
+          "opponents": [
+            "People's Liberation Army"
+          ],
           "objective": "Counter Chinese military presence in the Sumdorong Chu Valley and secure Indian positions.",
-          "result": "Strategic success — escalation prevented.",
-          "description": "The Indian Army rapidly deployed troops to dominate the surrounding heights after Chinese incursions near Sumdorong Chu, preventing further escalation along the eastern sector.",
-          "significance": "Marked India's firm military response to Chinese border assertiveness and significantly improved India's posture along the eastern LAC."
+          "result": "Indian strategic success — Chinese advance contained and escalation prevented.",
+          "description": "The Indian Army rapidly deployed troops to dominate the surrounding heights after Chinese troops moved into the Sumdorong Chu area, preventing further Chinese consolidation and strengthening India's position in the eastern sector.",
+          "significance": "Marked India's firm military response to Chinese border assertiveness and significantly improved India's defensive posture along the eastern LAC."
         },
         {
           "id": "operation-rajiv",
           "name": "Operation Rajiv",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "23 June 1987", "end": "26 June 1987" },
+          "date": {
+            "start": "23 June 1987",
+            "end": "26 June 1987"
+          },
           "location": "Bilafond La Sector, Siachen Glacier",
-          "opponents": ["Pakistan Army"],
+          "opponents": [
+            "Pakistan Army"
+          ],
           "objective": "Capture Pakistan's heavily fortified Quaid Post overlooking Indian positions.",
-          "result": "Indian Victory — Quaid Post captured.",
-          "description": "Indian troops successfully assaulted and captured the strategically important Quaid Post after intense fighting at extreme altitude. The captured position was renamed Bana Top in honour of Naib Subedar Bana Singh, who was awarded the Param Vir Chakra.",
-          "significance": "One of the most daring high-altitude assaults in military history, securing India's tactical advantage in the Bilafond La sector."
+          "result": "Indian Victory — Quaid Post captured and renamed Bana Top.",
+          "description": "Indian troops successfully assaulted and captured the strategically important Quaid Post after intense fighting at extreme altitude. The position was renamed Bana Top in honour of Naib Subedar Bana Singh, who was awarded the Param Vir Chakra.",
+          "significance": "One of the most daring Indian high-altitude assaults, securing India's tactical advantage in the Bilafond La sector."
         },
         {
           "id": "operation-pawan",
           "name": "Operation Pawan",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "11 October 1987", "end": "24 March 1990" },
+          "date": {
+            "start": "11 October 1987",
+            "end": "24 March 1990"
+          },
           "location": "Northern and Eastern Sri Lanka",
-          "opponents": ["Liberation Tigers of Tamil Eelam (LTTE)"],
+          "opponents": [
+            "Liberation Tigers of Tamil Eelam (LTTE)"
+          ],
           "objective": "Disarm the LTTE and implement the Indo-Sri Lanka Accord as part of the IPKF mission.",
           "result": "Mission completed — IPKF withdrew March 1990.",
-          "description": "Indian forces conducted large-scale combat operations against the LTTE after peace negotiations collapsed, carrying out conventional and counter-insurgency operations across northern Sri Lanka, including the Battle of Jaffna.",
-          "significance": "One of the Indian Army's largest overseas military operations and a defining experience in urban and jungle warfare tactics."
+          "description": "Indian forces conducted large-scale combat operations against the LTTE after the peace process collapsed, carrying out conventional and counter-insurgency operations across northern Sri Lanka, including the Battle of Jaffna.",
+          "significance": "One of the Indian Army's largest overseas military operations and a defining experience in urban, jungle and counter-insurgency warfare."
         },
         {
           "id": "operation-cactus",
           "name": "Operation Cactus",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "3 November 1988", "end": "4 November 1988" },
+          "date": {
+            "start": "3 November 1988",
+            "end": "4 November 1988"
+          },
           "location": "Malé, Maldives",
-          "opponents": ["PLOTE Mercenaries"],
+          "opponents": [
+            "PLOTE Mercenaries"
+          ],
           "objective": "Restore the legitimate government of the Maldives following an attempted coup.",
-          "result": "Indian Victory — government restored within hours.",
-          "description": "The Indian Armed Forces rapidly deployed paratroopers and a naval task force to Malé after a mercenary-backed coup attempt, securing the capital and restoring the elected government in under 24 hours.",
-          "significance": "Demonstrated India's rapid power projection capability and reinforced its role as the primary security guarantor in the Indian Ocean Region."
+          "result": "Indian Victory — legitimate government restored within hours.",
+          "description": "The Indian Armed Forces rapidly deployed paratroopers and a naval task force to Malé after a mercenary-backed coup attempt, securing the capital and restoring the legitimate government in under 24 hours.",
+          "significance": "Demonstrated India's rapid power-projection capability and reinforced its role as a major security provider in the Indian Ocean Region."
         },
         {
           "id": "operation-parakram",
           "name": "Operation Parakram",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "19 December 2001", "end": "16 October 2002" },
+          "date": {
+            "start": "19 December 2001",
+            "end": "16 October 2002"
+          },
           "location": "India–Pakistan International Border and Line of Control",
-          "opponents": ["Pakistan Armed Forces"],
-          "objective": "Mobilize and compel Pakistan to act against cross-border terrorism following the Parliament attack.",
-          "result": "Strategic Deterrence achieved.",
-          "description": "India carried out one of its largest peacetime military mobilizations after the terrorist attack on the Indian Parliament. Nearly all major strike formations of the Army were deployed along the western frontier.",
-          "significance": "Demonstrated India's ability to rapidly mobilize large conventional forces and underlined the Cold Start doctrine's conceptual origins."
+          "opponents": [
+            "Pakistan Armed Forces"
+          ],
+          "objective": "Mobilize military pressure and compel Pakistan to act against cross-border terrorism following the Parliament attack.",
+          "result": "Strategic deterrence achieved — sustained military pressure without full-scale war.",
+          "description": "India carried out one of its largest military mobilizations after the terrorist attack on the Indian Parliament. Major Army strike formations were deployed along the western frontier, creating sustained conventional pressure on Pakistan.",
+          "significance": "Demonstrated India's ability to rapidly mobilize large conventional forces and shaped subsequent Indian thinking on rapid conventional response to terrorism."
         },
         {
           "id": "operation-vijay-kargil",
           "name": "Operation Vijay",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "26 May 1999", "end": "26 July 1999" },
+          "date": {
+            "start": "26 May 1999",
+            "end": "26 July 1999"
+          },
           "location": "Kargil Sector, Ladakh",
-          "opponents": ["Pakistan Army"],
+          "opponents": [
+            "Pakistan Army"
+          ],
           "objective": "Recapture Indian territory occupied by Pakistani forces during the Kargil conflict.",
-          "result": "Indian Victory — all major positions recaptured.",
-          "description": "Operation Vijay was the Indian Army's campaign during the Kargil War. Through sustained infantry assaults on near-vertical cliffs supported by artillery and air power, Indian forces regained all major occupied positions including Tololing, Tiger Hill and Point 4875.",
-          "significance": "Demonstrated exceptional courage and endurance at extreme altitude, and validated the importance of combined-arms warfare."
+          "result": "Indian Victory — all major occupied positions recaptured.",
+          "description": "Operation Vijay was the Indian Army's campaign during the Kargil War. Through sustained infantry assaults on near-vertical cliffs supported by artillery and air power, Indian forces regained major occupied positions including Tololing, Tiger Hill and Point 4875.",
+          "significance": "Demonstrated exceptional courage and endurance by Indian troops at extreme altitude and validated the importance of combined-arms warfare."
         },
         {
           "id": "operation-safed-sagar",
           "name": "Operation Safed Sagar",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "26 May 1999", "end": "26 July 1999" },
+          "date": {
+            "start": "26 May 1999",
+            "end": "26 July 1999"
+          },
           "location": "Kargil Sector, Ladakh",
-          "opponents": ["Pakistan Army"],
+          "opponents": [
+            "Pakistan Army"
+          ],
           "objective": "Provide air support to Indian Army ground operations during the Kargil War.",
-          "result": "Indian Victory — air superiority maintained.",
-          "description": "The Indian Air Force launched Operation Safed Sagar to support ground operations by striking enemy positions, supply routes and logistics under strict rules of engagement that prohibited crossing the Line of Control.",
-          "significance": "Marked the first large-scale combat use of air power by the IAF since 1971 and highlighted the importance of joint tri-service operations."
+          "result": "Indian Victory — Indian air support successfully contributed to the recapture of occupied positions.",
+          "description": "The Indian Air Force launched Operation Safed Sagar to support ground operations by striking Pakistani positions, supply routes and logistics under strict rules of engagement that prohibited crossing the Line of Control.",
+          "significance": "Marked the first large-scale combat use of air power by the IAF since 1971 and highlighted the importance of joint Army–Air Force operations."
         },
         {
           "id": "operation-ginger",
           "name": "Operation Ginger",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "August 2011", "end": "August 2011" },
+          "date": {
+            "start": "August 2011",
+            "end": "August 2011"
+          },
           "location": "Line of Control, Jammu & Kashmir",
-          "opponents": ["Pakistan Army"],
+          "opponents": [
+            "Pakistan Army"
+          ],
           "objective": "Conduct a retaliatory cross-LoC raid following attacks on Indian soldiers.",
-          "result": "Operation Completed.",
-          "description": "Indian Army Special Forces carried out a covert cross-Line of Control raid targeting Pakistani military positions in retaliation for attacks on Indian troops along the LoC.",
-          "significance": "One of the earliest known modern cross-LoC retaliatory operations, foreshadowing the strategic shift formalised in 2016."
+          "result": "Indian operation completed — Pakistani military positions targeted.",
+          "description": "Indian Army personnel carried out a covert cross-Line of Control raid targeting Pakistani military positions in retaliation for attacks on Indian troops along the LoC.",
+          "significance": "An early known modern cross-LoC retaliatory operation that preceded the publicly acknowledged precision strikes of 2016."
         },
         {
           "id": "operation-hot-pursuit",
           "name": "Operation Hot Pursuit",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "9 June 2015", "end": "9 June 2015" },
+          "date": {
+            "start": "9 June 2015",
+            "end": "9 June 2015"
+          },
           "location": "India–Myanmar Border, Manipur",
-          "opponents": ["NSCN (K)", "KYKL"],
-          "objective": "Neutralize militant camps responsible for the Manipur ambush on Indian Army convoy.",
-          "result": "Indian Victory — militant camps destroyed.",
-          "description": "Following an ambush on an Indian Army convoy in Manipur that killed 18 soldiers, Indian Special Forces conducted a cross-border heliborne strike against insurgent camps along the Myanmar border.",
-          "significance": "Marked India's willingness to conduct precise cross-border counter-insurgency operations and signalled a shift in strategic posture."
+          "opponents": [
+            "NSCN (K)",
+            "KYKL"
+          ],
+          "objective": "Neutralize militant camps responsible for the Manipur ambush on an Indian Army convoy.",
+          "result": "Indian Victory — militant camps targeted and significant casualties inflicted.",
+          "description": "Following an ambush on an Indian Army convoy in Manipur that killed 18 soldiers, Indian Special Forces conducted a cross-border operation against insurgent camps along the India–Myanmar border.",
+          "significance": "Demonstrated India's willingness to conduct precise cross-border counter-insurgency operations against groups responsible for attacks on Indian forces."
         },
         {
           "id": "surgical-strikes-2016",
           "name": "2016 Surgical Strikes",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "28 September 2016", "end": "29 September 2016" },
+          "date": {
+            "start": "28 September 2016",
+            "end": "29 September 2016"
+          },
           "location": "Line of Control, Pakistan-occupied Jammu & Kashmir",
-          "opponents": ["Terrorist Launch Pads"],
+          "opponents": [
+            "Terrorist Launch Pads"
+          ],
           "objective": "Destroy terrorist launch pads used for infiltration following the Uri attack.",
-          "result": "Indian Victory — multiple launch pads destroyed.",
-          "description": "The Indian Army conducted precision cross-Line of Control strikes on multiple terrorist launch pads in Pakistan-occupied Jammu & Kashmir following the Uri terrorist attack that killed 19 soldiers.",
-          "significance": "Established India's doctrine of publicly acknowledged precision cross-border retaliation against terrorist infrastructure."
+          "result": "Indian Victory — multiple terrorist launch pads destroyed.",
+          "description": "The Indian Army conducted precision cross-Line of Control strikes on multiple terrorist launch pads in Pakistan-occupied Jammu & Kashmir following the Uri terrorist attack that killed 19 Indian soldiers.",
+          "significance": "Marked a major shift toward publicly acknowledged precision cross-border retaliation against terrorist infrastructure."
         },
         {
           "id": "operation-snow-leopard",
           "name": "Operation Snow Leopard",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "29 August 2020", "end": "Ongoing" },
+          "date": {
+            "start": "29 August 2020",
+            "end": "Ongoing"
+          },
           "location": "Eastern Ladakh",
-          "opponents": ["People's Liberation Army"],
+          "opponents": [
+            "People's Liberation Army"
+          ],
           "objective": "Secure dominating heights along the LAC and strengthen India's defensive posture during the 2020 standoff.",
-          "result": "Strategic Success — Kailash Range heights secured.",
+          "result": "Indian strategic success — Kailash Range heights secured and India's tactical position strengthened.",
           "description": "Indian Army formations including the Special Frontier Force occupied key heights on the Kailash Range south of Pangong Tso, gaining significant tactical advantage during the Eastern Ladakh standoff.",
-          "significance": "Provided India with a strong negotiating position during subsequent military and diplomatic talks with China, accelerating disengagement."
+          "significance": "Strengthened India's negotiating position during subsequent military and diplomatic talks with China and demonstrated India's ability to rapidly occupy tactically dominant ground."
         },
         {
           "id": "operation-sindoor",
           "name": "Operation Sindoor",
           "type": "Military Operation",
           "image": "",
-          "date": { "start": "7 May 2025", "end": "10 May 2025" },
+          "date": {
+            "start": "7 May 2025",
+            "end": "10 May 2025"
+          },
           "location": "Pakistan and Pakistan-occupied Jammu & Kashmir",
-          "opponents": ["Pakistan-based Terrorist Infrastructure"],
+          "opponents": [
+            "Pakistan-based Terrorist Infrastructure"
+          ],
           "objective": "Destroy terrorist infrastructure linked to the Pahalgam terror attack.",
-          "result": "Operation Completed — multiple sites struck.",
-          "description": "India launched precision strikes against multiple terrorist infrastructure sites in Pakistan and Pakistan-occupied Jammu & Kashmir using missiles and loitering munitions, followed by a brief period of military escalation before a ceasefire understanding was reached.",
-          "significance": "Marked one of India's largest precision cross-border operations against terrorist infrastructure, demonstrating fully integrated tri-service capabilities."
+          "result": "Indian operation completed — multiple terrorist infrastructure sites struck.",
+          "description": "India launched precision strikes against multiple terrorist infrastructure sites in Pakistan and Pakistan-occupied Jammu & Kashmir following the Pahalgam terror attack, using missiles and loitering munitions before a period of military escalation and subsequent ceasefire understanding.",
+          "significance": "Marked a major Indian precision cross-border operation against terrorist infrastructure and demonstrated integrated tri-service military capabilities."
         }
       ]
     },
@@ -300,13 +410,18 @@
           "name": "Operation Blue Star",
           "type": "Internal Security Operation",
           "image": "",
-          "date": { "start": "1 June 1984", "end": "10 June 1984" },
+          "date": {
+            "start": "1 June 1984",
+            "end": "10 June 1984"
+          },
           "location": "Golden Temple Complex, Amritsar, Punjab",
-          "opponents": ["Armed Sikh Militants"],
+          "opponents": [
+            "Armed Sikh Militants"
+          ],
           "objective": "Remove heavily armed militants from the Golden Temple complex and restore law and order.",
-          "result": "Military objective achieved — militants removed.",
-          "description": "The Indian Army conducted Operation Blue Star to remove heavily armed militants who had fortified themselves inside the Golden Temple complex in Amritsar, following months of escalating violence in Punjab.",
-          "significance": "One of the most controversial internal security operations in independent India's history, with far-reaching political and social consequences."
+          "result": "Military objective achieved — militants removed from the complex.",
+          "description": "The Indian Army conducted Operation Blue Star to remove heavily armed militants who had fortified themselves inside the Golden Temple complex in Amritsar following months of escalating violence and militancy in Punjab.",
+          "significance": "One of the most consequential and controversial internal security operations in independent India's history, with major political, military and social consequences."
         }
       ]
     },
@@ -321,65 +436,95 @@
           "name": "Operation Rakshak",
           "type": "Counter-Insurgency",
           "image": "",
-          "date": { "start": "1990", "end": "Ongoing" },
+          "date": {
+            "start": "1990",
+            "end": "Ongoing"
+          },
           "location": "Jammu & Kashmir",
-          "opponents": ["Pakistan-backed militants", "Insurgent groups"],
+          "opponents": [
+            "Pakistan-backed militants",
+            "Insurgent groups"
+          ],
           "objective": "Counter insurgency, eliminate militant networks and maintain internal security in Jammu & Kashmir.",
-          "result": "Ongoing.",
-          "description": "Operation Rakshak is the Indian Army's long-running counter-insurgency campaign in Jammu & Kashmir, conducted alongside other security forces to combat terrorism and cross-border infiltration.",
-          "significance": "Represents one of the longest continuous counter-insurgency operations undertaken by the Indian Army, spanning over three decades."
+          "result": "Ongoing — Indian security forces continue counter-insurgency and counter-terrorism operations.",
+          "description": "Operation Rakshak is the Indian Army's long-running counter-insurgency campaign in Jammu & Kashmir, conducted alongside other security forces to combat terrorism, cross-border infiltration and militant networks.",
+          "significance": "Represents one of the longest continuous counter-insurgency commitments undertaken by the Indian Army, spanning more than three decades."
         },
         {
           "id": "operation-bajrang",
           "name": "Operation Bajrang",
           "type": "Counter-Insurgency",
           "image": "",
-          "date": { "start": "28 November 1990", "end": "30 April 1991" },
+          "date": {
+            "start": "28 November 1990",
+            "end": "30 April 1991"
+          },
           "location": "Assam",
-          "opponents": ["United Liberation Front of Asom (ULFA)"],
+          "opponents": [
+            "United Liberation Front of Asom (ULFA)"
+          ],
           "objective": "Neutralize ULFA insurgents and dismantle militant infrastructure across Assam.",
-          "result": "Partial success — insurgent infrastructure weakened.",
-          "description": "The first large-scale counter-insurgency operation against ULFA, involving coordinated sweeps of militant camps, weapons caches and leadership hideouts across Upper Assam.",
-          "significance": "Marked the beginning of sustained military operations against insurgency in Assam and set the template for subsequent counter-ULFA campaigns."
+          "result": "Partial success — ULFA infrastructure and freedom of movement significantly disrupted.",
+          "description": "The first large-scale counter-insurgency operation against ULFA involved coordinated military sweeps of militant camps, weapons caches and leadership hideouts across Upper Assam.",
+          "significance": "Marked the beginning of sustained Indian Army operations against ULFA and established methods for subsequent counter-insurgency campaigns in Assam."
         },
         {
           "id": "operation-rhino",
           "name": "Operation Rhino",
           "type": "Counter-Insurgency",
           "image": "",
-          "date": { "start": "15 September 1991", "end": "Ongoing" },
+          "date": {
+            "start": "15 September 1991",
+            "end": "Ongoing"
+          },
           "location": "Assam",
-          "opponents": ["United Liberation Front of Asom (ULFA)"],
+          "opponents": [
+            "United Liberation Front of Asom (ULFA)"
+          ],
           "objective": "Continue counter-insurgency operations against ULFA and restore normalcy in Assam.",
           "result": "Ongoing — ULFA significantly weakened.",
-          "description": "Launched after Operation Bajrang, Operation Rhino combined military operations with intelligence-based actions to dismantle ULFA's operational capabilities and infrastructure across the Brahmaputra valley.",
-          "significance": "Remains one of the Indian Army's longest-running counter-insurgency operations in Northeast India."
+          "description": "Launched after Operation Bajrang, Operation Rhino combined military operations with intelligence-based actions to dismantle ULFA's operational capabilities and infrastructure across Assam.",
+          "significance": "Became one of the Indian Army's longest-running counter-insurgency operations in Northeast India."
         },
         {
           "id": "operation-sarp-vinash",
           "name": "Operation Sarp Vinash",
           "type": "Counter-Insurgency",
           "image": "",
-          "date": { "start": "21 April 2003", "end": "23 May 2003" },
+          "date": {
+            "start": "21 April 2003",
+            "end": "23 May 2003"
+          },
           "location": "Hilkaka Forest, Poonch District, Jammu & Kashmir",
-          "opponents": ["Foreign Militants", "Pakistan-backed Terrorists"],
+          "opponents": [
+            "Foreign Militants",
+            "Pakistan-backed Terrorists"
+          ],
           "objective": "Destroy militant bases and eliminate terrorist infiltration routes in the Hilkaka region.",
-          "result": "Indian Victory — largest militant stronghold dismantled.",
-          "description": "A month-long cordon-and-search operation conducted in the dense forests of Poonch that dismantled one of the largest militant strongholds in Jammu & Kashmir, involving over 6,000 troops.",
-          "significance": "Significantly weakened terrorist infrastructure in the Pir Panjal region and disrupted infiltration routes used to funnel militants from Pakistan."
+          "result": "Indian Victory — major militant stronghold dismantled.",
+          "description": "A month-long cordon-and-search operation conducted in the dense forests of Poonch that dismantled a major militant stronghold in Jammu & Kashmir and disrupted infiltration and terrorist infrastructure.",
+          "significance": "Significantly weakened terrorist infrastructure in the Pir Panjal region and disrupted infiltration routes used by Pakistan-backed militants."
         },
         {
           "id": "operation-all-out",
           "name": "Operation All Out",
           "type": "Counter-Insurgency",
           "image": "",
-          "date": { "start": "July 2017", "end": "Ongoing" },
+          "date": {
+            "start": "July 2017",
+            "end": "Ongoing"
+          },
           "location": "Jammu & Kashmir",
-          "opponents": ["Lashkar-e-Taiba", "Jaish-e-Mohammed", "Hizbul Mujahideen", "Other militant groups"],
+          "opponents": [
+            "Lashkar-e-Taiba",
+            "Jaish-e-Mohammed",
+            "Hizbul Mujahideen",
+            "Other militant groups"
+          ],
           "objective": "Neutralize active terrorist networks through coordinated intelligence-based operations.",
-          "result": "Ongoing — significant leadership elimination achieved.",
+          "result": "Ongoing — significant terrorist leadership and networks eliminated.",
           "description": "A coordinated counter-terrorism campaign involving the Indian Army, Jammu & Kashmir Police and Central Armed Police Forces to eliminate terrorist leadership and infrastructure through intelligence-driven targeted operations.",
-          "significance": "Marked a decisive shift towards intelligence-driven, joint-force counter-terrorism in J&K, leading to a significant drop in active militant strength."
+          "significance": "Marked a decisive shift towards intelligence-driven joint-force counter-terrorism in Jammu & Kashmir and significantly reduced active militant strength."
         }
       ]
     },
@@ -394,52 +539,70 @@
           "name": "Operation Brasstacks",
           "type": "Military Exercise",
           "image": "",
-          "date": { "start": "November 1986", "end": "March 1987" },
+          "date": {
+            "start": "November 1986",
+            "end": "March 1987"
+          },
           "location": "Rajasthan",
           "opponents": [],
           "objective": "Conduct large-scale mechanised warfare exercises to validate operational doctrines.",
-          "result": "Exercise completed — triggered a near-crisis with Pakistan.",
-          "description": "One of the largest military exercises ever conducted by the Indian Army, involving massive troop and armour mobilisation in Rajasthan. Pakistan's counter-mobilisation on its borders brought the two countries close to armed confrontation.",
-          "significance": "Demonstrated India's large-scale conventional warfare capability and had significant strategic implications for South Asian military planning."
+          "result": "Exercise completed — demonstrated India's large-scale conventional capability and triggered a serious military crisis with Pakistan.",
+          "description": "One of the largest military exercises conducted by the Indian Army, involving large-scale troop and armour mobilisation in Rajasthan. Pakistan's counter-mobilisation brought the two countries close to armed confrontation.",
+          "significance": "Demonstrated India's large-scale conventional warfare capability and had major implications for Indian and Pakistani military planning."
         },
         {
           "id": "eastern-ladakh-standoff",
           "name": "Eastern Ladakh Standoff",
           "type": "Border Conflict",
           "image": "",
-          "date": { "start": "May 2020", "end": "Ongoing" },
+          "date": {
+            "start": "May 2020",
+            "end": "Ongoing"
+          },
           "location": "Eastern Ladakh",
-          "opponents": ["People's Liberation Army"],
+          "opponents": [
+            "People's Liberation Army"
+          ],
           "objective": "Maintain the status quo and defend India's territorial interests along the Line of Actual Control.",
-          "result": "Ongoing — partial disengagement achieved.",
-          "description": "A prolonged military standoff between Indian and Chinese forces across multiple friction points in Eastern Ladakh involving large-scale troop deployments, construction of military infrastructure and successive rounds of military and diplomatic negotiations.",
-          "significance": "Represents the largest military deployment along the India–China border in decades and fundamentally reshaped India's border posture and military modernization priorities."
+          "result": "Ongoing — Indian forces maintained a strong defensive posture and partial disengagement achieved at several friction points.",
+          "description": "A prolonged military standoff between Indian and Chinese forces across multiple friction points in Eastern Ladakh involving large-scale troop deployments, military infrastructure and successive rounds of military and diplomatic negotiations.",
+          "significance": "Represents one of the largest military deployments along the India–China border in decades and fundamentally reshaped India's border posture, infrastructure and modernization priorities."
         },
         {
           "id": "galwan-valley-clash",
           "name": "Galwan Valley Clash",
           "type": "Border Conflict",
           "image": "",
-          "date": { "start": "15 June 2020", "end": "16 June 2020" },
+          "date": {
+            "start": "15 June 2020",
+            "end": "16 June 2020"
+          },
           "location": "Galwan Valley, Eastern Ladakh",
-          "opponents": ["People's Liberation Army"],
+          "opponents": [
+            "People's Liberation Army"
+          ],
           "objective": "Defend Indian positions and enforce disengagement agreements along the Line of Actual Control.",
           "result": "Indian positions held — casualties on both sides.",
-          "description": "Indian and Chinese troops engaged in violent hand-to-hand combat in the Galwan Valley, resulting in the deaths of 20 Indian soldiers (including Colonel Santosh Babu) and an unconfirmed number of Chinese casualties — the first fatalities on the India-China border in 45 years.",
-          "significance": "Fundamentally altered India's military and diplomatic posture along the Line of Actual Control and accelerated defence modernization and infrastructure development."
+          "description": "Indian and Chinese troops engaged in violent hand-to-hand combat in the Galwan Valley, resulting in the deaths of 20 Indian soldiers, including Colonel Santosh Babu. India retained its positions while Chinese casualties were also suffered.",
+          "significance": "Fundamentally altered India's military and diplomatic posture along the LAC and accelerated defence modernization, infrastructure development and forward deployment."
         },
         {
           "id": "yangtse-clash",
           "name": "Yangtse Clash",
           "type": "Border Conflict",
           "image": "",
-          "date": { "start": "9 December 2022", "end": "9 December 2022" },
+          "date": {
+            "start": "9 December 2022",
+            "end": "9 December 2022"
+          },
           "location": "Yangtse, Tawang Sector, Arunachal Pradesh",
-          "opponents": ["People's Liberation Army"],
+          "opponents": [
+            "People's Liberation Army"
+          ],
           "objective": "Prevent Chinese troops from altering the status quo along the Line of Actual Control.",
           "result": "Indian positions held — Chinese attempt repelled.",
-          "description": "Approximately 300 Chinese troops attempted to unilaterally change the status quo at Yangtse in the Tawang sector. Indian troops successfully resisted the incursion in a face-off that involved hand-to-hand contact, resulting in minor injuries on both sides.",
-          "significance": "Reaffirmed India's resolve and capability to defend the eastern sector of the LAC and prompted further reinforcement of the Arunachal border."
+          "description": "Chinese troops attempted to alter the status quo at Yangtse in the Tawang sector. Indian troops successfully resisted the attempt in a face-off involving hand-to-hand contact, with casualties and injuries reported on both sides.",
+          "significance": "Reaffirmed India's resolve and capability to defend the eastern sector of the LAC and prompted continued strengthening of India's Arunachal Pradesh border posture."
         }
       ]
     }
