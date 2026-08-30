@@ -136,6 +136,12 @@
   gap: clamp(0.8rem, 2vw, 1.6rem);
 }
 
+.row2 {
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%; /* Symmetrically centers the 3 cards relative to the 4 cards above */
+  margin: 0 auto;
+}
+
 /* ---- Responsive breakpoints ---- */
 
 /* Tablet: 2-column rows */
@@ -143,6 +149,9 @@
   .row {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
+  }
+  .row2 {
+    width: 100%;
   }
 }
 
@@ -165,5 +174,9 @@
   .row {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+  }
+  .row2 {
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 }

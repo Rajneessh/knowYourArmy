@@ -101,7 +101,6 @@ Then open the local URL Vite prints (typically `http://localhost:5173`).
 | `/army/conflicts` | `ArmyOperations` | ✅ Live |
 | `/army/heroes` | `ComingSoon` | 🔴 Placeholder |
 | `/army/chiefs` | `ArmyChiefs` | ✅ Live |
-| `/army/humanitarian` | `ComingSoon` | 🔴 Placeholder |
 | `/navy` | `ComingSoon` | 🔴 Placeholder |
 | `/airforce` | `ComingSoon` | 🔴 Placeholder |
 
@@ -118,6 +117,8 @@ knowYourArmy/
 ├── vite.config.js                   # Vite config (watch excludes for DesignIdeas/, dist/)
 ├── render.yaml                      # Render static-site blueprint (SPA rewrite rule)
 ├── index.html                       # HTML entry point
+├── helperFiles/                     # Helper utilities (WebP conversion scripts)
+│   └── convert_to_webp.js           # Script converting images to WebP format
 ├── DataInText/
 │   └── IndianArmyHistory.txt        # Raw research notes backing history.json
 │
@@ -243,10 +244,9 @@ The project has since moved on to the `src/pages/<branch>/<Module>/` structure d
 | Combat Support Arms | `/army/arms/combat-support` | 🔴 Planned |
 | Services (ASC, AOC, EME, AMC, RVC, AEC, Int Corps, CMP) | `/army/arms/services` | 🔴 Planned |
 | Army Regiments | `/army/regiments` | 🔴 Planned |
-| Conflicts & Wars (1947-48, 1962, 1965, 1971, Kargil) | `/army/conflicts` | 🔴 Planned |
+| Conflicts & Wars (1947-48, 1962, 1965, 1971, Kargil) | `/army/conflicts` | ✅ Done |
 | Heroes & Gallantry (21 PVC recipients, MVC) | `/army/heroes` | 🔴 Planned |
 | Chiefs of Army Staff | `/army/chiefs` | 🔴 Planned |
-| HADR & Humanitarian Ops | `/army/humanitarian` | 🔴 Planned |
 | Indian Navy branch | `/navy` | 🔴 Planned |
 | Indian Air Force branch | `/airforce` | 🔴 Planned |
 | 3D Tricolor Landing Hero (`three.js`) | `/` | 🔴 Backlog |

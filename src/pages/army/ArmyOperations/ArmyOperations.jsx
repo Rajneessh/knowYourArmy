@@ -5,7 +5,23 @@ import operationsData from './data/operations.json';
 import armyEmblem from '../../../assets/emblems/army.png';
 import styles from './ArmyOperations.module.css';
 
-function PhotoPlaceholder({ name }) {
+// Eagerly import every image in the ArmyOperations asset folder
+const opImages = import.meta.glob(
+  '../../../assets/army/ArmyOperations/*',
+  { eager: true, query: '?url', import: 'default' }
+);
+
+/**
+ * Resolve a filename (e.g. "OpPolo.webp") to its bundled URL.
+ * Falls back to null if not found.
+ */
+function resolveImage(filename) {
+  if (!filename) return null;
+  const key = Object.keys(opImages).find((k) => k.endsWith(`/${filename}`));
+  return key ? opImages[key] : null;
+}
+
+function PhotoPlaceholder() {
   return (
     <div className={styles.photoPlaceholder} aria-hidden="true">
       <svg className={styles.photoSvg} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,62 +107,75 @@ export function ArmyOperations() {
               <p className={styles.sectionDescription}>{section.description}</p>
 
               <div className={styles.cardsStack}>
-                {section.operations.map((op) => (
-                  <article key={op.id} className={styles.opCard}>
-                    {/* Left side: Single photo placeholder */}
-                    <div className={styles.photoContainer}>
-                      <PhotoPlaceholder name={op.name} />
-                    </div>
-
-                    {/* Right side: Detailed operational data */}
-                    <div className={styles.opDetails}>
-                      <div className={styles.opHeaderRow}>
-                        <h3 className={styles.opName}>{op.name}</h3>
-                        <span className={styles.typeBadge} style={{ backgroundColor: section.accentColor }}>
-                          {op.type}
-                        </span>
+                {section.operations.map((op) => {
+                  const imgUrl = resolveImage(op.image);
+                  return (
+                    <article key={op.id} className={styles.opCard}>
+                      {/* Left side: Photo or placeholder */}
+                      <div className={styles.photoContainer}>
+                        {imgUrl ? (
+                          <img
+                            src={imgUrl}
+                            alt={op.name}
+                            className={styles.opPhoto}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <PhotoPlaceholder />
+                        )}
                       </div>
 
-                      <div className={styles.metaGrid}>
-                        <div className={styles.metaItem}>
-                          <span className={styles.metaLabel}>Date:</span>
-                          <span className={styles.metaVal}>
-                            {op.date.start} {op.date.end ? `— ${op.date.end}` : ''}
+                      {/* Right side: Detailed operational data */}
+                      <div className={styles.opDetails}>
+                        <div className={styles.opHeaderRow}>
+                          <h3 className={styles.opName}>{op.name}</h3>
+                          <span className={styles.typeBadge} style={{ backgroundColor: section.accentColor }}>
+                            {op.type}
                           </span>
                         </div>
-                        <div className={styles.metaItem}>
-                          <span className={styles.metaLabel}>Location:</span>
-                          <span className={styles.metaVal}>{op.location}</span>
-                        </div>
-                        {op.opponents && op.opponents.length > 0 && (
+
+                        <div className={styles.metaGrid}>
                           <div className={styles.metaItem}>
-                            <span className={styles.metaLabel}>Opponents:</span>
-                            <span className={styles.metaVal}>{op.opponents.join(', ')}</span>
+                            <span className={styles.metaLabel}>Date:</span>
+                            <span className={styles.metaVal}>
+                              {op.date.start} {op.date.end ? `— ${op.date.end}` : ''}
+                            </span>
                           </div>
-                        )}
-                        <div className={styles.metaItem}>
-                          <span className={styles.metaLabel}>Objective:</span>
-                          <span className={styles.metaVal}>{op.objective}</span>
+                          <div className={styles.metaItem}>
+                            <span className={styles.metaLabel}>Location:</span>
+                            <span className={styles.metaVal}>{op.location}</span>
+                          </div>
+                          {op.opponents && op.opponents.length > 0 && (
+                            <div className={styles.metaItem}>
+                              <span className={styles.metaLabel}>Opponents:</span>
+                              <span className={styles.metaVal}>{op.opponents.join(', ')}</span>
+                            </div>
+                          )}
+                          <div className={styles.metaItem}>
+                            <span className={styles.metaLabel}>Objective:</span>
+                            <span className={styles.metaVal}>{op.objective}</span>
+                          </div>
+                          <div className={styles.metaItem}>
+                            <span className={styles.metaLabel}>Result:</span>
+                            <span className={styles.metaVal} style={{ color: 'var(--paper)' }}>{op.result}</span>
+                          </div>
                         </div>
-                        <div className={styles.metaItem}>
-                          <span className={styles.metaLabel}>Result:</span>
-                          <span className={styles.metaVal} style={{ color: 'var(--paper)' }}>{op.result}</span>
+
+                        <div className={styles.detailsDivider} />
+
+                        <div className={styles.opNarrative}>
+                          <p className={styles.descriptionText}>
+                            <strong>Overview:</strong> {op.description}
+                          </p>
+                          <p className={styles.significanceText}>
+                            <strong>Strategic Significance:</strong> {op.significance}
+                          </p>
                         </div>
                       </div>
-
-                      <div className={styles.detailsDivider} />
-
-                      <div className={styles.opNarrative}>
-                        <p className={styles.descriptionText}>
-                          <strong>Overview:</strong> {op.description}
-                        </p>
-                        <p className={styles.significanceText}>
-                          <strong>Strategic Significance:</strong> {op.significance}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
             </section>
           ))}

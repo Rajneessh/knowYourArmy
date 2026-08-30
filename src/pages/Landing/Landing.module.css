@@ -87,6 +87,7 @@
   max-height: 70vh;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller viewports or in desktop site mode */
   gap: clamp(1rem, 2.5vw, 2rem);
   padding-bottom: 2vh;
 }

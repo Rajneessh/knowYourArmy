@@ -8,7 +8,6 @@ import regimentsImg from '../../../assets/army/ArmyFrontPage/Regiments.webp';
 import historyImg from '../../../assets/army/ArmyFrontPage/History.webp';
 import chiefsImg from '../../../assets/army/ArmyFrontPage/ArmyChief.webp';
 import conflictsImg from '../../../assets/army/ArmyFrontPage/WarsAndConflicts.webp';
-import humanitarianImg from '../../../assets/army/ArmyFrontPage/HumanitarianEfforts.webp';
 import heroesImg from '../../../assets/army/ArmyFrontPage/Heroes.webp';
 import styles from './ArmyHub.module.css';
 
@@ -63,14 +62,6 @@ const ARMY_MODULES = {
       to: '/army/history',
       accentColor: '#B08D3E',
       imageSrc: historyImg,
-      isUnderDevelopment: true,
-    },
-    {
-      label: 'Humanitarian Efforts',
-      description: 'Nation building & relief',
-      to: '/army/humanitarian',
-      accentColor: '#5B7742',
-      imageSrc: humanitarianImg,
       isUnderDevelopment: true,
     },
     {
@@ -153,7 +144,7 @@ export function ArmyHub() {
           </div>
 
           {/* Row 2 */}
-          <div className={styles.row}>
+          <div className={`${styles.row} ${styles.row2}`}>
             {ARMY_MODULES.row2.map((card, i) => (
               <ModuleCard
                 key={card.to}
